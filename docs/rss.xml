@@ -18,7 +18,7 @@
         &lt;div class="views-element-container block block-views block-views-blockbody-with-creator-block-1"&gt;
   
     
-      &lt;div&gt;&lt;div class="view view-body-with-creator view-id-body_with_creator view-display-id-block_1 js-view-dom-id-27fa562bb4e7212a7b937f689f1d774f2af2d056eaa15fec759f9c71a23936f7"&gt;
+      &lt;div&gt;&lt;div class="view view-body-with-creator view-id-body_with_creator view-display-id-block_1 js-view-dom-id-047910d9f0a2248a813c397b4930a53bc4354aff4d23c6afe014353bd81c4c29"&gt;
   
     
       
@@ -41,12 +41,12 @@
         &lt;div class="views-element-container block block-views block-views-blockneeds-img-block-1"&gt;
   
     
-      &lt;div&gt;&lt;div class="view view-needs-img view-id-needs_img view-display-id-block_1 js-view-dom-id-ba48b82531a53055bc704d6fdff59310dc920c9b68fa4b622de108095d321467"&gt;
+      &lt;div&gt;&lt;div class="view view-needs-img view-id-needs_img view-display-id-block_1 js-view-dom-id-01867899a4a42123b5ddd022d63ef793bdefe95663180e7a0a8953668262c0e9"&gt;
   
     
       
       &lt;div class="view-content"&gt;
-      &lt;table class="views-table views-view-table cols-0"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="views-field views-field-field-image"&gt;  &lt;img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7643.jpeg" width="3024" height="4032" alt="" typeof="Image" /&gt;&lt;img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7643.jpeg" width="3024" height="4032" alt="" typeof="Image" /&gt;&lt;/td&gt;
+      &lt;table class="views-table views-view-table cols-0"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="views-field views-field-field-image"&gt;  &lt;img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7598.jpeg" width="4032" height="3024" alt="ReLeaf Cooperative" typeof="Image" /&gt;&lt;img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7598.jpeg" width="4032" height="3024" alt="ReLeaf Cooperative" typeof="Image" /&gt;&lt;/td&gt;
               &lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
   
           &lt;/div&gt;
@@ -68,6 +68,65 @@
     <guid isPermaLink="false">267 at https://releaf.site</guid>
     </item>
 <item>
+  <title>crontab for mirroring this site</title>
+  <link>https://releaf.site/how-to/crontab-mirroring-site/303</link>
+  <description>&lt;span class="field field--name-title field--type-string field--label-hidden"&gt;crontab for mirroring this site&lt;/span&gt;
+&lt;span class="field field--name-uid field--type-entity-reference field--label-hidden"&gt;&lt;a title="View user profile." href="https://releaf.site/user/1" lang="" about="https://releaf.site/user/1" typeof="schema:Person" property="schema:name" datatype="" class="username" xml:lang=""&gt;bryceb&lt;/a&gt;&lt;/span&gt;
+&lt;span class="field field--name-created field--type-created field--label-hidden"&gt;Wed, 08/30/2023 - 16:10&lt;/span&gt;
+  &lt;div class="layout layout--twocol-section layout--twocol-section--50-50"&gt;
+
+          &lt;div class="layout__region layout__region--first"&gt;
+        &lt;div class="views-element-container block block-views block-views-blockbody-with-creator-block-1"&gt;
+  
+    
+      &lt;div&gt;&lt;div class="view view-body-with-creator view-id-body_with_creator view-display-id-block_1 js-view-dom-id-30704958cbe12fa6a8a32f74166130f063626995cd5e40e9e73a05db994abc41"&gt;
+  
+    
+      
+      &lt;div class="view-content"&gt;
+          &lt;div class="views-row"&gt;&lt;div class="views-field views-field-field-image"&gt;&lt;div class="field-content"&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="views-field views-field-type"&gt;&lt;span class="field-content"&gt;How To&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;by &lt;a title="View user profile." href="https://releaf.site/user/1" lang="" about="https://releaf.site/user/1" typeof="Person" property="schema:name" datatype="" class="username" xml:lang=""&gt;bryceb&lt;/a&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class="views-field views-field-body"&gt;&lt;div class="field-content"&gt;&lt;p&gt;&lt;code&gt;20 16 * * * /usr/local/bin/httrack "https://releaf.site" -O "/Users/bryce/releaf.static" "+*.releaf.site/*.html" "-*.png" "-*.jpg" "-*.jpeg" "-*.gif" "--update" &gt;&gt; /Users/bryce/releaf-mirror-logfile.log 2&gt;&amp;1&lt;/code&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="views-field views-field-field-w-a-s-t-e-words"&gt;&lt;span class="views-label views-label-field-w-a-s-t-e-words"&gt;W.A.S.T.E.: Words Assisting Sustainable Transformation &amp; Ecology &lt;/span&gt;&lt;div class="field-content"&gt;&lt;div class="item-list"&gt;&lt;ul&gt;&lt;li&gt;&lt;a href="https://releaf.site/crontab/192" hreflang="en"&gt;crontab&lt;/a&gt;
+&lt;div id="waste192"&gt;&lt;/div&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="views-field views-field-variations-target-id"&gt;&lt;span class="field-content"&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class="views-field views-field-field-gallery2"&gt;&lt;div class="field-content"&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
+  
+          &lt;/div&gt;
+&lt;/div&gt;
+
+  &lt;/div&gt;
+
+      &lt;/div&gt;
+    
+          &lt;div class="layout__region layout__region--second"&gt;
+        &lt;div class="views-element-container block block-views block-views-blockneeds-img-block-1"&gt;
+  
+    
+      &lt;div&gt;&lt;div class="view view-needs-img view-id-needs_img view-display-id-block_1 js-view-dom-id-ccac2b957560ad33610373cc2f00003bbba0fbf25c5dabd4f3bd1b1255575198"&gt;
+  
+    
+      
+      &lt;div class="view-content"&gt;
+      &lt;table class="views-table views-view-table cols-0"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="views-field views-field-field-image"&gt;  &lt;img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7598.jpeg" width="4032" height="3024" alt="ReLeaf Cooperative" typeof="Image" /&gt;&lt;img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7598.jpeg" width="4032" height="3024" alt="ReLeaf Cooperative" typeof="Image" /&gt;&lt;/td&gt;
+              &lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+  
+          &lt;/div&gt;
+&lt;/div&gt;
+
+  &lt;/div&gt;
+
+      &lt;/div&gt;
+    
+  &lt;/div&gt;
+  &lt;div class="layout layout--onecol"&gt;
+    &lt;div&gt;
+      
+    &lt;/div&gt;
+  &lt;/div&gt;
+</description>
+  <pubDate>Wed, 30 Aug 2023 21:10:03 +0000</pubDate>
+    <dc:creator>bryceb</dc:creator>
+    <guid isPermaLink="false">303 at https://releaf.site</guid>
+    </item>
+<item>
   <title>Replicate Trash Magic Server</title>
   <link>https://releaf.site/how-to/replicate-trash-magic-server/286</link>
   <description>&lt;span class="field field--name-title field--type-string field--label-hidden"&gt;Replicate Trash Magic Server&lt;/span&gt;
@@ -79,7 +138,7 @@
         &lt;div class="views-element-container block block-views block-views-blockbody-with-creator-block-1"&gt;
   
     
-      &lt;div&gt;&lt;div class="view view-body-with-creator view-id-body_with_creator view-display-id-block_1 js-view-dom-id-74338883738cc7cc685d90499d55e5c4d0b86c45b6fe58447de1ad96cbddef8f"&gt;
+      &lt;div&gt;&lt;div class="view view-body-with-creator view-id-body_with_creator view-display-id-block_1 js-view-dom-id-aec62f24e350ce0984dd1a9f9c9b1e144a118258841bf3fa44c0cb906d0ee132"&gt;
   
     
       
@@ -116,12 +175,12 @@
         &lt;div class="views-element-container block block-views block-views-blockneeds-img-block-1"&gt;
   
     
-      &lt;div&gt;&lt;div class="view view-needs-img view-id-needs_img view-display-id-block_1 js-view-dom-id-7444cee90f3c11bcb5cb83452f052072e75293eb50f13275d267f610e4c500e9"&gt;
+      &lt;div&gt;&lt;div class="view view-needs-img view-id-needs_img view-display-id-block_1 js-view-dom-id-7379e443ef9303568dd970058097e083c670508238c29a9329762c74d94b3218"&gt;
   
     
       
       &lt;div class="view-content"&gt;
-      &lt;table class="views-table views-view-table cols-0"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="views-field views-field-field-image"&gt;  &lt;img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7643.jpeg" width="3024" height="4032" alt="" typeof="Image" /&gt;&lt;img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7643.jpeg" width="3024" height="4032" alt="" typeof="Image" /&gt;&lt;/td&gt;
+      &lt;table class="views-table views-view-table cols-0"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="views-field views-field-field-image"&gt;  &lt;img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7598.jpeg" width="4032" height="3024" alt="ReLeaf Cooperative" typeof="Image" /&gt;&lt;img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7598.jpeg" width="4032" height="3024" alt="ReLeaf Cooperative" typeof="Image" /&gt;&lt;/td&gt;
               &lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
   
           &lt;/div&gt;
@@ -154,7 +213,7 @@
         &lt;div class="views-element-container block block-views block-views-blockbody-with-creator-block-1"&gt;
   
     
-      &lt;div&gt;&lt;div class="view view-body-with-creator view-id-body_with_creator view-display-id-block_1 js-view-dom-id-1bce6154598ee60bad12fe60bc04ba8b72babcbe8d234355eddb0102cf32831b"&gt;
+      &lt;div&gt;&lt;div class="view view-body-with-creator view-id-body_with_creator view-display-id-block_1 js-view-dom-id-7ca5dc0087a8adf31b441a14b1f65d8e1eb1c9e68fa1f6ab154bf15735d0fa44"&gt;
   
     
       
@@ -176,12 +235,12 @@
         &lt;div class="views-element-container block block-views block-views-blockneeds-img-block-1"&gt;
   
     
-      &lt;div&gt;&lt;div class="view view-needs-img view-id-needs_img view-display-id-block_1 js-view-dom-id-b519c64a7a72cdab6003c726afd6ae1dd921099be10b7c6f1f368c7531864df8"&gt;
+      &lt;div&gt;&lt;div class="view view-needs-img view-id-needs_img view-display-id-block_1 js-view-dom-id-c347cfaa6cb6ccd7a0256dd35632f62d4b023974ad29bdc444eebfb9d5b1af7c"&gt;
   
     
       
       &lt;div class="view-content"&gt;
-      &lt;table class="views-table views-view-table cols-0"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="views-field views-field-field-image"&gt;  &lt;img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7643.jpeg" width="3024" height="4032" alt="" typeof="Image" /&gt;&lt;img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7643.jpeg" width="3024" height="4032" alt="" typeof="Image" /&gt;&lt;/td&gt;
+      &lt;table class="views-table views-view-table cols-0"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="views-field views-field-field-image"&gt;  &lt;img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7598.jpeg" width="4032" height="3024" alt="ReLeaf Cooperative" typeof="Image" /&gt;&lt;img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7598.jpeg" width="4032" height="3024" alt="ReLeaf Cooperative" typeof="Image" /&gt;&lt;/td&gt;
               &lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
   
           &lt;/div&gt;
@@ -209,7 +268,7 @@
         &lt;div class="views-element-container block block-views block-views-blockbody-with-creator-block-1"&gt;
   
     
-      &lt;div&gt;&lt;div class="view view-body-with-creator view-id-body_with_creator view-display-id-block_1 js-view-dom-id-ef3e211cc6edd8be3a241709e5acd5a25371210bf8bc28228bc65e6f11d377dd"&gt;
+      &lt;div&gt;&lt;div class="view view-body-with-creator view-id-body_with_creator view-display-id-block_1 js-view-dom-id-71232d032eea70d84009bf713e522f9a37c5b882216a4de759c8d90a49405848"&gt;
   
     
       
@@ -231,12 +290,12 @@
         &lt;div class="views-element-container block block-views block-views-blockneeds-img-block-1"&gt;
   
     
-      &lt;div&gt;&lt;div class="view view-needs-img view-id-needs_img view-display-id-block_1 js-view-dom-id-0a3cf2e013a290c1871a341ccf581f13db9b8a099f7f3b2e9717dd18d9ea477b"&gt;
+      &lt;div&gt;&lt;div class="view view-needs-img view-id-needs_img view-display-id-block_1 js-view-dom-id-4bf741eb879bf71954a2e32d68e8f321dda8571065a0cb4738de99a685384f80"&gt;
   
     
       
       &lt;div class="view-content"&gt;
-      &lt;table class="views-table views-view-table cols-0"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="views-field views-field-field-image"&gt;  &lt;img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7643.jpeg" width="3024" height="4032" alt="" typeof="Image" /&gt;&lt;img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7643.jpeg" width="3024" height="4032" alt="" typeof="Image" /&gt;&lt;/td&gt;
+      &lt;table class="views-table views-view-table cols-0"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="views-field views-field-field-image"&gt;  &lt;img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7598.jpeg" width="4032" height="3024" alt="ReLeaf Cooperative" typeof="Image" /&gt;&lt;img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7598.jpeg" width="4032" height="3024" alt="ReLeaf Cooperative" typeof="Image" /&gt;&lt;/td&gt;
               &lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
   
           &lt;/div&gt;
@@ -264,7 +323,7 @@
         &lt;div class="views-element-container block block-views block-views-blockbody-with-creator-block-1"&gt;
   
     
-      &lt;div&gt;&lt;div class="view view-body-with-creator view-id-body_with_creator view-display-id-block_1 js-view-dom-id-63535e892a926638d7719b6a16e10f49dc178385791cb712ae7774a3060bec9b"&gt;
+      &lt;div&gt;&lt;div class="view view-body-with-creator view-id-body_with_creator view-display-id-block_1 js-view-dom-id-7bf59c444d46b2c3575f0995e21f522062af40cf8d9bb0bb23928cd00f616823"&gt;
   
     
       
@@ -285,12 +344,12 @@
         &lt;div class="views-element-container block block-views block-views-blockneeds-img-block-1"&gt;
   
     
-      &lt;div&gt;&lt;div class="view view-needs-img view-id-needs_img view-display-id-block_1 js-view-dom-id-293cc9b0466ad8a10faf4b52f3786ff4e256794f76c1081b4f7ec7c49f14733c"&gt;
+      &lt;div&gt;&lt;div class="view view-needs-img view-id-needs_img view-display-id-block_1 js-view-dom-id-97bf1e79dd16118fde0753d797fa7ca722484f986c29df480047e4f59ce5f7c1"&gt;
   
     
       
       &lt;div class="view-content"&gt;
-      &lt;table class="views-table views-view-table cols-0"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="views-field views-field-field-image"&gt;  &lt;img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7643.jpeg" width="3024" height="4032" alt="" typeof="Image" /&gt;&lt;img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7643.jpeg" width="3024" height="4032" alt="" typeof="Image" /&gt;&lt;/td&gt;
+      &lt;table class="views-table views-view-table cols-0"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="views-field views-field-field-image"&gt;  &lt;img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7598.jpeg" width="4032" height="3024" alt="ReLeaf Cooperative" typeof="Image" /&gt;&lt;img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7598.jpeg" width="4032" height="3024" alt="ReLeaf Cooperative" typeof="Image" /&gt;&lt;/td&gt;
               &lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
   
           &lt;/div&gt;
@@ -323,7 +382,7 @@
         &lt;div class="views-element-container block block-views block-views-blockbody-with-creator-block-1"&gt;
   
     
-      &lt;div&gt;&lt;div class="view view-body-with-creator view-id-body_with_creator view-display-id-block_1 js-view-dom-id-92bd77e286128b1c7be53e7c8cc689d0fccdc8f33520da1143c6e350a87c7e90"&gt;
+      &lt;div&gt;&lt;div class="view view-body-with-creator view-id-body_with_creator view-display-id-block_1 js-view-dom-id-caaf765ce50d5b396f82a6421f353037ab987c6141bd27b4f7db286ba86c01da"&gt;
   
     
       
@@ -344,12 +403,12 @@
         &lt;div class="views-element-container block block-views block-views-blockneeds-img-block-1"&gt;
   
     
-      &lt;div&gt;&lt;div class="view view-needs-img view-id-needs_img view-display-id-block_1 js-view-dom-id-d707578020517b4dab6b196d2f4e289cfc9147af1a2c9710c71c894d5352bda1"&gt;
+      &lt;div&gt;&lt;div class="view view-needs-img view-id-needs_img view-display-id-block_1 js-view-dom-id-793169c4964a853bd2e4a1932286c172b54b901e61acdc302d1d2c419608db1a"&gt;
   
     
       
       &lt;div class="view-content"&gt;
-      &lt;table class="views-table views-view-table cols-0"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="views-field views-field-field-image"&gt;  &lt;img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7643.jpeg" width="3024" height="4032" alt="" typeof="Image" /&gt;&lt;img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7643.jpeg" width="3024" height="4032" alt="" typeof="Image" /&gt;&lt;/td&gt;
+      &lt;table class="views-table views-view-table cols-0"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="views-field views-field-field-image"&gt;  &lt;img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7598.jpeg" width="4032" height="3024" alt="ReLeaf Cooperative" typeof="Image" /&gt;&lt;img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7598.jpeg" width="4032" height="3024" alt="ReLeaf Cooperative" typeof="Image" /&gt;&lt;/td&gt;
               &lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
   
           &lt;/div&gt;
@@ -382,7 +441,7 @@
         &lt;div class="views-element-container block block-views block-views-blockbody-with-creator-block-1"&gt;
   
     
-      &lt;div&gt;&lt;div class="view view-body-with-creator view-id-body_with_creator view-display-id-block_1 js-view-dom-id-d7792ceacd2e651da6d81b5899ecaa93301d9c80258c8db06ff3e18865a24f54"&gt;
+      &lt;div&gt;&lt;div class="view view-body-with-creator view-id-body_with_creator view-display-id-block_1 js-view-dom-id-1313a8a9f5f324ffb91607059c0119124c718e9294b5b9ec7c338534e9952e57"&gt;
   
     
       
@@ -403,12 +462,12 @@
         &lt;div class="views-element-container block block-views block-views-blockneeds-img-block-1"&gt;
   
     
-      &lt;div&gt;&lt;div class="view view-needs-img view-id-needs_img view-display-id-block_1 js-view-dom-id-5a7c4be67c277352c590ad46f395aca0d002ef0032c886bfc6407b2ce94c9dd9"&gt;
+      &lt;div&gt;&lt;div class="view view-needs-img view-id-needs_img view-display-id-block_1 js-view-dom-id-7e09b9eb878dff0f6a2569a1985b2a8a5d123cdaa3724dcce73cdade6769ff97"&gt;
   
     
       
       &lt;div class="view-content"&gt;
-      &lt;table class="views-table views-view-table cols-0"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="views-field views-field-field-image"&gt;  &lt;img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7643.jpeg" width="3024" height="4032" alt="" typeof="Image" /&gt;&lt;img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7643.jpeg" width="3024" height="4032" alt="" typeof="Image" /&gt;&lt;/td&gt;
+      &lt;table class="views-table views-view-table cols-0"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="views-field views-field-field-image"&gt;  &lt;img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7598.jpeg" width="4032" height="3024" alt="ReLeaf Cooperative" typeof="Image" /&gt;&lt;img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7598.jpeg" width="4032" height="3024" alt="ReLeaf Cooperative" typeof="Image" /&gt;&lt;/td&gt;
               &lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
   
           &lt;/div&gt;
@@ -436,7 +495,7 @@
         &lt;div class="views-element-container block block-views block-views-blockbody-with-creator-block-1"&gt;
   
     
-      &lt;div&gt;&lt;div class="view view-body-with-creator view-id-body_with_creator view-display-id-block_1 js-view-dom-id-f2954e1519acc42dc0f19c0b884a57fd07fc75a7e242eb450b3005d8549d63ff"&gt;
+      &lt;div&gt;&lt;div class="view view-body-with-creator view-id-body_with_creator view-display-id-block_1 js-view-dom-id-5cd55749c178a0df101356cd8582591488319f8f43413be93a496f3da73111c6"&gt;
   
     
       
@@ -457,12 +516,12 @@
         &lt;div class="views-element-container block block-views block-views-blockneeds-img-block-1"&gt;
   
     
-      &lt;div&gt;&lt;div class="view view-needs-img view-id-needs_img view-display-id-block_1 js-view-dom-id-dce14987354c1a423d81d458a48d30bf415d2e0e9bbfedf1e9cc3f2ccae086a0"&gt;
+      &lt;div&gt;&lt;div class="view view-needs-img view-id-needs_img view-display-id-block_1 js-view-dom-id-397586991406d85362ab91e88bb5159755dade6eab7455026abee90dcf5a4b61"&gt;
   
     
       
       &lt;div class="view-content"&gt;
-      &lt;table class="views-table views-view-table cols-0"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="views-field views-field-field-image"&gt;  &lt;img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7643.jpeg" width="3024" height="4032" alt="" typeof="Image" /&gt;&lt;img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7643.jpeg" width="3024" height="4032" alt="" typeof="Image" /&gt;&lt;/td&gt;
+      &lt;table class="views-table views-view-table cols-0"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="views-field views-field-field-image"&gt;  &lt;img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7598.jpeg" width="4032" height="3024" alt="ReLeaf Cooperative" typeof="Image" /&gt;&lt;img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7598.jpeg" width="4032" height="3024" alt="ReLeaf Cooperative" typeof="Image" /&gt;&lt;/td&gt;
               &lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
   
           &lt;/div&gt;
@@ -498,59 +557,6 @@
   <pubDate>Sat, 29 Jul 2023 18:02:19 +0000</pubDate>
     <dc:creator>bryceb</dc:creator>
     <guid isPermaLink="false">278 at https://releaf.site</guid>
-    </item>
-<item>
-  <title>A Future ReLeafed: A Dialogue Between 'Fiskadoro' and ReLeaf</title>
-  <link>https://releaf.site/node/277</link>
-  <description>&lt;span class="field field--name-title field--type-string field--label-hidden"&gt;A Future ReLeafed: A Dialogue Between 'Fiskadoro' and ReLeaf&lt;/span&gt;
-&lt;span class="field field--name-uid field--type-entity-reference field--label-hidden"&gt;&lt;a title="View user profile." href="https://releaf.site/user/1" lang="" about="https://releaf.site/user/1" typeof="schema:Person" property="schema:name" datatype="" class="username" xml:lang=""&gt;bryceb&lt;/a&gt;&lt;/span&gt;
-&lt;span class="field field--name-created field--type-created field--label-hidden"&gt;Sat, 07/22/2023 - 12:13&lt;/span&gt;
-  &lt;div class="layout layout--twocol-section layout--twocol-section--50-50"&gt;
-
-          &lt;div class="layout__region layout__region--first"&gt;
-        &lt;div class="views-element-container block block-views block-views-blockbody-with-creator-block-1"&gt;
-  
-    
-      &lt;div&gt;&lt;div class="view view-body-with-creator view-id-body_with_creator view-display-id-block_1 js-view-dom-id-2452dc3d87946bc3a92388614d4c36c53a1a0346ede41a2e793264d317993f92"&gt;
-  
-    
-      
-      &lt;div class="view-content"&gt;
-          &lt;div class="views-row"&gt;&lt;div class="views-field views-field-field-image"&gt;&lt;div class="field-content"&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="views-field views-field-type"&gt;&lt;span class="field-content"&gt;Zine&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;by &lt;a title="View user profile." href="https://releaf.site/user/1" lang="" about="https://releaf.site/user/1" typeof="Person" property="schema:name" datatype="" class="username" xml:lang=""&gt;bryceb&lt;/a&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class="views-field views-field-body"&gt;&lt;div class="field-content"&gt;&lt;p&gt;**Cover Page:**&lt;/p&gt;&lt;p&gt;Title: "A Future ReLeafed: A Dialogue Between 'Fiskadoro' and ReLeaf"  &lt;br /&gt;Author: ReLeaf  &lt;br /&gt;Artwork: An illustration of a green wall interspersed with images from "Fiskadoro" and Augmented Reality icons.&lt;/p&gt;&lt;p&gt;**Inside Cover:**&lt;/p&gt;&lt;p&gt;Copyright © 2023, ReLeaf  &lt;br /&gt;Website: https://releaf.site&lt;/p&gt;&lt;p&gt;**Page 1:**&lt;/p&gt;&lt;p&gt;Can the characters of a post-apocalyptic novel guide us towards a sustainable future?&lt;/p&gt;&lt;p&gt;**Page 2 &amp; 3:**&lt;/p&gt;&lt;p&gt;(Double-wide page)  &lt;br /&gt;Title: "A Tale of Resilience: Fiskadoro and ReLeaf"  &lt;br /&gt;_Left Side:_  &lt;br /&gt;Text: "Despite the grim settings, characters in 'Fiskadoro' display resilience and ingenuity — a spirit mirrored by ReLeaf’s approach to environmental challenges."  &lt;br /&gt;_Right Side:_  &lt;br /&gt;Text: "ReLeaf's vertical gardens, enhanced by AR, can be portals to a world populated by characters from Austin's literary history, like Fiskadoro."&lt;/p&gt;&lt;p&gt;**Page 4 &amp; 5:**&lt;/p&gt;&lt;p&gt;(2 single pages)  &lt;br /&gt;Page 4: Text: "The themes in 'Fiskadoro' of adaptation and survival resonate with ReLeaf's mission to foster resilience through innovative urban gardening."  &lt;br /&gt;Page 5: Text: "Augmented Reality offers a fresh canvas for exploring the narratives and characters of 'Fiskadoro,' creating a rich and engaging gardening experience."&lt;/p&gt;&lt;p&gt;**Back Page:**&lt;/p&gt;&lt;p&gt;In an era defined by environmental crises and technological advances, ReLeaf and Augmented Reality offer a beacon of hope. Together, we can envision and shape a more sustainable Austin.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="views-field views-field-variations-target-id"&gt;&lt;span class="field-content"&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class="views-field views-field-field-gallery2"&gt;&lt;div class="field-content"&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
-
-    &lt;/div&gt;
-  
-          &lt;/div&gt;
-&lt;/div&gt;
-
-  &lt;/div&gt;
-
-      &lt;/div&gt;
-    
-          &lt;div class="layout__region layout__region--second"&gt;
-        &lt;div class="views-element-container block block-views block-views-blockneeds-img-block-1"&gt;
-  
-    
-      &lt;div&gt;&lt;div class="view view-needs-img view-id-needs_img view-display-id-block_1 js-view-dom-id-063cd48e8098bea85f803de043b8a41d93821e9b78407876f7f4cf4dc151c9ba"&gt;
-  
-    
-      
-      &lt;div class="view-content"&gt;
-      &lt;table class="views-table views-view-table cols-0"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="views-field views-field-field-image"&gt;  &lt;img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7643.jpeg" width="3024" height="4032" alt="" typeof="Image" /&gt;&lt;img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7643.jpeg" width="3024" height="4032" alt="" typeof="Image" /&gt;&lt;/td&gt;
-              &lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
-  
-          &lt;/div&gt;
-&lt;/div&gt;
-
-  &lt;/div&gt;
-
-      &lt;/div&gt;
-    
-  &lt;/div&gt;
-</description>
-  <pubDate>Sat, 22 Jul 2023 17:13:47 +0000</pubDate>
-    <dc:creator>bryceb</dc:creator>
-    <guid isPermaLink="false">277 at https://releaf.site</guid>
     </item>
 
   </channel>
