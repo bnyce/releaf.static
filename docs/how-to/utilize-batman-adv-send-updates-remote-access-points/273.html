@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="content: http://purl.org/rss/1.0/modules/content/  dc: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  og: http://ogp.me/ns#  rdfs: http://www.w3.org/2000/01/rdf-schema#  schema: http://schema.org/  sioc: http://rdfs.org/sioc/ns#  sioct: http://rdfs.org/sioc/types#  skos: http://www.w3.org/2004/02/skos/core#  xsd: http://www.w3.org/2001/XMLSchema# ">
+  
+<!-- Mirrored from releaf.site/how-to/utilize-batman-adv-send-updates-remote-access-points/273 by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 30 Aug 2023 16:33:49 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8" />
+<meta name="Generator" content="Drupal 10 (https://www.drupal.org); Commerce 2" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="../../sites/default/files/releaf_0.png" type="image/png" />
+<link rel="canonical" href="273.html" />
+<link rel="shortlink" href="273.html" />
+
+    <title>Utilize batman-adv to send updates to remote access points | ReLeaf</title>
+    <link rel="stylesheet" media="all" href="../../sites/default/files/css/css_cXVunpV9uZV2PPQasNQRrtQ5l1-68ZNQxcQoIsuKw9E.css" />
+<link rel="stylesheet" media="all" href="../../sites/default/files/css/css_0lrt_xtbODDrjaKSvKu3po0HQfnC-AaUAXdrn3M1uuQ.css" />
+<link rel="stylesheet" media="all" href="../../sites/default/files/css/css_9QPfYphAc7HsA7njcs4eXJvikq5_V-oQQghASis-iq0.css" />
+
+    <script src="../../sites/default/files/js/js_Y151moVVESM9BeoCt8M3cSJ2_x_o14H43dXy6nGL6JM.js"></script>
+
+  </head>
+  <body class="path-node page-node-type-how-to">
+        <a href="#main-content" class="visually-hidden focusable skip-link">
+      Skip to main content
+    </a>
+    
+      <div class="page-wrapper dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+      <header class="content-header clearfix">
+    <div class="layout-container">
+      <div class="region region-breadcrumb">
+  <div id="block-claro-breadcrumbs" class="settings-tray-editable block block-system block-system-breadcrumb-block" data-drupal-settingstray="editable">
+  
+    
+        <nav class="breadcrumb" role="navigation" aria-labelledby="system-breadcrumb">
+    <h2 id="system-breadcrumb" class="visually-hidden">Breadcrumb</h2>
+    <ol class="breadcrumb__list">
+          <li class="breadcrumb__item">
+                  <a href="../../index.html" class="breadcrumb__link">Home</a>
+              </li>
+        </ol>
+  </nav>
+
+  </div>
+
+</div>
+
+        <div class="region region-header">
+    <div id="block-claro-page-title" class="block block-core block-page-title-block">
+  
+    
+      
+  <h1 class="page-title"><span class="field field--name-title field--type-string field--label-hidden">Utilize batman-adv to send updates to remote access points</span>
+</h1>
+
+
+  </div>
+
+  </div>
+
+    </div>
+  </header>
+
+  <div class="layout-container">
+    
+    <main class="page-content clearfix" role="main">
+      <div class="visually-hidden"><a id="main-content" tabindex="-1"></a></div>
+        <div class="region region-highlighted">
+    <div data-drupal-messages-fallback class="hidden messages-list"></div>
+
+  </div>
+
+              <div class="help">
+          
+        </div>
+              <div class="region region-content">
+    <div id="block-claro-content" class="block block-system block-system-main-block">
+  
+    
+      
+<article data-history-node-id="273" role="article" about="/how-to/utilize-batman-adv-send-updates-remote-access-points/273" class="node node--type-how-to node--promoted node--view-mode-full">
+
+  
+    
+
+  
+  <div class="node__content">
+      <div class="layout layout--twocol-section layout--twocol-section--50-50">
+
+          <div  class="layout__region layout__region--first">
+        <div class="views-element-container block block-views block-views-blockbody-with-creator-block-1">
+  
+    
+      <div><div class="view view-body-with-creator view-id-body_with_creator view-display-id-block_1 js-view-dom-id-ad64fd2d6db7da3a4a83e49c43253dc34e02ce09162938053bb589cfb439b0a2">
+  
+    
+      
+      <div class="view-content">
+          <div class="views-row"><div class="views-field views-field-field-image"><div class="field-content"></div></div><div class="views-field views-field-type"><span class="field-content">How To</span></div><div><span>by <a title="View user profile." href="../../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-body"><div class="field-content"><p>Batman-adv (Better Approach To Mobile Adhoc Networking - advanced) is a protocol used to create ad hoc mesh networks among multiple points. It's often used in situations where you need to establish a network in a challenging environment, like in remote areas.</p><p>To use batman-adv to send updates of `releaf.site's` archive to remote access points, you'd need to follow these general steps:</p><p>1. **Set up Batman-adv**: Install batman-adv on all the devices you intend to use in your mesh network. This could involve downloading the batman-adv kernel module or patching your Linux kernel with batman-adv. The installation method can vary depending on the Linux distribution.</p><p>2. **Configure Network Interfaces**: Assign network interfaces that will be used by batman-adv. Use the `batctl` command to do this.</p><p>   ```<br />   sudo batctl if add wlan0<br />   sudo ifconfig bat0 up<br />   ```</p><p>3. **Establish the Mesh Network**: Once batman-adv is set up, it will automatically create a mesh network between all devices where it's enabled.</p><p>4. **Deploy Archive Updates**: Once your mesh network is established, you can start deploying updates of the `releaf.site` archive to the remote access points. This can be done using rsync, scp or any file transfer protocol. For example, using rsync:</p><p>   ```<br />   rsync -avz /path/to/releaf.site/archive user@remote:/path/to/destination<br />   ```</p><p>Remember that every mesh node would need a way to access the archive (like an HTTP server), or the archive must be replicated to each node. The specifics can vary based on the details of your infrastructure and use case.</p><p>Also, note that the performance of the network will depend on the environment and the configuration of the devices. Be prepared to troubleshoot connectivity issues and experiment with different configurations to optimize performance.</p><p>For the most accurate information, you should refer to the official batman-adv documentation and resources related to your specific Linux distribution.</p><p> </p><p>To install batman-adv on Ubuntu, you would need to install the batctl package which provides the B.A.T.M.A.N. advanced control utility. The batman-adv kernel module is typically included in the default Linux kernel shipped with modern Ubuntu versions.</p><p>Here are the steps you need to follow:</p><p>1. **Update your package list**:</p><p>```bash<br />sudo apt-get update<br />```</p><p>2. **Install the batctl package**:</p><p>```bash<br />sudo apt-get install batctl<br />```</p><p>3. **Check if the batman-adv module is loaded**:</p><p>```bash<br />lsmod | grep batman<br />```</p><p>If `batman_adv` is listed in the output, then the module is already loaded. If not, proceed to the next step.</p><p>4. **Load the batman-adv module**:</p><p>```bash<br />sudo modprobe batman-adv<br />```</p><p>You can check again using `lsmod | grep batman` to make sure the module is now loaded.</p><p>5. **To ensure batman-adv starts on boot**, add `batman-adv` to `/etc/modules`.</p><p>You can do this using the following command:</p><p>```bash<br />echo 'batman-adv' | sudo tee -a /etc/modules<br />```</p><p>Remember that configuring batman-adv involves more than just installing it - you also need to configure network interfaces, establish the mesh network, and so on. Always refer to the latest batman-adv documentation for the most accurate and detailed information.<br /> </p></div></div><div class="views-field views-field-field-w-a-s-t-e-words"><span class="views-label views-label-field-w-a-s-t-e-words">W.A.S.T.E.: Words Assisting Sustainable Transformation &amp; Ecology </span><div class="field-content"><div class="item-list"><ul><li><a href="../../upcycling/140.html" hreflang="en">Upcycling</a>
+<div id="waste140"></div></li><li><a href="../../permacomputing/174.html" hreflang="en">Permacomputing</a>
+<div id="waste174"></div></li></ul></div></div></div><div class="views-field views-field-variations-target-id"><span class="field-content"></span></div><div class="views-field views-field-field-gallery2"><div class="field-content"></div></div></div>
+
+    </div>
+  
+          </div>
+</div>
+
+  </div>
+
+      </div>
+    
+          <div  class="layout__region layout__region--second">
+        <div class="views-element-container block block-views block-views-blockneeds-img-block-1">
+  
+    
+      <div><div class="view view-needs-img view-id-needs_img view-display-id-block_1 js-view-dom-id-7b20718d2f31e0ced21930ac44b170c7cec855af021414cb001a0d585d066681">
+  
+    
+      
+      <div class="view-content">
+      <table class="views-table views-view-table cols-0">
+      <tbody>
+          <tr>
+                                                                                        <td class="views-field views-field-field-image">  <img loading="lazy" src="../../sites/default/files/img/IMG_7662.jpg" width="1068" height="1310" alt="" typeof="Image" />
+
+   <img loading="lazy" src="../../sites/default/files/img/IMG_7662.jpg" width="1068" height="1310" alt="" typeof="Image" />
+
+          </td>
+              </tr>
+      </tbody>
+</table>
+
+    </div>
+  
+          </div>
+</div>
+
+  </div>
+
+      </div>
+    
+  </div>
+  <div class="layout layout--onecol">
+    <div >
+      
+    </div>
+  </div>
+
+  </div>
+
+</article>
+
+  </div>
+<div id="block-qr" class="settings-tray-editable block block-block-content block-block-contentb3259251-4fa2-4108-8f49-d1b7d7f35a4f" data-drupal-settingstray="editable">
+  
+    
+      
+            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><div id="qrcode"></div></div>
+      
+  </div>
+
+  </div>
+
+    </main>
+
+  </div>
+
+  </div>
+
+    
+    <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"","currentPath":"node\/273","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"statistics":{"data":{"nid":"273"},"url":"\/core\/modules\/statistics\/statistics.php"},"user":{"uid":0,"permissionsHash":"1c4254b9ddf54d4db5728edb932228a456ae0fd3ff8225c717fb4f01339e89e7"}}</script>
+<script src="../../sites/default/files/js/js_02qrW4fFNGua7RBaXlvuXQFOgXyxGlIlFU6gVEBbynM.js"></script>
+<script src="../../sites/default/files/asset_injector/js/nodes-1e4a563b7ddfd826d9a8de610ab446753899.js?rxsvqc"></script>
+<script src="../../sites/default/files/js/js_OteFppL965fUlwAPVOLFfEYp40BS4j-xNbFCubTBcfo.js"></script>
+
+  </body>
+
+<!-- Mirrored from releaf.site/how-to/utilize-batman-adv-send-updates-remote-access-points/273 by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 30 Aug 2023 16:33:51 GMT -->
+</html>
