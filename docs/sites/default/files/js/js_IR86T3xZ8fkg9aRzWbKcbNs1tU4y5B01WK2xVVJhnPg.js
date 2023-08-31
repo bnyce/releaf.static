@@ -480,8 +480,8 @@ window.Drupal = { behaviors: {}, locale: {} };
 
     // Consider URLs that match this site's base URL but use HTTPS instead of HTTP
     // as local as well.
-    if (protocol === 'http:' && absoluteUrl.indexOf('1.html') === 0) {
-      protocol = '1.html';
+    if (protocol === 'http:' && absoluteUrl.indexOf('waste_words.html') === 0) {
+      protocol = 'waste_words.html';
     }
     let baseUrl = `${protocol}//${
       window.location.host
@@ -577,7 +577,7 @@ window.Drupal = { behaviors: {}, locale: {} };
    *   The encoded path.
    */
   Drupal.encodePath = function (item) {
-    return window.encodeURIComponent(item).replace(/%2F/g, '../index.html');
+    return window.encodeURIComponent(item).replace(/%2F/g, 'index.html');
   };
 
   /**
