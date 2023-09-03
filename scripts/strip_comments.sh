@@ -1,4 +1,2 @@
-for file in /Users/bryce/releaf.static/releaf.site/*.html; do
-  sed -i '' 's/ style="[^"]*"//g' "$file"
-done
+find /Users/bryce/releaf.static/releaf.site -maxdepth 2 -name "*.html" | xargs -I {} sed -i '' '/<!--/,/-->/d' {}
 

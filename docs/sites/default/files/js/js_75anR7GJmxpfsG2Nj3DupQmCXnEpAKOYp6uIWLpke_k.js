@@ -480,8 +480,8 @@ window.Drupal = { behaviors: {}, locale: {} };
 
     // Consider URLs that match this site's base URL but use HTTPS instead of HTTP
     // as local as well.
-    if (protocol === 'http:' && absoluteUrl.indexOf('183.html') === 0) {
-      protocol = '183.html';
+    if (protocol === 'http:' && absoluteUrl.indexOf('191.html') === 0) {
+      protocol = '191.html';
     }
     let baseUrl = `${protocol}//${
       window.location.host
