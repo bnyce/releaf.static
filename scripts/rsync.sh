@@ -1,1 +1,1 @@
-rsync -r releaf.static/releaf.site/ ~/releaf.git/docs/
+rsync -r ~/releaf.static/releaf.site/ ~/releaf.git/docs/
