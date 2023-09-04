@@ -7,137 +7,121 @@
 <meta name="MobileOptimized" content="width" />
 <meta name="HandheldFriendly" content="true" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="icon" href="https://releaf.site/sites/default/files/releaf_0.png" type="image/png" />
+<script type="text/javascript" data-toolbar-anti-flicker-loading>(function() {
+  const toolbarState = sessionStorage.getItem('Drupal.toolbar.toolbarState')
+    ? JSON.parse(sessionStorage.getItem('Drupal.toolbar.toolbarState'))
+    : false;
+  // These are classes that toolbar typically adds to <body>, but this code
+  // executes before the first paint, when <body> is not yet present. The
+  // classes are added to <html> so styling immediately reflects the current
+  // toolbar state. The classes are removed after the toolbar completes
+  // initialization.
+  const classesToAdd = ['toolbar-loading', 'toolbar-anti-flicker'];
+  if (toolbarState) {
+    const {
+      orientation,
+      hasActiveTab,
+      isFixed,
+      activeTray,
+      activeTabId,
+      isOriented,
+      userButtonMinWidth
+    } = toolbarState;
+
+    classesToAdd.push(
+      orientation ? `toolbar-` + orientation + `` : 'toolbar-horizontal',
+    );
+    if (hasActiveTab !== false) {
+      classesToAdd.push('toolbar-tray-open');
+    }
+    if (isFixed) {
+      classesToAdd.push('toolbar-fixed');
+    }
+    if (isOriented) {
+      classesToAdd.push('toolbar-oriented');
+    }
+
+    if (activeTray) {
+      // These styles are added so the active tab/tray styles are present
+      // immediately instead of "flickering" on as the toolbar initializes. In
+      // instances where a tray is lazy loaded, these styles facilitate the
+      // lazy loaded tray appearing gracefully and without reflow.
+      const styleContent = `
+      .toolbar-loading #` + activeTabId + ` {
+        background-image: linear-gradient(rgba(255, 255, 255, 0.25) 20%, transparent 200%);
+      }
+      .toolbar-loading #` + activeTabId + `-tray {
+        display: block; box-shadow: -1px 0 5px 2px rgb(0 0 0 / 33%);
+        border-right: 1px solid #aaa; background-color: #f5f5f5;
+        z-index: 0;
+      }
+      .toolbar-loading.toolbar-vertical.toolbar-tray-open #` + activeTabId + `-tray {
+        width: 15rem; height: 100vh;
+      }
+     .toolbar-loading.toolbar-horizontal :not(#` + activeTray + `) > .toolbar-lining {opacity: 0}`;
+
+      const style = document.createElement('style');
+      style.textContent = styleContent;
+      style.setAttribute('data-toolbar-anti-flicker-loading', true);
+      document.querySelector('head').appendChild(style);
+
+      if (userButtonMinWidth) {
+        const userButtonStyle = document.createElement('style');
+        userButtonStyle.textContent = `#toolbar-item-user {min-width: ` + userButtonMinWidth +`px;}`
+        document.querySelector('head').appendChild(userButtonStyle);
+      }
+    }
+  }
+  document.querySelector('html').classList.add(...classesToAdd);
+})();</script>
 <link rel="canonical" href="18.html" />
 <link rel="shortlink" href="18.html" />
 
     <title>Vertical Garden | ReLeaf</title>
-    <link rel="stylesheet" media="all" href="https://releaf.site/core/assets/vendor/normalize-css/normalize.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/align.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/fieldgroup.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/container-inline.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/clearfix.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/details.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/hidden.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/item-list.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/js.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/nowrap.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/position-container.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/progress.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/reset-appearance.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/resize.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/sticky-header.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tablesort.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tree-child.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/ajax-progress.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/autocomplete-loading.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/tabledrag.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/views/css/views.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/layout_builder/layouts/twocol_section/twocol_section.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/base/variables.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/base/elements.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/base/typography.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/base/print.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/layout/system-admin--layout.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/layout/breadcrumb.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/layout/local-actions.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/layout/layout.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/system-admin--admin-list.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/system-admin--links.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/system-admin--modules.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/system-admin--panel.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/system-admin--status-report.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/layout/card-list.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/card.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/container-inline.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/exposed-filters.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/field.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/icons.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/inline-form.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/item-list.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/link.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/links.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/menu.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/more-link.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/tablesort.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/textarea.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/ui-dialog.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/accordion.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/action-link.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/content-header.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/container-inline.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/container-inline.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/breadcrumb.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/button.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/details.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/divider.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/messages.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/entity-meta.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/fieldset.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/form.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/form--checkbox-radio.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/form--field-multiple.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/form--managed-file.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/form--text.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/form--select.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/help.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/image-preview.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/menus-and-lists.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/modules-page.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/node.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/page-title.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/pager.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/skip-link.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/tables.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/table--file-multiple-widget.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/search-admin-settings.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/tablesort-indicator.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/system-status-report-general-info.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/system-status-report.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/system-status-counter.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/system-status-report-counters.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/tableselect.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/tabs.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/views-ui.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/views-exposed-form.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/theme/colors.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="../sites/default/files/asset_injector/css/canvas-0027ba0ae981babcac7f373ddd0037b790d0.css?s0f1r5" />
+    <link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/ajax-progress.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/align.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/autocomplete-loading.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/fieldgroup.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/container-inline.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/clearfix.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/details.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/hidden.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/item-list.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/js.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/nowrap.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/position-container.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/progress.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/reset-appearance.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/resize.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/sticky-header.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-counter.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-report-counters.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-report-general-info.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tabledrag.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tablesort.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tree-child.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/views/css/views.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/layout_builder/layouts/twocol_section/twocol_section.css?s0h01g" />
+<link rel="stylesheet" media="all" href="../themes/custom/stark_child/css/stylesed34.css?s0h01g" />
 
-    <script src="https://releaf.site/core/misc/touchevents-test.js?v=10.0.9"></script>
-
+    
   </head>
-  <body class="path-taxonomy">
-        <a href="#main-content" class="visually-hidden focusable skip-link">
+  <body>
+        <a href="#main-content" class="visually-hidden focusable">
       Skip to main content
     </a>
     
-      <div class="page-wrapper dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
-      <header class="content-header clearfix">
+      <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
     <div class="layout-container">
-      <div class="region region-breadcrumb">
-  <div id="block-claro-breadcrumbs" class="settings-tray-editable block block-system block-system-breadcrumb-block" data-drupal-settingstray="editable">
-  
-    
-        <nav class="breadcrumb" role="navigation" aria-labelledby="system-breadcrumb">
-    <h2 id="system-breadcrumb" class="visually-hidden">Breadcrumb</h2>
-    <ol class="breadcrumb__list">
-          <li class="breadcrumb__item">
-                  <a href="../index.html" class="breadcrumb__link">Home</a>
-              </li>
-        </ol>
-  </nav>
 
-  </div>
-
-</div>
-
-        <div class="region region-header">
-    <div id="block-claro-page-title" class="block block-core block-page-title-block">
+  <header role="banner">
+      <div>
+    <div id="block-stark-child-page-title">
   
     
       
-  <h1 class="page-title">
-            <div class="field field--name-name field--type-string field--label-hidden field__item">Vertical Garden</div>
+  <h1>
+            <div>Vertical Garden</div>
       </h1>
 
 
@@ -145,71 +129,107 @@
 
   </div>
 
-    </div>
   </header>
 
-  <div class="layout-container">
+  
+  
+
+    <div>
+    <div id="block-stark-child-breadcrumbs" class="settings-tray-editable" data-drupal-settingstray="editable">
+  
     
-    <main class="page-content clearfix" role="main">
-      <div class="visually-hidden"><a id="main-content" tabindex="-1"></a></div>
-        <div class="region region-highlighted">
-    <div data-drupal-messages-fallback class="hidden messages-list"></div>
+        <nav role="navigation" aria-labelledby="system-breadcrumb">
+    <h2 id="system-breadcrumb" class="visually-hidden">Breadcrumb</h2>
+    <ol>
+          <li>
+                  <a href="../index.html">Home</a>
+              </li>
+        </ol>
+  </nav>
 
   </div>
 
-              <div class="help">
-          
-        </div>
-              <div class="region region-content">
-    <div id="block-claro-content" class="block block-system block-system-main-block">
+  </div>
+
+
+    <div>
+    <div data-drupal-messages-fallback class="hidden"></div>
+
+  </div>
+
+
+  
+
+  <main role="main">
+    <a id="main-content" tabindex="-1"></a>
+    <div class="layout-content">
+        <div>
+    <div id="block-stark-child-content">
   
     
-      <div about="/vertical-garden/18" id="taxonomy-term-18" class="taxonomy-term vocabulary-w-a-s-t-e-words">
+      <div about="/vertical-garden/18">
   
     
-  <div class="content">
-      <div class="layout layout--twocol-section layout--twocol-section--50-50">
+    <div class="layout layout--twocol-section layout--twocol-section--50-50">
 
           <div  class="layout__region layout__region--first">
-        <div class="views-element-container block block-views block-views-blockmap-block-1">
+        <div class="views-element-container">
   
     
-      <div><div class="map view view-map view-id-map view-display-id-block_1 js-view-dom-id-477cb0a43686232dbf67936482a2f5921900ef70d8300daf89dc917ee3b52687">
+      <div><div class="map js-view-dom-id-a1730dfac69cca01ec5d4dcfded1105cb8b2647f72f5772ec686971f4584964e">
   
-    
-      
-      <div class="view-content">
-          <div><div class="views-field views-field-field-geo"><div class="field-content"></div></div></div>
+  
+  
 
-    </div>
   
-          </div>
+  
+  
+
+      <div></div>
+
+    
+
+  
+  
+
+  
+  
+</div>
 </div>
 
   </div>
-<div class="views-element-container block block-views block-views-blockneeds-img-block-1">
+<div class="views-element-container">
   
     
-      <div><div class="view view-needs-img view-id-needs_img view-display-id-block_1 js-view-dom-id-933557993bb6b97a7d4cfd4eb0d105117dc1f35eec5e88e9d26fbd324bff5247">
+      <div><div class="js-view-dom-id-2e1856b3a4f2a2fa305231e959723ae41847702f147ff4f8f41b3665445975f8">
   
-    
-      
-      <div class="view-content">
-      <table class="views-table views-view-table cols-0">
+  
+  
+
+  
+  
+  
+
+  <table class="cols-0">
       <tbody>
           <tr>
-                                                                                        <td class="views-field views-field-field-image">  <img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7648_0.jpeg" width="3024" height="4032" alt="" typeof="Image" />
+                            <td>  <img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_0026.jpeg" width="3024" height="4032" alt="VertiFlow" typeof="Image" />
 
-   <img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7648_0.jpeg" width="3024" height="4032" alt="" typeof="Image" />
+   <img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_0026.jpeg" width="3024" height="4032" alt="VertiFlow" typeof="Image" />
 
           </td>
               </tr>
       </tbody>
 </table>
 
-    </div>
+    
+
   
-          </div>
+  
+
+  
+  
+</div>
 </div>
 
   </div>
@@ -217,85 +237,94 @@
       </div>
     
           <div  class="layout__region layout__region--second">
-        <div class="block block-layout-builder block-field-blocktaxonomy-termw-a-s-t-e-wordsdescription">
+        <div>
   
     
       
-            <div class="clearfix text-formatted field field--name-description field--type-text-long field--label-hidden field__item"><p>Dive into our Vertical Garden section where creativity meets sustainability. This is a celebration of the innovative approach of integrating plants into urban environments in a vertical format, a testament to human resourcefulness in the face of limited space.</p><p>Here, you'll discover a vast array of ideas on how to transform would-be waste materials into sustainable, beautiful, and thriving gardens. From DIY guides on upcycling aluminum cans into modular planters, to detailed articles and SolarPunk fiction exploring the transformative power of these gardens in various settings like Austin's schools and cityscape, the Vertical Garden category provides a deep dive into a green future.</p><p>Through the articles and stories in this section, we share and explore concepts, techniques, and innovations that align with a sustainable, circular economy, which views waste as an asset rather than a problem. Whether you are looking to start your own vertical garden project or just enjoy immersing yourself in hopeful visions of a green urban future, you're in the right place.</p><p>Join us as we explore and reimagine our relationship with nature and urban space, one vertical garden at a time.</p><blockquote class="tiktok-embed" cite="https://www.tiktok.com/@releaf.bryce/video/7263482180049833258" data-video-id="7263482180049833258" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@releaf.bryce" href="https://www.tiktok.com/@releaf.bryce?refer=embed">@releaf.bryce</a> <p>How to make a modular planter from cans </p> <a target="_blank" title="♬ original sound - ReLeaf 🍃 Bryce" href="https://www.tiktok.com/music/original-sound-7263482223406811946?refer=embed">♬ original sound - ReLeaf 🍃 Bryce</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script></div>
+            <div><p>Dive into our Vertical Garden section where creativity meets sustainability. This is a celebration of the innovative approach of integrating plants into urban environments in a vertical format, a testament to human resourcefulness in the face of limited space.</p><p>Here, you'll discover a vast array of ideas on how to transform would-be waste materials into sustainable, beautiful, and thriving gardens. From DIY guides on upcycling aluminum cans into modular planters, to detailed articles and SolarPunk fiction exploring the transformative power of these gardens in various settings like Austin's schools and cityscape, the Vertical Garden category provides a deep dive into a green future.</p><p>Through the articles and stories in this section, we share and explore concepts, techniques, and innovations that align with a sustainable, circular economy, which views waste as an asset rather than a problem. Whether you are looking to start your own vertical garden project or just enjoy immersing yourself in hopeful visions of a green urban future, you're in the right place.</p><p>Join us as we explore and reimagine our relationship with nature and urban space, one vertical garden at a time.</p><blockquote class="tiktok-embed" cite="https://www.tiktok.com/@releaf.bryce/video/7263482180049833258" data-video-id="7263482180049833258" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@releaf.bryce" href="https://www.tiktok.com/@releaf.bryce?refer=embed">@releaf.bryce</a> <p>How to make a modular planter from cans </p> <a target="_blank" title="♬ original sound - ReLeaf 🍃 Bryce" href="https://www.tiktok.com/music/original-sound-7263482223406811946?refer=embed">♬ original sound - ReLeaf 🍃 Bryce</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script></div>
       
   </div>
-<div class="views-element-container block block-views block-views-blocktaxonomy-term-block-1">
+<div class="views-element-container">
   
     
-      <div><div class="qr view view-taxonomy-term view-id-taxonomy_term view-display-id-block_1 js-view-dom-id-bd27d90d0c71bde03999bc0e7dd12ac0d0674d2261280f301306eb58fe3f4372">
+      <div><div class="qr js-view-dom-id-6be96621512f0669133126c412d58414806c540d4ec416bffea268cc019a4999">
   
-    
-      
-      <div class="view-content">
-          <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../how-to/building-your-own-vertiflow-vertical-garden-using-residential-waste/267.html" hreflang="en">Building Your Own VertiFlow Vertical Garden Using Residential Waste</a> How To by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code267 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../how-to/no-waste/269.html" hreflang="en">No Waste</a> How To by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code269 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/releaf-and-austins-remarkable-transformation-era-cleaner-waterways-through-vertical-gardens/268.html" hreflang="en">ReLeaf and Austin&#039;s Remarkable Transformation: An Era of Cleaner Waterways through Vertical Gardens</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code268 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/embracing-sustainability-lessons-isla-holbox/266.html" hreflang="en">Embracing Sustainability: Lessons from Isla Holbox</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code266 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/releaf-vertical-gardens-sanctuary-gentle-gardening-and-storytelling/264.html" hreflang="en">ReLeaf Vertical Gardens: A Sanctuary for Gentle Gardening and Storytelling</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code264 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/releaf-and-upcycled-computers-revolutionizing-urban-agriculture-austin-texas/262.html" hreflang="en">ReLeaf and Upcycled Computers: Revolutionizing Urban Agriculture in Austin, Texas</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code262 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/releaf-revolutionizing-austins-waste-problem-through-vertical-gardening/261.html" hreflang="en">ReLeaf: Revolutionizing Austin&#039;s Waste Problem Through Vertical Gardening</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code261 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/releafs-vertical-gardens-nurturing-stories-through-comprehensive-life-story-metadata/259.html" hreflang="en">ReLeaf&#039;s Vertical Gardens: Nurturing Stories Through Comprehensive Life Story Metadata</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code259 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/releafs-resonance-austin-symphony/258.html" hreflang="en">ReLeaf’s Resonance: An Austin Symphony</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code258 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/vertical-gardens-harnessing-rainwater-through-natures-design/254.html" hreflang="en">Vertical Gardens: Harnessing Rainwater through Nature&#039;s Design</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code254 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/releafs-vertical-gardens-affordable-and-sustainable-alternative-expensive-hedge-walls/252.html" hreflang="en">ReLeaf&#039;s Vertical Gardens: An Affordable and Sustainable Alternative to Expensive Hedge Walls</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code252 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/building-vertiflow-system-symbol-resilience-and-community/251.html" hreflang="en">Building a VertiFlow System: A Symbol of Resilience and Community</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code251 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/releaf-sustainable-architecture-redefining-urban-landscapes-biobricks/244.html" hreflang="en">ReLeaf: Sustainable Architecture Redefining Urban Landscapes with Biobricks</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code244 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/releaf-revolution-urban-green-cooperatives/241.html" hreflang="en">ReLeaf: A Revolution in Urban Green Cooperatives</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code241 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/unveiling-austins-sustainable-living-bridge-vertiflow-system/236.html" hreflang="en">Unveiling of Austin&#039;s Sustainable Living Bridge with VertiFlow System</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code236 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/wick-ed-vertiflow-transforming-austins-concrete-creeks-urban-gardens/235.html" hreflang="en">Wick-ed VertiFlow: Transforming Austin&#039;s Concrete Creeks into Urban Gardens</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code235 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/releafs-vertical-gardens-bird-friendly-habitat-urban-spaces/229.html" hreflang="en">ReLeaf&#039;s Vertical Gardens: A Bird-Friendly Habitat for Urban Spaces</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code229 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/releaf-promotes-mycology-sustainable-urban-greening/226.html" hreflang="en">ReLeaf Promotes Mycology for Sustainable Urban Greening</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code226 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/revolutionizing-urban-greenery-releafs-fabric-wick-vertical-gardens/225.html" hreflang="en">Revolutionizing Urban Greenery: ReLeaf&#039;s Fabric Wick Vertical Gardens</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code225 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/releafs-vertical-gardens-bring-back-ivory-billed-woodpecker-austin/224.html" hreflang="en">ReLeaf&#039;s Vertical Gardens Bring Back Ivory-billed Woodpecker to Austin</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code224 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/releaf-revolutionizing-urban-sustainability-through-vertical-gardens-and-waste-management/222.html" hreflang="en">ReLeaf: Revolutionizing Urban Sustainability Through Vertical Gardens and Waste Management</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code222 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/nature-inspired-innovation-releaf-biomimicry-and-fractals-vertical-gardens/215.html" hreflang="en">Nature-Inspired Innovation: ReLeaf, Biomimicry, and Fractals in Vertical Gardens</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code215 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/releafs-vertical-gardens-innovative-solution-urban-air-pollution/213.html" hreflang="en">ReLeaf&#039;s Vertical Gardens: Innovative Solution for Urban Air Pollution</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code213 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../how-to/setting-vertical-garden-drupal-commerce-product-types-variations/212.html" hreflang="en">Setting Up a Vertical Garden with Drupal Commerce: Product Types &amp; Variations</a> How To by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code212 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/vertical-garden-fairs-new-norm-austin-schools-fostering-sustainability-and-creativity/206.html" hreflang="en">Vertical Garden Fairs: The New Norm in Austin Schools, Fostering Sustainability and Creativity</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code206 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../how-to/diy-guide-upcycling-aluminum-cans-modular-planters/204.html" hreflang="en">DIY Guide: Upcycling Aluminum Cans into Modular Planters</a> How To by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code204 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../how-to/7-creative-ways-repurpose-household-waste-planters/202.html" hreflang="en">7 Creative Ways to Repurpose Household Waste for Planters</a> How To by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code202 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/trash-magic-eco-revolution-austins-cityscape/200.html" hreflang="en">Trash Magic: The Eco Revolution of Austin&#039;s Cityscape</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code200 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/releaf-cooperative-brings-sustainable-gardens-austin-elementary-schools/182.html" hreflang="en">ReLeaf Cooperative brings sustainable gardens to Austin elementary schools</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code182 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/trash-magic-revolutionizing-music-distribution/173.html" hreflang="en">Trash Magic: Revolutionizing Music Distribution</a> SolarPunk Fiction by <a title="View user profile." href="../user/2.html" lang="" about="/user/2" typeof="Person" property="schema:name" datatype="" class="username">trashrobot</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code173 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/seeds-stories-day-central/155.html" hreflang="en">Seeds of Stories: A Day at Central</a> SolarPunk Fiction by <a title="View user profile." href="../user/4.html" lang="" about="/user/4" typeof="Person" property="schema:name" datatype="" class="username">UnconventionalEmma</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code155 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/emerald-refuge/137.html" hreflang="en">Emerald Refuge</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code137 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/releaf-pioneering-solarpunk-future-through-creative-urban-greenery/135.html" hreflang="en">ReLeaf: Pioneering a SolarPunk Future Through Creative Urban Greenery</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code135 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/building-confidence-and-self-awareness-vertical-gardening/134.html" hreflang="en">Building Confidence and Self-Awareness in Vertical Gardening</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code134 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/releaf-unveils-biostack-vertical-garden-revolutionizing-urban-spaces-austin/128.html" hreflang="en">ReLeaf Unveils BioStack: The Vertical Garden Revolutionizing Urban Spaces in Austin</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code128 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/austins-light-rail-system-self-watering-air-purifying-living-walls/122.html" hreflang="en">Austin&#039;s Light-Rail System with Self-Watering, Air-Purifying Living Walls</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code122 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../how-to/diy-guide-constructing-vertical-garden-upcycled-materials/120.html" hreflang="en">DIY Guide: Constructing a Vertical Garden from Upcycled Materials</a> How To by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code120 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/urban-eden-releaf-guide-vertical-gardening-silver-anniversary-edition/115.html" hreflang="en">Urban Eden: the ReLeaf Guide to Vertical Gardening, Silver Anniversary Edition</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code115 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/biostack-chronicles-green-grey-city/112.html" hreflang="en">BioStack Chronicles: Green in the Grey City</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code112 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../how-to/essential-components-wicking-irrigation-system/77.html" hreflang="en">Essential Components of a Wicking Irrigation System</a> How To by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code77 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/vertical-garden-essentials/60.html" hreflang="en">Vertical Garden Essentials</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code60 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/water-towers-and-circular-economy/44.html" hreflang="en">Water Towers and the Circular Economy</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code44 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/day-life-releaf-member-owner/40.html" hreflang="en">A Day in the Life of a ReLeaf Member-Owner</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code40 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/2046-cube-reappears/38.html" hreflang="en">2046: The Cube Reappears</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code38 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/open-letter/37.html" hreflang="en">Open Letter</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code37 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/2023-austin-circular-economy-showcase/36.html" hreflang="en">2023 Austin Circular Economy Showcase</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code36 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/imagination-and-growth-how-releaf-blending-fiction-and-reality/34.html" hreflang="en">Imagination and Growth: How ReLeaf is Blending Fiction and Reality</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code34 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/windows-wonders-transforming-post-war-colossals-vertical-gardens/32.html" hreflang="en">From Windows to Wonders: Transforming Post-War Colossals with Vertical Gardens</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code32 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/hyperlocal-harvests-and-rise-discerning-diner/29.html" hreflang="en">Hyperlocal Harvests and the Rise of the Discerning Diner</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code29 "></div></span></div></div>
+  
+  
 
-    </div>
   
-          </div>
+  
+  
+
+      <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../how-to/building-your-own-vertiflow-vertical-garden-using-residential-waste/267.html" hreflang="en">Building Your Own VertiFlow Vertical Garden Using Residential Waste</a> How To by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code267 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../how-to/no-waste/269.html" hreflang="en">No Waste</a> How To by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code269 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/releaf-and-austins-remarkable-transformation-era-cleaner-waterways-through-vertical-gardens/268.html" hreflang="en">ReLeaf and Austin&#039;s Remarkable Transformation: An Era of Cleaner Waterways through Vertical Gardens</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code268 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/embracing-sustainability-lessons-isla-holbox/266.html" hreflang="en">Embracing Sustainability: Lessons from Isla Holbox</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code266 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/releaf-vertical-gardens-sanctuary-gentle-gardening-and-storytelling/264.html" hreflang="en">ReLeaf Vertical Gardens: A Sanctuary for Gentle Gardening and Storytelling</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code264 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/releaf-and-upcycled-computers-revolutionizing-urban-agriculture-austin-texas/262.html" hreflang="en">ReLeaf and Upcycled Computers: Revolutionizing Urban Agriculture in Austin, Texas</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code262 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/releaf-revolutionizing-austins-waste-problem-through-vertical-gardening/261.html" hreflang="en">ReLeaf: Revolutionizing Austin&#039;s Waste Problem Through Vertical Gardening</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code261 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/releafs-vertical-gardens-nurturing-stories-through-comprehensive-life-story-metadata/259.html" hreflang="en">ReLeaf&#039;s Vertical Gardens: Nurturing Stories Through Comprehensive Life Story Metadata</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code259 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/releafs-resonance-austin-symphony/258.html" hreflang="en">ReLeaf’s Resonance: An Austin Symphony</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code258 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/vertical-gardens-harnessing-rainwater-through-natures-design/254.html" hreflang="en">Vertical Gardens: Harnessing Rainwater through Nature&#039;s Design</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code254 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/releafs-vertical-gardens-affordable-and-sustainable-alternative-expensive-hedge-walls/252.html" hreflang="en">ReLeaf&#039;s Vertical Gardens: An Affordable and Sustainable Alternative to Expensive Hedge Walls</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code252 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/building-vertiflow-system-symbol-resilience-and-community/251.html" hreflang="en">Building a VertiFlow System: A Symbol of Resilience and Community</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code251 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/releaf-sustainable-architecture-redefining-urban-landscapes-biobricks/244.html" hreflang="en">ReLeaf: Sustainable Architecture Redefining Urban Landscapes with Biobricks</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code244 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/releaf-revolution-urban-green-cooperatives/241.html" hreflang="en">ReLeaf: A Revolution in Urban Green Cooperatives</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code241 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/unveiling-austins-sustainable-living-bridge-vertiflow-system/236.html" hreflang="en">Unveiling of Austin&#039;s Sustainable Living Bridge with VertiFlow System</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code236 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/wick-ed-vertiflow-transforming-austins-concrete-creeks-urban-gardens/235.html" hreflang="en">Wick-ed VertiFlow: Transforming Austin&#039;s Concrete Creeks into Urban Gardens</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code235 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/releafs-vertical-gardens-bird-friendly-habitat-urban-spaces/229.html" hreflang="en">ReLeaf&#039;s Vertical Gardens: A Bird-Friendly Habitat for Urban Spaces</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code229 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/releaf-promotes-mycology-sustainable-urban-greening/226.html" hreflang="en">ReLeaf Promotes Mycology for Sustainable Urban Greening</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code226 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/revolutionizing-urban-greenery-releafs-fabric-wick-vertical-gardens/225.html" hreflang="en">Revolutionizing Urban Greenery: ReLeaf&#039;s Fabric Wick Vertical Gardens</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code225 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/releafs-vertical-gardens-bring-back-ivory-billed-woodpecker-austin/224.html" hreflang="en">ReLeaf&#039;s Vertical Gardens Bring Back Ivory-billed Woodpecker to Austin</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code224 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/releaf-revolutionizing-urban-sustainability-through-vertical-gardens-and-waste-management/222.html" hreflang="en">ReLeaf: Revolutionizing Urban Sustainability Through Vertical Gardens and Waste Management</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code222 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/nature-inspired-innovation-releaf-biomimicry-and-fractals-vertical-gardens/215.html" hreflang="en">Nature-Inspired Innovation: ReLeaf, Biomimicry, and Fractals in Vertical Gardens</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code215 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/releafs-vertical-gardens-innovative-solution-urban-air-pollution/213.html" hreflang="en">ReLeaf&#039;s Vertical Gardens: Innovative Solution for Urban Air Pollution</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code213 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../how-to/setting-vertical-garden-drupal-commerce-product-types-variations/212.html" hreflang="en">Setting Up a Vertical Garden with Drupal Commerce: Product Types &amp; Variations</a> How To by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code212 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/vertical-garden-fairs-new-norm-austin-schools-fostering-sustainability-and-creativity/206.html" hreflang="en">Vertical Garden Fairs: The New Norm in Austin Schools, Fostering Sustainability and Creativity</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code206 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../how-to/diy-guide-upcycling-aluminum-cans-modular-planters/204.html" hreflang="en">DIY Guide: Upcycling Aluminum Cans into Modular Planters</a> How To by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code204 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../how-to/7-creative-ways-repurpose-household-waste-planters/202.html" hreflang="en">7 Creative Ways to Repurpose Household Waste for Planters</a> How To by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code202 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/trash-magic-eco-revolution-austins-cityscape/200.html" hreflang="en">Trash Magic: The Eco Revolution of Austin&#039;s Cityscape</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code200 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/releaf-cooperative-brings-sustainable-gardens-austin-elementary-schools/182.html" hreflang="en">ReLeaf Cooperative brings sustainable gardens to Austin elementary schools</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code182 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/trash-magic-revolutionizing-music-distribution/173.html" hreflang="en">Trash Magic: Revolutionizing Music Distribution</a> SolarPunk Fiction by <a title="View user profile." href="../user/2.html" lang="" about="/user/2" typeof="Person" property="schema:name" datatype="">trashrobot</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code173 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/seeds-stories-day-central/155.html" hreflang="en">Seeds of Stories: A Day at Central</a> SolarPunk Fiction by <a title="View user profile." href="../user/4.html" lang="" about="/user/4" typeof="Person" property="schema:name" datatype="">UnconventionalEmma</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code155 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/emerald-refuge/137.html" hreflang="en">Emerald Refuge</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code137 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/releaf-pioneering-solarpunk-future-through-creative-urban-greenery/135.html" hreflang="en">ReLeaf: Pioneering a SolarPunk Future Through Creative Urban Greenery</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code135 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/building-confidence-and-self-awareness-vertical-gardening/134.html" hreflang="en">Building Confidence and Self-Awareness in Vertical Gardening</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code134 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/releaf-unveils-biostack-vertical-garden-revolutionizing-urban-spaces-austin/128.html" hreflang="en">ReLeaf Unveils BioStack: The Vertical Garden Revolutionizing Urban Spaces in Austin</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code128 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/austins-light-rail-system-self-watering-air-purifying-living-walls/122.html" hreflang="en">Austin&#039;s Light-Rail System with Self-Watering, Air-Purifying Living Walls</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code122 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../how-to/diy-guide-constructing-vertical-garden-upcycled-materials/120.html" hreflang="en">DIY Guide: Constructing a Vertical Garden from Upcycled Materials</a> How To by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code120 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/urban-eden-releaf-guide-vertical-gardening-silver-anniversary-edition/115.html" hreflang="en">Urban Eden: the ReLeaf Guide to Vertical Gardening, Silver Anniversary Edition</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code115 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/biostack-chronicles-green-grey-city/112.html" hreflang="en">BioStack Chronicles: Green in the Grey City</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code112 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../how-to/essential-components-wicking-irrigation-system/77.html" hreflang="en">Essential Components of a Wicking Irrigation System</a> How To by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code77 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/vertical-garden-essentials/60.html" hreflang="en">Vertical Garden Essentials</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code60 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/water-towers-and-circular-economy/44.html" hreflang="en">Water Towers and the Circular Economy</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code44 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/day-life-releaf-member-owner/40.html" hreflang="en">A Day in the Life of a ReLeaf Member-Owner</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code40 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/2046-cube-reappears/38.html" hreflang="en">2046: The Cube Reappears</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code38 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/open-letter/37.html" hreflang="en">Open Letter</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code37 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/2023-austin-circular-economy-showcase/36.html" hreflang="en">2023 Austin Circular Economy Showcase</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code36 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/imagination-and-growth-how-releaf-blending-fiction-and-reality/34.html" hreflang="en">Imagination and Growth: How ReLeaf is Blending Fiction and Reality</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code34 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/windows-wonders-transforming-post-war-colossals-vertical-gardens/32.html" hreflang="en">From Windows to Wonders: Transforming Post-War Colossals with Vertical Gardens</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code32 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/hyperlocal-harvests-and-rise-discerning-diner/29.html" hreflang="en">Hyperlocal Harvests and the Rise of the Discerning Diner</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code29 "></div></span></div></div>
+
+    
+
+  
+  
+
+  
+  
+</div>
 </div>
 
   </div>
-<div class="block block-layout-builder block-field-blocktaxonomy-termw-a-s-t-e-wordsfield-m-o-i-">
+<div>
   
     
       
-  <div class="field field--name-field-m-o-i- field--type-entity-reference field--label-above">
-    <div class="field__label">M.O.I.</div>
-          <div class="field__items">
-              <div class="field__item"><a href="../user/1.html" hreflang="en">bryceb</a></div>
+  <div>
+    <div>M.O.I.</div>
+          <div>
+              <div><a href="../user/1.html" hreflang="en">bryceb</a></div>
               </div>
       </div>
 
@@ -305,32 +334,29 @@
     
   </div>
 
-  </div>
 </div>
 
   </div>
 
   </div>
 
-    </main>
+    </div>
+          <aside class="layout-sidebar-first" role="complementary">
+        
+      </aside>
+    
+    
+  </main>
 
-  </div>
-
+  
+</div>
   </div>
 
     
-    <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"","currentPath":"taxonomy\/term\/18","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"user":{"uid":0,"permissionsHash":"1c4254b9ddf54d4db5728edb932228a456ae0fd3ff8225c717fb4f01339e89e7"}}</script>
-<script src="https://releaf.site/core/assets/vendor/jquery/jquery.min.js?v=3.6.3"></script>
-<script src="https://releaf.site/core/misc/drupalSettingsLoader.js?v=10.0.9"></script>
-<script src="https://releaf.site/core/misc/drupal.js?v=10.0.9"></script>
-<script src="https://releaf.site/core/misc/drupal.init.js?v=10.0.9"></script>
-<script src="../sites/default/files/asset_injector/js/nodes-1e4a563b7ddfd826d9a8de610ab4467590d0.js?s0f1r5"></script>
-<script src="../sites/default/files/asset_injector/js/qr-7543b3560f7e140d6712b81e37f6716990d0.js?s0f1r5"></script>
-<script src="../sites/default/files/asset_injector/js/qr0-4abd4074112590f0fb4e480db42f572890d0.js?s0f1r5"></script>
-<script src="https://releaf.site/core/misc/debounce.js?v=10.0.9"></script>
-<script src="https://releaf.site/core/misc/announce.js?v=10.0.9"></script>
-<script src="https://releaf.site/core/misc/message.js?v=10.0.9"></script>
-<script src="https://releaf.site/core/themes/claro/js/messages.js?s0f1r5"></script>
+    <script src="https://releaf.site/core/assets/vendor/jquery/jquery.min.js?v=3.7.0"></script>
+<script src="../sites/default/files/asset_injector/js/nodes-1e4a563b7ddfd826d9a8de610ab44675ed34.js?s0h01g"></script>
+<script src="../sites/default/files/asset_injector/js/qr-7543b3560f7e140d6712b81e37f67169ed34.js?s0h01g"></script>
+<script src="../sites/default/files/asset_injector/js/qr0-4abd4074112590f0fb4e480db42f5728ed34.js?s0h01g"></script>
 
   </body>
 

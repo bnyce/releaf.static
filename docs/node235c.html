@@ -7,226 +7,223 @@
 <meta name="MobileOptimized" content="width" />
 <meta name="HandheldFriendly" content="true" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="icon" href="https://releaf.site/sites/default/files/releaf_0.png" type="image/png" />
-<link rel="alternate" type="application/rss+xml" title="" href="rss.xml" />
+<script type="text/javascript" data-toolbar-anti-flicker-loading>(function() {
+  const toolbarState = sessionStorage.getItem('Drupal.toolbar.toolbarState')
+    ? JSON.parse(sessionStorage.getItem('Drupal.toolbar.toolbarState'))
+    : false;
+  // These are classes that toolbar typically adds to <body>, but this code
+  // executes before the first paint, when <body> is not yet present. The
+  // classes are added to <html> so styling immediately reflects the current
+  // toolbar state. The classes are removed after the toolbar completes
+  // initialization.
+  const classesToAdd = ['toolbar-loading', 'toolbar-anti-flicker'];
+  if (toolbarState) {
+    const {
+      orientation,
+      hasActiveTab,
+      isFixed,
+      activeTray,
+      activeTabId,
+      isOriented,
+      userButtonMinWidth
+    } = toolbarState;
+
+    classesToAdd.push(
+      orientation ? `toolbar-` + orientation + `` : 'toolbar-horizontal',
+    );
+    if (hasActiveTab !== false) {
+      classesToAdd.push('toolbar-tray-open');
+    }
+    if (isFixed) {
+      classesToAdd.push('toolbar-fixed');
+    }
+    if (isOriented) {
+      classesToAdd.push('toolbar-oriented');
+    }
+
+    if (activeTray) {
+      // These styles are added so the active tab/tray styles are present
+      // immediately instead of "flickering" on as the toolbar initializes. In
+      // instances where a tray is lazy loaded, these styles facilitate the
+      // lazy loaded tray appearing gracefully and without reflow.
+      const styleContent = `
+      .toolbar-loading #` + activeTabId + ` {
+        background-image: linear-gradient(rgba(255, 255, 255, 0.25) 20%, transparent 200%);
+      }
+      .toolbar-loading #` + activeTabId + `-tray {
+        display: block; box-shadow: -1px 0 5px 2px rgb(0 0 0 / 33%);
+        border-right: 1px solid #aaa; background-color: #f5f5f5;
+        z-index: 0;
+      }
+      .toolbar-loading.toolbar-vertical.toolbar-tray-open #` + activeTabId + `-tray {
+        width: 15rem; height: 100vh;
+      }
+     .toolbar-loading.toolbar-horizontal :not(#` + activeTray + `) > .toolbar-lining {opacity: 0}`;
+
+      const style = document.createElement('style');
+      style.textContent = styleContent;
+      style.setAttribute('data-toolbar-anti-flicker-loading', true);
+      document.querySelector('head').appendChild(style);
+
+      if (userButtonMinWidth) {
+        const userButtonStyle = document.createElement('style');
+        userButtonStyle.textContent = `#toolbar-item-user {min-width: ` + userButtonMinWidth +`px;}`
+        document.querySelector('head').appendChild(userButtonStyle);
+      }
+    }
+  }
+  document.querySelector('html').classList.add(...classesToAdd);
+})();</script>
+<link rel="alternate" type="application/rss+xml" title="" href="rss.html" />
 
     <title>ReLeaf</title>
-    <link rel="stylesheet" media="all" href="https://releaf.site/core/assets/vendor/normalize-css/normalize.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/align.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/fieldgroup.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/container-inline.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/clearfix.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/details.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/hidden.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/item-list.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/js.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/nowrap.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/position-container.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/progress.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/reset-appearance.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/resize.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/sticky-header.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tablesort.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tree-child.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/ajax-progress.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/autocomplete-loading.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/tabledrag.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/views/css/views.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/base/variables.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/base/elements.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/base/typography.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/base/print.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/layout/system-admin--layout.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/layout/breadcrumb.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/layout/local-actions.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/layout/layout.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/system-admin--admin-list.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/system-admin--links.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/system-admin--modules.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/system-admin--panel.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/system-admin--status-report.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/node.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/layout/card-list.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/card.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/container-inline.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/exposed-filters.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/field.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/icons.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/inline-form.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/item-list.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/link.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/links.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/menu.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/more-link.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/tablesort.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/textarea.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/ui-dialog.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/accordion.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/action-link.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/content-header.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/container-inline.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/container-inline.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/breadcrumb.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/button.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/details.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/divider.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/messages.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/entity-meta.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/fieldset.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/form.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/form--checkbox-radio.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/form--field-multiple.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/form--managed-file.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/form--text.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/form--select.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/help.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/image-preview.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/menus-and-lists.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/modules-page.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/node.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/page-title.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/pager.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/skip-link.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/tables.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/table--file-multiple-widget.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/search-admin-settings.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/tablesort-indicator.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/system-status-report-general-info.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/system-status-report.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/system-status-counter.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/system-status-report-counters.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/tableselect.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/tabs.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/views-ui.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/views-exposed-form.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/theme/colors.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="sites/default/files/asset_injector/css/canvas-0027ba0ae981babcac7f373ddd0037b790d0.css?s0f1r5" />
+    <link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/ajax-progress.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/align.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/autocomplete-loading.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/fieldgroup.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/container-inline.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/clearfix.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/details.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/hidden.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/item-list.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/js.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/nowrap.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/position-container.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/progress.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/reset-appearance.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/resize.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/sticky-header.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-counter.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-report-counters.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-report-general-info.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tabledrag.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tablesort.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tree-child.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/views/css/views.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="themes/custom/stark_child/css/stylesed34.css?s0h01g" />
 
-    <script src="https://releaf.site/core/misc/touchevents-test.js?v=10.0.9"></script>
-
+    
   </head>
-  <body class="path-node">
-        <a href="#main-content" class="visually-hidden focusable skip-link">
+  <body>
+        <a href="#main-content" class="visually-hidden focusable">
       Skip to main content
     </a>
     
-      <div class="page-wrapper dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
-      <header class="content-header clearfix">
+      <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
     <div class="layout-container">
-      <div class="region region-breadcrumb">
-  <div id="block-claro-breadcrumbs" class="settings-tray-editable block block-system block-system-breadcrumb-block" data-drupal-settingstray="editable">
+
+  <header role="banner">
+      <div>
+    <div id="block-stark-child-page-title">
   
     
-        <nav class="breadcrumb" role="navigation" aria-labelledby="system-breadcrumb">
+      
+  <h1></h1>
+
+
+  </div>
+
+  </div>
+
+  </header>
+
+  
+  
+
+    <div>
+    <div id="block-stark-child-breadcrumbs" class="settings-tray-editable" data-drupal-settingstray="editable">
+  
+    
+        <nav role="navigation" aria-labelledby="system-breadcrumb">
     <h2 id="system-breadcrumb" class="visually-hidden">Breadcrumb</h2>
-    <ol class="breadcrumb__list">
-          <li class="breadcrumb__item">
-                  <a href="index.html" class="breadcrumb__link">Home</a>
+    <ol>
+          <li>
+                  <a href="index.html">Home</a>
               </li>
         </ol>
   </nav>
 
   </div>
 
-</div>
+  </div>
 
-        <div class="region region-header">
-    <div id="block-claro-page-title" class="block block-core block-page-title-block">
+
+    <div>
+    <div data-drupal-messages-fallback class="hidden"></div>
+
+  </div>
+
+
+  
+
+  <main role="main">
+    <a id="main-content" tabindex="-1"></a>
+    <div class="layout-content">
+        <div>
+    <div id="block-stark-child-content">
   
     
-      
-  <h1 class="page-title"></h1>
-
-
-  </div>
-
-  </div>
-
-    </div>
-  </header>
-
-  <div class="layout-container">
-      <div class="region region-pre-content">
-    
-  </div>
-
-    <main class="page-content clearfix" role="main">
-      <div class="visually-hidden"><a id="main-content" tabindex="-1"></a></div>
-        <div class="region region-highlighted">
-    <div data-drupal-messages-fallback class="hidden messages-list"></div>
-
-  </div>
-
-              <div class="help">
-          
-        </div>
-              <div class="region region-content">
-    <div id="block-claro-content" class="block block-system block-system-main-block">
+      <div class="views-element-container"><div class="js-view-dom-id-575997ffacaf543815c5b4e60e80ca7837cf09008cc3aa11bea1d5cd029e9741">
   
-    
-      <div class="views-element-container"><div class="view view-frontpage view-id-frontpage view-display-id-page_1 js-view-dom-id-30531582f96884913bd04d919016f81988eb3d0cf08e4adf6bebd2ddac0b619b">
   
-    
-      
-      <div class="view-content">
-          <div class="views-row">
-<article data-history-node-id="157" role="article" about="/explain/airgen-effect-nature-and-science-combine-electricity/157" class="node node--type-explain-like-i-m-five node--promoted node--view-mode-teaser">
+  
+
+  
+  
+  
+
+      <div class="views-row"><article data-history-node-id="157" about="/explain/airgen-effect-nature-and-science-combine-electricity/157">
 
   
       <h2>
-      <a href="explain/airgen-effect-nature-and-science-combine-electricity/157.html" rel="bookmark"><span class="field field--name-title field--type-string field--label-hidden">The Airgen Effect: Nature and Science Combine for Electricity</span>
+      <a href="explain/airgen-effect-nature-and-science-combine-electricity/157.html" rel="bookmark">
+<span>The Airgen Effect: Nature and Science Combine for Electricity</span>
 </a>
     </h2>
     
 
   
-  <div class="node__content">
-      <div class="node__links">
-    <ul class="links inline"><li class="node-readmore"><a href="explain/airgen-effect-nature-and-science-combine-electricity/157.html" rel="tag" title="The Airgen Effect: Nature and Science Combine for Electricity" hreflang="en">Read more<span class="visually-hidden"> about The Airgen Effect: Nature and Science Combine for Electricity</span></a></li></ul>  </div>
-
-            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><p><span>In Austin, there was a really cool thing called the Airgen effect! It was made by ReLeaf, and they combined nature and science to create something amazing. They found a way to make electricity from the air, which is all around us! They did this by growing tiny things called nanofilms out of bacteria, and these films helped pull in the electricity from the air. This was a big deal because it means we can use the air to make electricity instead of just using wires. It's like the city is breathing life into its power!</span></p></div>
+  <div>
+    <ul class="links inline"><li><a href="explain/airgen-effect-nature-and-science-combine-electricity/157.html" rel="tag" title="The Airgen Effect: Nature and Science Combine for Electricity" hreflang="en">Read more<span class="visually-hidden"> about The Airgen Effect: Nature and Science Combine for Electricity</span></a></li></ul>
+            <div><p><span>In Austin, there was a really cool thing called the Airgen effect! It was made by ReLeaf, and they combined nature and science to create something amazing. They found a way to make electricity from the air, which is all around us! They did this by growing tiny things called nanofilms out of bacteria, and these films helped pull in the electricity from the air. This was a big deal because it means we can use the air to make electricity instead of just using wires. It's like the city is breathing life into its power!</span></p></div>
       
   </div>
 
 </article>
 </div>
-    <div class="views-row">
-<article data-history-node-id="156" role="article" about="/explain/releafs-upcycled-gardens-sustainable-vision-pro-alternative-austin/156" class="node node--type-explain-like-i-m-five node--promoted node--view-mode-teaser">
+    <div class="views-row"><article data-history-node-id="156" about="/explain/releafs-upcycled-gardens-sustainable-vision-pro-alternative-austin/156">
 
   
       <h2>
-      <a href="explain/releafs-upcycled-gardens-sustainable-vision-pro-alternative-austin/156.html" rel="bookmark"><span class="field field--name-title field--type-string field--label-hidden">ReLeaf&#039;s Upcycled Gardens: A Sustainable Vision Pro Alternative in Austin</span>
+      <a href="explain/releafs-upcycled-gardens-sustainable-vision-pro-alternative-austin/156.html" rel="bookmark">
+<span>ReLeaf&#039;s Upcycled Gardens: A Sustainable Vision Pro Alternative in Austin</span>
 </a>
     </h2>
     
 
   
-  <div class="node__content">
-      <div class="node__links">
-    <ul class="links inline"><li class="node-readmore"><a href="explain/releafs-upcycled-gardens-sustainable-vision-pro-alternative-austin/156.html" rel="tag" title="ReLeaf&#039;s Upcycled Gardens: A Sustainable Vision Pro Alternative in Austin" hreflang="en">Read more<span class="visually-hidden"> about ReLeaf&#039;s Upcycled Gardens: A Sustainable Vision Pro Alternative in Austin</span></a></li></ul>  </div>
-
-            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><p><span>Once upon a time in Texas, there was a city called Austin. People there loved to invent things and work together to make their city great. There was a new technology called Vision Pro that let people see things in a special way, but not everyone could afford it. So, a company called ReLeaf had an idea to use old things that people didn't need anymore to make something new and fun that everyone could use. They made special gardens that used old electronics to show cool things in a special way. People in Austin loved it and brought in lots of old things to help make the gardens.</span></p></div>
+  <div>
+    <ul class="links inline"><li><a href="explain/releafs-upcycled-gardens-sustainable-vision-pro-alternative-austin/156.html" rel="tag" title="ReLeaf&#039;s Upcycled Gardens: A Sustainable Vision Pro Alternative in Austin" hreflang="en">Read more<span class="visually-hidden"> about ReLeaf&#039;s Upcycled Gardens: A Sustainable Vision Pro Alternative in Austin</span></a></li></ul>
+            <div><p><span>Once upon a time in Texas, there was a city called Austin. People there loved to invent things and work together to make their city great. There was a new technology called Vision Pro that let people see things in a special way, but not everyone could afford it. So, a company called ReLeaf had an idea to use old things that people didn't need anymore to make something new and fun that everyone could use. They made special gardens that used old electronics to show cool things in a special way. People in Austin loved it and brought in lots of old things to help make the gardens.</span></p></div>
       
   </div>
 
 </article>
 </div>
-    <div class="views-row">
-<article data-history-node-id="120" role="article" about="/how-to/diy-guide-constructing-vertical-garden-upcycled-materials/120" class="node node--type-how-to node--promoted node--view-mode-teaser">
+    <div class="views-row"><article data-history-node-id="120" about="/how-to/diy-guide-constructing-vertical-garden-upcycled-materials/120">
 
   
       <h2>
-      <a href="how-to/diy-guide-constructing-vertical-garden-upcycled-materials/120.html" rel="bookmark"><span class="field field--name-title field--type-string field--label-hidden">DIY Guide: Constructing a Vertical Garden from Upcycled Materials</span>
+      <a href="how-to/diy-guide-constructing-vertical-garden-upcycled-materials/120.html" rel="bookmark">
+<span>DIY Guide: Constructing a Vertical Garden from Upcycled Materials</span>
 </a>
     </h2>
     
 
   
-  <div class="node__content">
-      <div class="node__links">
-    <ul class="links inline"><li class="node-readmore"><a href="how-to/diy-guide-constructing-vertical-garden-upcycled-materials/120.html" rel="tag" title="DIY Guide: Constructing a Vertical Garden from Upcycled Materials" hreflang="en">Read more<span class="visually-hidden"> about DIY Guide: Constructing a Vertical Garden from Upcycled Materials</span></a></li><li class="statistics-counter">1 view</li></ul>  </div>
-
-            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><p>Creating a vertical garden out of upcycled materials is a great way to recycle while adding a unique touch to your space. Here's a step-by-step guide for creating a "BioStack" garden:</p>
+  <div>
+    <ul class="links inline"><li><a href="how-to/diy-guide-constructing-vertical-garden-upcycled-materials/120.html" rel="tag" title="DIY Guide: Constructing a Vertical Garden from Upcycled Materials" hreflang="en">Read more<span class="visually-hidden"> about DIY Guide: Constructing a Vertical Garden from Upcycled Materials</span></a></li><li>1 view</li></ul>
+            <div><p>Creating a vertical garden out of upcycled materials is a great way to recycle while adding a unique touch to your space. Here's a step-by-step guide for creating a "BioStack" garden:</p>
 
 <p>Materials:<br />
 1. Several upcycled plastic containers (try to choose a uniform size for aesthetic consistency). <br />
@@ -238,22 +235,20 @@
 
 </article>
 </div>
-    <div class="views-row">
-<article data-history-node-id="78" role="article" about="/how-to/embracing-sustainability-ebb-and-flow-irrigation/78" class="node node--type-how-to node--promoted node--view-mode-teaser">
+    <div class="views-row"><article data-history-node-id="78" about="/how-to/embracing-sustainability-ebb-and-flow-irrigation/78">
 
   
       <h2>
-      <a href="how-to/embracing-sustainability-ebb-and-flow-irrigation/78.html" rel="bookmark"><span class="field field--name-title field--type-string field--label-hidden">Embracing Sustainability with Ebb and Flow Irrigation</span>
+      <a href="how-to/embracing-sustainability-ebb-and-flow-irrigation/78.html" rel="bookmark">
+<span>Embracing Sustainability with Ebb and Flow Irrigation</span>
 </a>
     </h2>
     
 
   
-  <div class="node__content">
-      <div class="node__links">
-    <ul class="links inline"><li class="node-readmore"><a href="how-to/embracing-sustainability-ebb-and-flow-irrigation/78.html" rel="tag" title="Embracing Sustainability with Ebb and Flow Irrigation" hreflang="en">Read more<span class="visually-hidden"> about Embracing Sustainability with Ebb and Flow Irrigation</span></a></li></ul>  </div>
-
-            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><p>Ebb and Flow, also known as flood and drain, is an effective irrigation technique that's been embraced by gardeners worldwide. Its adaptability, suitability for vertical gardens, and the potential for incorporating upcycled materials make it an attractive option for those seeking a sustainable irrigation solution.</p>
+  <div>
+    <ul class="links inline"><li><a href="how-to/embracing-sustainability-ebb-and-flow-irrigation/78.html" rel="tag" title="Embracing Sustainability with Ebb and Flow Irrigation" hreflang="en">Read more<span class="visually-hidden"> about Embracing Sustainability with Ebb and Flow Irrigation</span></a></li></ul>
+            <div><p>Ebb and Flow, also known as flood and drain, is an effective irrigation technique that's been embraced by gardeners worldwide. Its adaptability, suitability for vertical gardens, and the potential for incorporating upcycled materials make it an attractive option for those seeking a sustainable irrigation solution.</p>
 
 <p><em>Ebb and Flow Irrigation Explained</em></p></div>
       
@@ -261,22 +256,20 @@
 
 </article>
 </div>
-    <div class="views-row">
-<article data-history-node-id="77" role="article" about="/how-to/essential-components-wicking-irrigation-system/77" class="node node--type-how-to node--promoted node--view-mode-teaser">
+    <div class="views-row"><article data-history-node-id="77" about="/how-to/essential-components-wicking-irrigation-system/77">
 
   
       <h2>
-      <a href="how-to/essential-components-wicking-irrigation-system/77.html" rel="bookmark"><span class="field field--name-title field--type-string field--label-hidden">Essential Components of a Wicking Irrigation System</span>
+      <a href="how-to/essential-components-wicking-irrigation-system/77.html" rel="bookmark">
+<span>Essential Components of a Wicking Irrigation System</span>
 </a>
     </h2>
     
 
   
-  <div class="node__content">
-      <div class="node__links">
-    <ul class="links inline"><li class="node-readmore"><a href="how-to/essential-components-wicking-irrigation-system/77.html" rel="tag" title="Essential Components of a Wicking Irrigation System" hreflang="en">Read more<span class="visually-hidden"> about Essential Components of a Wicking Irrigation System</span></a></li></ul>  </div>
-
-            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><blockquote>
+  <div>
+    <ul class="links inline"><li><a href="how-to/essential-components-wicking-irrigation-system/77.html" rel="tag" title="Essential Components of a Wicking Irrigation System" hreflang="en">Read more<span class="visually-hidden"> about Essential Components of a Wicking Irrigation System</span></a></li></ul>
+            <div><blockquote>
 <p><em>A wicking irrigation system is an efficient and sustainable way to water plants. It delivers water to the plant roots directly from a reservoir, reducing water consumption and time needed for refilling containers. </em></p>
 </blockquote>
 
@@ -292,22 +285,20 @@
 
 </article>
 </div>
-    <div class="views-row">
-<article data-history-node-id="74" role="article" about="/how-to/how-upcycle-scrap-wood-french-cleat/74" class="node node--type-how-to node--promoted node--view-mode-teaser">
+    <div class="views-row"><article data-history-node-id="74" about="/how-to/how-upcycle-scrap-wood-french-cleat/74">
 
   
       <h2>
-      <a href="how-to/how-upcycle-scrap-wood-french-cleat/74.html" rel="bookmark"><span class="field field--name-title field--type-string field--label-hidden">How to Upcycle Scrap Wood into a French Cleat</span>
+      <a href="how-to/how-upcycle-scrap-wood-french-cleat/74.html" rel="bookmark">
+<span>How to Upcycle Scrap Wood into a French Cleat</span>
 </a>
     </h2>
     
 
   
-  <div class="node__content">
-      <div class="node__links">
-    <ul class="links inline"><li class="node-readmore"><a href="how-to/how-upcycle-scrap-wood-french-cleat/74.html" rel="tag" title="How to Upcycle Scrap Wood into a French Cleat" hreflang="en">Read more<span class="visually-hidden"> about How to Upcycle Scrap Wood into a French Cleat</span></a></li></ul>  </div>
-
-            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><blockquote>
+  <div>
+    <ul class="links inline"><li><a href="how-to/how-upcycle-scrap-wood-french-cleat/74.html" rel="tag" title="How to Upcycle Scrap Wood into a French Cleat" hreflang="en">Read more<span class="visually-hidden"> about How to Upcycle Scrap Wood into a French Cleat</span></a></li></ul>
+            <div><blockquote>
 <p><em>Upcycling a discarded piece of wood into a modular unit for a French cleat system is a fantastic idea. Here's a simple guide on how you can do it.</em></p>
 </blockquote>
 
@@ -321,22 +312,20 @@
 
 </article>
 </div>
-    <div class="views-row">
-<article data-history-node-id="58" role="article" about="/lyrics/upcycle-anthem/58" class="node node--type-lyrics node--promoted node--view-mode-teaser">
+    <div class="views-row"><article data-history-node-id="58" about="/lyrics/upcycle-anthem/58">
 
   
       <h2>
-      <a href="lyrics/upcycle-anthem/58.html" rel="bookmark"><span class="field field--name-title field--type-string field--label-hidden">Upcycle Anthem</span>
+      <a href="lyrics/upcycle-anthem/58.html" rel="bookmark">
+<span>Upcycle Anthem</span>
 </a>
     </h2>
     
 
   
-  <div class="node__content">
-      <div class="node__links">
-    <ul class="links inline"><li class="node-readmore"><a href="lyrics/upcycle-anthem/58.html" rel="tag" title="Upcycle Anthem" hreflang="en">Read more<span class="visually-hidden"> about Upcycle Anthem</span></a></li></ul>  </div>
-
-            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><p>(Verse 1)<br />
+  <div>
+    <ul class="links inline"><li><a href="lyrics/upcycle-anthem/58.html" rel="tag" title="Upcycle Anthem" hreflang="en">Read more<span class="visually-hidden"> about Upcycle Anthem</span></a></li></ul>
+            <div><p>(Verse 1)<br />
 Yo, listen up, this ain't The Pelican Brief,<br />
 We're going green, yeah, call it ReLeaf,<br />
 Turning the WASTE, into a masterpiece,<br />
@@ -356,135 +345,151 @@ Harvesting rain while the clouds at bay.</p></div>
 
 </article>
 </div>
-    <div class="views-row">
-<article data-history-node-id="3" role="article" about="/article/libraries-vertical-gardens-evolution-shared-resources-and-role-releaf/3" typeof="schema:Article" class="node node--type-article node--promoted node--view-mode-teaser">
+    <div class="views-row"><article data-history-node-id="3" about="/article/libraries-vertical-gardens-evolution-shared-resources-and-role-releaf/3" typeof="schema:Article">
 
   
       <h2>
-      <a href="article/libraries-vertical-gardens-evolution-shared-resources-and-role-releaf/3.html" rel="bookmark"><span property="schema:name" class="field field--name-title field--type-string field--label-hidden">From Libraries to Vertical Gardens: The Evolution of Shared Resources and the Role of ReLeaf</span>
+      <a href="article/libraries-vertical-gardens-evolution-shared-resources-and-role-releaf/3.html" rel="bookmark">
+<span property="schema:name">From Libraries to Vertical Gardens: The Evolution of Shared Resources and the Role of ReLeaf</span>
 </a>
     </h2>
       <span property="schema:name" content="From Libraries to Vertical Gardens: The Evolution of Shared Resources and the Role of ReLeaf" class="hidden"></span>
 
 
   
-  <div class="node__content">
+  <div>
     
-            <div property="schema:text" class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><blockquote>
+            <div property="schema:text"><blockquote>
 <p><em>The United States has a rich history of shared public resources, with public libraries standing as prime examples of this commitment. Despite their immense value, libraries are currently facing challenges from those unable to grasp their enduring relevance. Today, an innovative startup called ReLeaf is pioneering a new form of shared resource, offering fresh perspectives on sustainability and wealth redistribution.</em></p></blockquote></div>
-        <div class="node__links">
-    <ul class="links inline"><li class="node-readmore"><a href="article/libraries-vertical-gardens-evolution-shared-resources-and-role-releaf/3.html" rel="tag" title="From Libraries to Vertical Gardens: The Evolution of Shared Resources and the Role of ReLeaf" hreflang="en">Read more<span class="visually-hidden"> about From Libraries to Vertical Gardens: The Evolution of Shared Resources and the Role of ReLeaf</span></a></li><li class="statistics-counter">1 view</li></ul>  </div>
-
+      <ul class="links inline"><li><a href="article/libraries-vertical-gardens-evolution-shared-resources-and-role-releaf/3.html" rel="tag" title="From Libraries to Vertical Gardens: The Evolution of Shared Resources and the Role of ReLeaf" hreflang="en">Read more<span class="visually-hidden"> about From Libraries to Vertical Gardens: The Evolution of Shared Resources and the Role of ReLeaf</span></a></li><li>1 view</li></ul>
   </div>
 
 </article>
 </div>
-    <div class="views-row">
-<article data-history-node-id="2" role="article" about="/article/who-owns-green-future-merging-laniers-data-dignity-releafs-eco-innovation/2" typeof="schema:Article" class="node node--type-article node--promoted node--view-mode-teaser">
+    <div class="views-row"><article data-history-node-id="2" about="/article/who-owns-green-future-merging-laniers-data-dignity-releafs-eco-innovation/2" typeof="schema:Article">
 
   
       <h2>
-      <a href="article/who-owns-green-future-merging-laniers-data-dignity-releafs-eco-innovation/2.html" rel="bookmark"><span property="schema:name" class="field field--name-title field--type-string field--label-hidden">Who Owns the Green Future? Merging Lanier&#039;s Data Dignity with ReLeaf&#039;s Eco-Innovation</span>
+      <a href="article/who-owns-green-future-merging-laniers-data-dignity-releafs-eco-innovation/2.html" rel="bookmark">
+<span property="schema:name">Who Owns the Green Future? Merging Lanier&#039;s Data Dignity with ReLeaf&#039;s Eco-Innovation</span>
 </a>
     </h2>
       <span property="schema:name" content="Who Owns the Green Future? Merging Lanier&#039;s Data Dignity with ReLeaf&#039;s Eco-Innovation" class="hidden"></span>
 
 
   
-  <div class="node__content">
+  <div>
     
-            <div property="schema:text" class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><blockquote>
+            <div property="schema:text"><blockquote>
 <p><em>In an era where digital prowess meets environmental urgency, we find an unexpected harmony between Jaron Lanier's philosophies on data dignity and the ground-breaking sustainable approach of ReLeaf. Here, we explore this synergy.</em></p></blockquote></div>
-        <div class="node__links">
-    <ul class="links inline"><li class="node-readmore"><a href="article/who-owns-green-future-merging-laniers-data-dignity-releafs-eco-innovation/2.html" rel="tag" title="Who Owns the Green Future? Merging Lanier&#039;s Data Dignity with ReLeaf&#039;s Eco-Innovation" hreflang="en">Read more<span class="visually-hidden"> about Who Owns the Green Future? Merging Lanier&#039;s Data Dignity with ReLeaf&#039;s Eco-Innovation</span></a></li><li class="statistics-counter">5 views</li></ul>  </div>
-
+      <ul class="links inline"><li><a href="article/who-owns-green-future-merging-laniers-data-dignity-releafs-eco-innovation/2.html" rel="tag" title="Who Owns the Green Future? Merging Lanier&#039;s Data Dignity with ReLeaf&#039;s Eco-Innovation" hreflang="en">Read more<span class="visually-hidden"> about Who Owns the Green Future? Merging Lanier&#039;s Data Dignity with ReLeaf&#039;s Eco-Innovation</span></a></li><li>5 views</li></ul>
   </div>
 
 </article>
 </div>
 
-    </div>
-  
-        <nav class="pager" role="navigation" aria-labelledby="pagination-heading">
+      <nav class="pager" role="navigation" aria-labelledby="pagination-heading">
     <h4 id="pagination-heading" class="visually-hidden">Pagination</h4>
     <ul class="pager__items js-pager__items">
-                    <li class="pager__item pager__item--action pager__item--first"><a href="node02e4.html?page=0" class="pager__link pager__link--action-link" title="Go to first page"><span class="visually-hidden">First page</span><span class="pager__item-title pager__item-title--backwards" aria-hidden="true">
-               First
-            </span></a></li>      
-                    <li class="pager__item pager__item--action pager__item--previous"><a href="nodec575.html?page=6" class="pager__link pager__link--action-link" title="Go to previous page" rel="prev"><span class="visually-hidden">Previous page</span><span class="pager__item-title pager__item-title--backwards" aria-hidden="true">
-               Previous
-            </span></a></li>      
-            
-                    <li class="pager__item pager__item--number"><a href="node02e4.html?page=0" class="pager__link" title="Go to page 1"><span class="visually-hidden">
+                    <li class="pager__item pager__item--first">
+          <a href="node02e4.html?page=0" title="Go to first page">
+            <span class="visually-hidden">First page</span>
+            <span aria-hidden="true">« First</span>
+          </a>
+        </li>
+                          <li class="pager__item pager__item--previous">
+          <a href="nodec575.html?page=6" title="Go to previous page" rel="prev">
+            <span class="visually-hidden">Previous page</span>
+            <span aria-hidden="true">‹ Previous</span>
+          </a>
+        </li>
+                                      <li class="pager__item">
+                                          <a href="node02e4.html?page=0" title="Go to page 1">
+            <span class="visually-hidden">
               Page
-            </span>
-            1
-          </a></li>              <li class="pager__item pager__item--number"><a href="node2679.html?page=1" class="pager__link" title="Go to page 2"><span class="visually-hidden">
+            </span>1</a>
+        </li>
+              <li class="pager__item">
+                                          <a href="node2679.html?page=1" title="Go to page 2">
+            <span class="visually-hidden">
               Page
-            </span>
-            2
-          </a></li>              <li class="pager__item pager__item--number"><a href="node4658.html?page=2" class="pager__link" title="Go to page 3"><span class="visually-hidden">
+            </span>2</a>
+        </li>
+              <li class="pager__item">
+                                          <a href="node4658.html?page=2" title="Go to page 3">
+            <span class="visually-hidden">
               Page
-            </span>
-            3
-          </a></li>              <li class="pager__item pager__item--number"><a href="node9ba9.html?page=3" class="pager__link" title="Go to page 4"><span class="visually-hidden">
+            </span>3</a>
+        </li>
+              <li class="pager__item">
+                                          <a href="node9ba9.html?page=3" title="Go to page 4">
+            <span class="visually-hidden">
               Page
-            </span>
-            4
-          </a></li>              <li class="pager__item pager__item--number"><a href="nodefdb0.html?page=4" class="pager__link" title="Go to page 5"><span class="visually-hidden">
+            </span>4</a>
+        </li>
+              <li class="pager__item">
+                                          <a href="nodefdb0.html?page=4" title="Go to page 5">
+            <span class="visually-hidden">
               Page
-            </span>
-            5
-          </a></li>              <li class="pager__item pager__item--number"><a href="nodeaf4d.html?page=5" class="pager__link" title="Go to page 6"><span class="visually-hidden">
+            </span>5</a>
+        </li>
+              <li class="pager__item">
+                                          <a href="nodeaf4d.html?page=5" title="Go to page 6">
+            <span class="visually-hidden">
               Page
-            </span>
-            6
-          </a></li>              <li class="pager__item pager__item--number"><a href="nodec575.html?page=6" class="pager__link" title="Go to page 7"><span class="visually-hidden">
+            </span>6</a>
+        </li>
+              <li class="pager__item">
+                                          <a href="nodec575.html?page=6" title="Go to page 7">
+            <span class="visually-hidden">
               Page
-            </span>
-            7
-          </a></li>              <li class="pager__item pager__item--active pager__item--number"><a href="node235c.html?page=7" class="pager__link is-active" title="Current page"><span class="visually-hidden">
+            </span>7</a>
+        </li>
+              <li class="pager__item is-active">
+                                          <a href="node235c.html?page=7" title="Current page" aria-current="Current page">
+            <span class="visually-hidden">
               Current page
-            </span>
-            8
-          </a></li>      
-            
-            
-                </ul>
+            </span>8</a>
+        </li>
+                                              </ul>
   </nav>
 
-              <div class="feed-icons">
-      <a href="rss.xml" class="feed-icon">
+
+  
+  
+
+  
+  <a href="rss.html" class="feed-icon">
   Subscribe to 
 </a>
 
-    </div>
-  </div>
+</div>
 </div>
 
   </div>
 
   </div>
 
-    </main>
-
+    </div>
+          <aside class="layout-sidebar-first" role="complementary">
+          <div>
+    
   </div>
 
+      </aside>
+    
+    
+  </main>
+
+  
+</div>
   </div>
 
     
-    <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"","currentPath":"node","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en","currentQuery":{"page":"7"}},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"user":{"uid":0,"permissionsHash":"1c4254b9ddf54d4db5728edb932228a456ae0fd3ff8225c717fb4f01339e89e7"}}</script>
-<script src="https://releaf.site/core/assets/vendor/jquery/jquery.min.js?v=3.6.3"></script>
-<script src="https://releaf.site/core/misc/drupalSettingsLoader.js?v=10.0.9"></script>
-<script src="https://releaf.site/core/misc/drupal.js?v=10.0.9"></script>
-<script src="https://releaf.site/core/misc/drupal.init.js?v=10.0.9"></script>
-<script src="sites/default/files/asset_injector/js/nodes-1e4a563b7ddfd826d9a8de610ab4467590d0.js?s0f1r5"></script>
-<script src="sites/default/files/asset_injector/js/qr-7543b3560f7e140d6712b81e37f6716990d0.js?s0f1r5"></script>
-<script src="sites/default/files/asset_injector/js/qr0-4abd4074112590f0fb4e480db42f572890d0.js?s0f1r5"></script>
-<script src="https://releaf.site/core/misc/debounce.js?v=10.0.9"></script>
-<script src="https://releaf.site/core/misc/announce.js?v=10.0.9"></script>
-<script src="https://releaf.site/core/misc/message.js?v=10.0.9"></script>
-<script src="https://releaf.site/core/themes/claro/js/messages.js?s0f1r5"></script>
+    <script src="https://releaf.site/core/assets/vendor/jquery/jquery.min.js?v=3.7.0"></script>
+<script src="sites/default/files/asset_injector/js/nodes-1e4a563b7ddfd826d9a8de610ab44675ed34.js?s0h01g"></script>
+<script src="sites/default/files/asset_injector/js/qr-7543b3560f7e140d6712b81e37f67169ed34.js?s0h01g"></script>
+<script src="sites/default/files/asset_injector/js/qr0-4abd4074112590f0fb4e480db42f5728ed34.js?s0h01g"></script>
 
   </body>
 

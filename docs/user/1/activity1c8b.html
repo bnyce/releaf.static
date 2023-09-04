@@ -7,177 +7,170 @@
 <meta name="MobileOptimized" content="width" />
 <meta name="HandheldFriendly" content="true" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="icon" href="https://releaf.site/sites/default/files/releaf_0.png" type="image/png" />
+<script type="text/javascript" data-toolbar-anti-flicker-loading>(function() {
+  const toolbarState = sessionStorage.getItem('Drupal.toolbar.toolbarState')
+    ? JSON.parse(sessionStorage.getItem('Drupal.toolbar.toolbarState'))
+    : false;
+  // These are classes that toolbar typically adds to <body>, but this code
+  // executes before the first paint, when <body> is not yet present. The
+  // classes are added to <html> so styling immediately reflects the current
+  // toolbar state. The classes are removed after the toolbar completes
+  // initialization.
+  const classesToAdd = ['toolbar-loading', 'toolbar-anti-flicker'];
+  if (toolbarState) {
+    const {
+      orientation,
+      hasActiveTab,
+      isFixed,
+      activeTray,
+      activeTabId,
+      isOriented,
+      userButtonMinWidth
+    } = toolbarState;
+
+    classesToAdd.push(
+      orientation ? `toolbar-` + orientation + `` : 'toolbar-horizontal',
+    );
+    if (hasActiveTab !== false) {
+      classesToAdd.push('toolbar-tray-open');
+    }
+    if (isFixed) {
+      classesToAdd.push('toolbar-fixed');
+    }
+    if (isOriented) {
+      classesToAdd.push('toolbar-oriented');
+    }
+
+    if (activeTray) {
+      // These styles are added so the active tab/tray styles are present
+      // immediately instead of "flickering" on as the toolbar initializes. In
+      // instances where a tray is lazy loaded, these styles facilitate the
+      // lazy loaded tray appearing gracefully and without reflow.
+      const styleContent = `
+      .toolbar-loading #` + activeTabId + ` {
+        background-image: linear-gradient(rgba(255, 255, 255, 0.25) 20%, transparent 200%);
+      }
+      .toolbar-loading #` + activeTabId + `-tray {
+        display: block; box-shadow: -1px 0 5px 2px rgb(0 0 0 / 33%);
+        border-right: 1px solid #aaa; background-color: #f5f5f5;
+        z-index: 0;
+      }
+      .toolbar-loading.toolbar-vertical.toolbar-tray-open #` + activeTabId + `-tray {
+        width: 15rem; height: 100vh;
+      }
+     .toolbar-loading.toolbar-horizontal :not(#` + activeTray + `) > .toolbar-lining {opacity: 0}`;
+
+      const style = document.createElement('style');
+      style.textContent = styleContent;
+      style.setAttribute('data-toolbar-anti-flicker-loading', true);
+      document.querySelector('head').appendChild(style);
+
+      if (userButtonMinWidth) {
+        const userButtonStyle = document.createElement('style');
+        userButtonStyle.textContent = `#toolbar-item-user {min-width: ` + userButtonMinWidth +`px;}`
+        document.querySelector('head').appendChild(userButtonStyle);
+      }
+    }
+  }
+  document.querySelector('html').classList.add(...classesToAdd);
+})();</script>
 
     <title>bryceb | ReLeaf</title>
-    <link rel="stylesheet" media="all" href="https://releaf.site/core/assets/vendor/normalize-css/normalize.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/align.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/fieldgroup.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/container-inline.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/clearfix.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/details.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/hidden.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/item-list.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/js.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/nowrap.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/position-container.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/progress.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/reset-appearance.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/resize.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/sticky-header.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tablesort.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tree-child.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/ajax-progress.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/autocomplete-loading.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/tabledrag.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/base/variables.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/base/elements.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/base/typography.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/base/print.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/layout/system-admin--layout.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/layout/breadcrumb.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/layout/local-actions.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/layout/layout.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/system-admin--admin-list.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/system-admin--links.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/system-admin--modules.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/system-admin--panel.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/system-admin--status-report.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/layout/card-list.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/card.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/container-inline.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/exposed-filters.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/field.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/icons.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/inline-form.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/item-list.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/link.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/links.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/menu.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/more-link.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/tablesort.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/textarea.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/ui-dialog.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/accordion.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/action-link.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/content-header.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/container-inline.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/container-inline.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/breadcrumb.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/button.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/details.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/divider.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/messages.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/entity-meta.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/fieldset.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/form.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/form--checkbox-radio.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/form--field-multiple.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/form--managed-file.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/form--text.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/form--select.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/help.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/image-preview.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/menus-and-lists.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/modules-page.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/node.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/page-title.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/pager.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/skip-link.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/tables.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/table--file-multiple-widget.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/search-admin-settings.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/tablesort-indicator.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/system-status-report-general-info.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/system-status-report.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/system-status-counter.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/system-status-report-counters.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/tableselect.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/tabs.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/views-ui.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/theme/colors.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="../../sites/default/files/asset_injector/css/canvas-0027ba0ae981babcac7f373ddd0037b790d0.css?s0f1r5" />
+    <link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/ajax-progress.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/align.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/autocomplete-loading.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/fieldgroup.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/container-inline.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/clearfix.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/details.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/hidden.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/item-list.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/js.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/nowrap.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/position-container.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/progress.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/reset-appearance.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/resize.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/sticky-header.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-counter.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-report-counters.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-report-general-info.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tabledrag.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tablesort.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tree-child.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="../../themes/custom/stark_child/css/stylesed34.css?s0h01g" />
 
-    <script src="https://releaf.site/core/misc/touchevents-test.js?v=10.0.9"></script>
-
+    
   </head>
-  <body class="path-user">
-        <a href="#main-content" class="visually-hidden focusable skip-link">
+  <body>
+        <a href="#main-content" class="visually-hidden focusable">
       Skip to main content
     </a>
     
-      <div class="page-wrapper dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
-      <header class="content-header clearfix">
+      <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
     <div class="layout-container">
-      <div class="region region-breadcrumb">
-  <div id="block-claro-breadcrumbs" class="settings-tray-editable block block-system block-system-breadcrumb-block" data-drupal-settingstray="editable">
+
+  <header role="banner">
+      <div>
+    <div id="block-stark-child-page-title">
   
     
-        <nav class="breadcrumb" role="navigation" aria-labelledby="system-breadcrumb">
+      
+  <h1>bryceb</h1>
+
+
+  </div>
+<div id="block-stark-child-primary-local-tasks" class="settings-tray-editable" data-drupal-settingstray="editable">
+  
+    
+        <h2 class="visually-hidden">Primary tabs</h2>
+  <ul><li><a href="../1.html" data-drupal-link-system-path="user/1">View</a></li>
+<li><a href="activity.html" data-drupal-link-system-path="user/1/activity">Activity<span class="visually-hidden">(active tab)</span></a></li>
+</ul>
+
+  </div>
+
+  </div>
+
+  </header>
+
+  
+  
+
+    <div>
+    <div id="block-stark-child-breadcrumbs" class="settings-tray-editable" data-drupal-settingstray="editable">
+  
+    
+        <nav role="navigation" aria-labelledby="system-breadcrumb">
     <h2 id="system-breadcrumb" class="visually-hidden">Breadcrumb</h2>
-    <ol class="breadcrumb__list">
-          <li class="breadcrumb__item">
-                  <a href="../../index.html" class="breadcrumb__link">Home</a>
+    <ol>
+          <li>
+                  <a href="../../index.html">Home</a>
               </li>
-          <li class="breadcrumb__item">
-                  <a href="../1.html" class="breadcrumb__link">bryceb</a>
+          <li>
+                  <a href="../1.html">bryceb</a>
               </li>
         </ol>
   </nav>
 
   </div>
 
-</div>
+  </div>
 
-        <div class="region region-header">
-    <div id="block-claro-page-title" class="block block-core block-page-title-block">
+
+    <div>
+    <div data-drupal-messages-fallback class="hidden"></div>
+
+  </div>
+
+
   
-    
-      
-  <h1 class="page-title">bryceb</h1>
 
-
-  </div>
-<div id="block-claro-primary-local-tasks" class="settings-tray-editable block block-core block-local-tasks-block" data-drupal-settingstray="editable">
-  
-    
-          <h2 id="primary-tabs-title" class="visually-hidden">Primary tabs</h2>
-  <nav role="navigation" class="tabs-wrapper is-horizontal is-collapsible" aria-labelledby="primary-tabs-title" data-drupal-nav-tabs>
-    <ul class="tabs tabs--primary clearfix" data-drupal-nav-tabs-target><li class="tabs__tab js-tab">
-  <a href="../1.html" class="tabs__link js-tabs-link" data-drupal-link-system-path="user/1">View</a>
-  </li>
-<li class="tabs__tab js-tab is-active js-active-tab">
-  <a href="activity.html" class="tabs__link js-tabs-link is-active" data-drupal-link-system-path="user/1/activity">Activity<span class="visually-hidden">(active tab)</span></a>
-      <button class="reset-appearance tabs__trigger" aria-label="Tabs display toggle" data-drupal-nav-tabs-trigger>
-      <svg fill="none" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="m15 9h-14c-.56016 0-1-.43984-1-1s.43984-1 1-1h14c.5602 0 1 .43984 1 1s-.4398 1-1 1zm0-5h-14c-.56016 0-1-.43984-1-1s.43984-1 1-1h14c.5602 0 1 .43984 1 1s-.4398 1-1 1zm-14 8h14c.5602 0 1 .4398 1 1s-.4398 1-1 1h-14c-.56016 0-1-.4398-1-1s.43984-1 1-1z" fill="#003ECC" fill-rule="evenodd"/></svg>    </button>
-  </li>
-</ul>
-  </nav>
-
-  </div>
-
-  </div>
-
-    </div>
-  </header>
-
-  <div class="layout-container">
-      <div class="region region-pre-content">
-    
-  </div>
-
-    <main class="page-content clearfix" role="main">
-      <div class="visually-hidden"><a id="main-content" tabindex="-1"></a></div>
-        <div class="region region-highlighted">
-    <div data-drupal-messages-fallback class="hidden messages-list"></div>
-
-  </div>
-
-              <div class="help">
-          
-        </div>
-              <div class="region region-content">
-    <div id="block-claro-content" class="block block-system block-system-main-block">
+  <main role="main">
+    <a id="main-content" tabindex="-1"></a>
+    <div class="layout-content">
+        <div>
+    <div id="block-stark-child-content">
   
     
       <table class="responsive-enabled" data-striping="1">
@@ -185,152 +178,152 @@
   
       <thead>
       <tr>
-                            <th>Type</th>
-                            <th>Title</th>
-                            <th>Author</th>
-                            <th>Comments</th>
-                            <th>Last updated</th>
+                  <th>Type</th>
+                  <th>Title</th>
+                  <th>Author</th>
+                  <th>Comments</th>
+                  <th>Last updated</th>
               </tr>
     </thead>
   
       <tbody>
-                      <tr class="odd">
+              <tr>
                       <td>SolarPunk Fiction</td>
                       <td data-history-node-id="25" data-history-node-timestamp="1685611907"><a href="../../solarpunk-fiction/unseen-networks-unveiled-green-group-chat-austins-future/25.html" hreflang="en">Unseen Networks Unveiled: The Green ‘Group Chat’ of Austin&#039;s Future</a></td>
-                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="" class="username">bryceb</a></td>
+                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="">bryceb</a></td>
                       <td class="comments" data-history-node-last-comment-timestamp="0">0</td>
                       <td>3 months ago</td>
                   </tr>
-                      <tr class="even">
+              <tr>
                       <td>SolarPunk Fiction</td>
                       <td data-history-node-id="24" data-history-node-timestamp="1685611181"><a href="../../solarpunk-fiction/austins-enigmatic-cube-and-insect-architects/24.html" hreflang="en">Austin&#039;s Enigmatic Cube and the Insect Architects</a></td>
-                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="" class="username">bryceb</a></td>
+                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="">bryceb</a></td>
                       <td class="comments" data-history-node-last-comment-timestamp="0">0</td>
                       <td>3 months ago</td>
                   </tr>
-                      <tr class="odd">
+              <tr>
                       <td>Article</td>
                       <td data-history-node-id="23" data-history-node-timestamp="1685610578"><a href="../../article/scaling-sustainability-green-walls/23.html" hreflang="en">Scaling Sustainability with Green Walls</a></td>
-                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="" class="username">bryceb</a></td>
+                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="">bryceb</a></td>
                       <td class="comments" data-history-node-last-comment-timestamp="0">0</td>
                       <td>3 months ago</td>
                   </tr>
-                      <tr class="even">
+              <tr>
                       <td>Article</td>
                       <td data-history-node-id="22" data-history-node-timestamp="1685610195"><a href="../../article/revolutionizing-waste-comparative-look-releaf-and-happy-beetle/22.html" hreflang="en">Revolutionizing Waste: A Comparative Look at ReLeaf and The Happy Beetle</a></td>
-                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="" class="username">bryceb</a></td>
+                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="">bryceb</a></td>
                       <td class="comments" data-history-node-last-comment-timestamp="0">0</td>
                       <td>3 months ago</td>
                   </tr>
-                      <tr class="odd">
+              <tr>
                       <td>SolarPunk Fiction</td>
                       <td data-history-node-id="21" data-history-node-timestamp="1685609894"><a href="../../solarpunk-fiction/planting-roots-naturalization-day-austin-central-library/21.html" hreflang="en">Planting Roots: Naturalization Day at Austin Central Library</a></td>
-                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="" class="username">bryceb</a></td>
+                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="">bryceb</a></td>
                       <td class="comments" data-history-node-last-comment-timestamp="0">0</td>
                       <td>3 months ago</td>
                   </tr>
-                      <tr class="even">
+              <tr>
                       <td>Article</td>
                       <td data-history-node-id="20" data-history-node-timestamp="1685588198"><a href="../../article/rooted-fairness-why-releafs-organic-scaling-outshines-pyramid-schemes-mlms-and-traditional/20.html" hreflang="en">Rooted in Fairness: Why ReLeaf’s Organic Scaling Outshines Pyramid Schemes, MLMs, and Traditional Capitalism</a></td>
-                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="" class="username">bryceb</a></td>
+                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="">bryceb</a></td>
                       <td class="comments" data-history-node-last-comment-timestamp="0">0</td>
                       <td>3 months ago</td>
                   </tr>
-                      <tr class="odd">
+              <tr>
                       <td>SolarPunk Fiction</td>
                       <td data-history-node-id="19" data-history-node-timestamp="1685587584"><a href="../../solarpunk-fiction/moss-media-austins-living-fashion-revolution-verdevogue/19.html" hreflang="en">Moss Media: Austin&#039;s Living Fashion Revolution with VerdeVogue</a></td>
-                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="" class="username">bryceb</a></td>
+                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="">bryceb</a></td>
                       <td class="comments" data-history-node-last-comment-timestamp="0">0</td>
                       <td>3 months ago</td>
                   </tr>
-                      <tr class="even">
+              <tr>
                       <td>Article</td>
                       <td data-history-node-id="17" data-history-node-timestamp="1685585803"><a href="../../article/growing-profits-airbnb-vertical-farming-and-how-releaf-reinventing-your-living-space/17.html" hreflang="en">Growing Profits: The Airbnb of Vertical Farming and How ReLeaf is Reinventing Your Living Space</a></td>
-                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="" class="username">bryceb</a></td>
+                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="">bryceb</a></td>
                       <td class="comments" data-history-node-last-comment-timestamp="0">0</td>
                       <td>3 months ago</td>
                   </tr>
-                      <tr class="odd">
+              <tr>
                       <td>SolarPunk Fiction</td>
                       <td data-history-node-id="16" data-history-node-timestamp="1685584803"><a href="../../solarpunk-fiction/unplugged-and-tour-how-one-musician-found-harmony-releaf/16.html" hreflang="en">Unplugged and On Tour: How One Musician Found Harmony with ReLeaf</a></td>
-                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="" class="username">bryceb</a></td>
+                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="">bryceb</a></td>
                       <td class="comments" data-history-node-last-comment-timestamp="0">0</td>
                       <td>3 months ago</td>
                   </tr>
-                      <tr class="even">
+              <tr>
                       <td>SolarPunk Fiction</td>
                       <td data-history-node-id="15" data-history-node-timestamp="1685584106"><a href="../../solarpunk-fiction/nuts-austins-bumper-crop-2040/15.html" hreflang="en">Nuts! Austin&#039;s Bumper Crop 2040</a></td>
-                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="" class="username">bryceb</a></td>
+                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="">bryceb</a></td>
                       <td class="comments" data-history-node-last-comment-timestamp="0">0</td>
                       <td>3 months ago</td>
                   </tr>
-                      <tr class="odd">
+              <tr>
                       <td>SolarPunk Fiction</td>
                       <td data-history-node-id="14" data-history-node-timestamp="1685583332"><a href="../../solarpunk-fiction/2036-looking-back/14.html" hreflang="en">2036: Looking Back</a></td>
-                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="" class="username">bryceb</a></td>
+                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="">bryceb</a></td>
                       <td class="comments" data-history-node-last-comment-timestamp="0">0</td>
                       <td>3 months ago</td>
                   </tr>
-                      <tr class="even">
+              <tr>
                       <td>SolarPunk Fiction</td>
                       <td data-history-node-id="12" data-history-node-timestamp="1685580504"><a href="../../solarpunk-fiction/strumming-strings-sustainability-releaf-story/12.html" hreflang="en">Strumming the Strings of Sustainability: A ReLeaf Story</a></td>
-                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="" class="username">bryceb</a></td>
+                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="">bryceb</a></td>
                       <td class="comments" data-history-node-last-comment-timestamp="0">0</td>
                       <td>3 months ago</td>
                   </tr>
-                      <tr class="odd">
+              <tr>
                       <td>Article</td>
                       <td data-history-node-id="11" data-history-node-timestamp="1685572723"><a href="../../article/how-releaf-acts-fractal-circular-economy/11.html" hreflang="en">How ReLeaf Acts as a Fractal in the Circular Economy</a></td>
-                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="" class="username">bryceb</a></td>
+                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="">bryceb</a></td>
                       <td class="comments" data-history-node-last-comment-timestamp="0">0</td>
                       <td>3 months ago</td>
                   </tr>
-                      <tr class="even">
+              <tr>
                       <td>Article</td>
                       <td data-history-node-id="10" data-history-node-timestamp="1685571667"><a href="../../article/slam-dunking-zero-waste-2040-challenge-releafs-plan-greener-austin/10.html" hreflang="en">Slam Dunking the Zero Waste 2040 Challenge: ReLeaf&#039;s Plan for a Greener Austin</a></td>
-                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="" class="username">bryceb</a></td>
+                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="">bryceb</a></td>
                       <td class="comments" data-history-node-last-comment-timestamp="0">0</td>
                       <td>3 months ago</td>
                   </tr>
-                      <tr class="odd">
+              <tr>
                       <td>Article</td>
                       <td data-history-node-id="9" data-history-node-timestamp="1685571207"><a href="../../article/releaf-cultivating-sustainable-retirement-amid-decline-traditional-pensions/9.html" hreflang="en">ReLeaf: Cultivating a Sustainable Retirement amid the Decline of Traditional Pensions</a></td>
-                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="" class="username">bryceb</a></td>
+                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="">bryceb</a></td>
                       <td class="comments" data-history-node-last-comment-timestamp="0">0</td>
                       <td>3 months ago</td>
                   </tr>
-                      <tr class="even">
+              <tr>
                       <td>Article</td>
                       <td data-history-node-id="8" data-history-node-timestamp="1685570036"><a href="../../article/resonating-sustainability-one-releaf-story-austin-city-limits/8.html" hreflang="en">Resonating Sustainability: One ReLeaf Story at Austin City Limits</a></td>
-                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="" class="username">bryceb</a></td>
+                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="">bryceb</a></td>
                       <td class="comments" data-history-node-last-comment-timestamp="0">0</td>
                       <td>3 months ago</td>
                   </tr>
-                      <tr class="odd">
+              <tr>
                       <td>Article</td>
                       <td data-history-node-id="5" data-history-node-timestamp="1685563056"><a href="../../article/livable-affordable-cities-vienna-vs-austin/5.html" hreflang="en">Livable, Affordable Cities: Vienna vs. Austin</a></td>
-                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="" class="username">bryceb</a></td>
+                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="">bryceb</a></td>
                       <td class="comments" data-history-node-last-comment-timestamp="0">0</td>
                       <td>3 months ago</td>
                   </tr>
-                      <tr class="even">
+              <tr>
                       <td>Article</td>
                       <td data-history-node-id="4" data-history-node-timestamp="1685562706"><a href="../../article/lessons-releaf-can-learn-mondragon-cooperative-model/4.html" hreflang="en">Lessons ReLeaf Can Learn from the Mondragon Cooperative Model</a></td>
-                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="" class="username">bryceb</a></td>
+                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="">bryceb</a></td>
                       <td class="comments" data-history-node-last-comment-timestamp="0">0</td>
                       <td>3 months ago</td>
                   </tr>
-                      <tr class="odd">
+              <tr>
                       <td>Article</td>
                       <td data-history-node-id="2" data-history-node-timestamp="1685554943"><a href="../../article/who-owns-green-future-merging-laniers-data-dignity-releafs-eco-innovation/2.html" hreflang="en">Who Owns the Green Future? Merging Lanier&#039;s Data Dignity with ReLeaf&#039;s Eco-Innovation</a></td>
-                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="" class="username">bryceb</a></td>
+                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="">bryceb</a></td>
                       <td class="comments" data-history-node-last-comment-timestamp="1685541113">0</td>
                       <td>3 months ago</td>
                   </tr>
-                      <tr class="even">
+              <tr>
                       <td>Article</td>
                       <td data-history-node-id="3" data-history-node-timestamp="1685554588"><a href="../../article/libraries-vertical-gardens-evolution-shared-resources-and-role-releaf/3.html" hreflang="en">From Libraries to Vertical Gardens: The Evolution of Shared Resources and the Role of ReLeaf</a></td>
-                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="" class="username">bryceb</a></td>
+                      <td><a title="View user profile." href="../1.html" lang="" about="/user/1" typeof="schema:Person" property="schema:name" datatype="">bryceb</a></td>
                       <td class="comments" data-history-node-last-comment-timestamp="1685546490">0</td>
                       <td>3 months ago</td>
                   </tr>
@@ -339,82 +332,106 @@
   <nav class="pager" role="navigation" aria-labelledby="pagination-heading">
     <h4 id="pagination-heading" class="visually-hidden">Pagination</h4>
     <ul class="pager__items js-pager__items">
-                    <li class="pager__item pager__item--action pager__item--first"><a href="activity02e4.html?page=0" class="pager__link pager__link--action-link" title="Go to first page"><span class="visually-hidden">First page</span><span class="pager__item-title pager__item-title--backwards" aria-hidden="true">
-              First
-            </span></a></li>      
-                    <li class="pager__item pager__item--action pager__item--previous"><a href="activity1448.html?page=10" class="pager__link pager__link--action-link" title="Go to previous page" rel="prev"><span class="visually-hidden">Previous page</span><span class="pager__item-title pager__item-title--backwards" aria-hidden="true">
-              Previous
-            </span></a></li>      
-                    <li class="pager__item pager__item--ellipsis" role="presentation">&hellip;</li>
-      
-                    <li class="pager__item pager__item--number"><a href="activity9ba9.html?page=3" class="pager__link" title="Go to page 4"><span class="visually-hidden">
+                    <li class="pager__item pager__item--first">
+          <a href="activity02e4.html?page=0" title="Go to first page">
+            <span class="visually-hidden">First page</span>
+            <span aria-hidden="true">« First</span>
+          </a>
+        </li>
+                          <li class="pager__item pager__item--previous">
+          <a href="activity1448.html?page=10" title="Go to previous page" rel="prev">
+            <span class="visually-hidden">Previous page</span>
+            <span aria-hidden="true">‹ Previous</span>
+          </a>
+        </li>
+                          <li class="pager__item pager__item--ellipsis" role="presentation">&hellip;</li>
+                          <li class="pager__item">
+                                          <a href="activity9ba9.html?page=3" title="Go to page 4">
+            <span class="visually-hidden">
               Page
-            </span>
-            4
-          </a></li>              <li class="pager__item pager__item--number"><a href="activityfdb0.html?page=4" class="pager__link" title="Go to page 5"><span class="visually-hidden">
+            </span>4</a>
+        </li>
+              <li class="pager__item">
+                                          <a href="activityfdb0.html?page=4" title="Go to page 5">
+            <span class="visually-hidden">
               Page
-            </span>
-            5
-          </a></li>              <li class="pager__item pager__item--number"><a href="activityaf4d.html?page=5" class="pager__link" title="Go to page 6"><span class="visually-hidden">
+            </span>5</a>
+        </li>
+              <li class="pager__item">
+                                          <a href="activityaf4d.html?page=5" title="Go to page 6">
+            <span class="visually-hidden">
               Page
-            </span>
-            6
-          </a></li>              <li class="pager__item pager__item--number"><a href="activityc575.html?page=6" class="pager__link" title="Go to page 7"><span class="visually-hidden">
+            </span>6</a>
+        </li>
+              <li class="pager__item">
+                                          <a href="activityc575.html?page=6" title="Go to page 7">
+            <span class="visually-hidden">
               Page
-            </span>
-            7
-          </a></li>              <li class="pager__item pager__item--number"><a href="activity235c.html?page=7" class="pager__link" title="Go to page 8"><span class="visually-hidden">
+            </span>7</a>
+        </li>
+              <li class="pager__item">
+                                          <a href="activity235c.html?page=7" title="Go to page 8">
+            <span class="visually-hidden">
               Page
-            </span>
-            8
-          </a></li>              <li class="pager__item pager__item--number"><a href="activityfdfa.html?page=8" class="pager__link" title="Go to page 9"><span class="visually-hidden">
+            </span>8</a>
+        </li>
+              <li class="pager__item">
+                                          <a href="activityfdfa.html?page=8" title="Go to page 9">
+            <span class="visually-hidden">
               Page
-            </span>
-            9
-          </a></li>              <li class="pager__item pager__item--number"><a href="activity0b08.html?page=9" class="pager__link" title="Go to page 10"><span class="visually-hidden">
+            </span>9</a>
+        </li>
+              <li class="pager__item">
+                                          <a href="activity0b08.html?page=9" title="Go to page 10">
+            <span class="visually-hidden">
               Page
-            </span>
-            10
-          </a></li>              <li class="pager__item pager__item--number"><a href="activity1448.html?page=10" class="pager__link" title="Go to page 11"><span class="visually-hidden">
+            </span>10</a>
+        </li>
+              <li class="pager__item">
+                                          <a href="activity1448.html?page=10" title="Go to page 11">
+            <span class="visually-hidden">
               Page
-            </span>
-            11
-          </a></li>              <li class="pager__item pager__item--active pager__item--number"><a href="activity1c8b.html?page=11" class="pager__link is-active" title="Current page"><span class="visually-hidden">
+            </span>11</a>
+        </li>
+              <li class="pager__item is-active">
+                                          <a href="activity1c8b.html?page=11" title="Current page" aria-current="Current page">
+            <span class="visually-hidden">
               Current page
-            </span>
-            12
-          </a></li>      
-            
-            
-                </ul>
+            </span>12</a>
+        </li>
+                                              </ul>
   </nav>
 
   </div>
 
   </div>
 
-    </main>
-
+    </div>
+          <aside class="layout-sidebar-first" role="complementary">
+          <div>
+    
   </div>
 
+      </aside>
+    
+    
+  </main>
+
+  
+</div>
   </div>
 
     
     <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"","currentPath":"user\/1\/activity","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en","currentQuery":{"page":"11"}},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"user":{"uid":0,"permissionsHash":"1c4254b9ddf54d4db5728edb932228a456ae0fd3ff8225c717fb4f01339e89e7"}}</script>
-<script src="https://releaf.site/core/assets/vendor/jquery/jquery.min.js?v=3.6.3"></script>
+<script src="https://releaf.site/core/assets/vendor/jquery/jquery.min.js?v=3.7.0"></script>
 <script src="https://releaf.site/core/assets/vendor/once/once.min.js?v=1.0.1"></script>
-<script src="https://releaf.site/core/misc/drupalSettingsLoader.js?v=10.0.9"></script>
-<script src="https://releaf.site/core/misc/drupal.js?v=10.0.9"></script>
-<script src="https://releaf.site/core/misc/drupal.init.js?v=10.0.9"></script>
-<script src="../../sites/default/files/asset_injector/js/nodes-1e4a563b7ddfd826d9a8de610ab4467590d0.js?s0f1r5"></script>
-<script src="../../sites/default/files/asset_injector/js/qr-7543b3560f7e140d6712b81e37f6716990d0.js?s0f1r5"></script>
-<script src="../../sites/default/files/asset_injector/js/qr0-4abd4074112590f0fb4e480db42f572890d0.js?s0f1r5"></script>
-<script src="https://releaf.site/core/misc/debounce.js?v=10.0.9"></script>
-<script src="https://releaf.site/core/misc/announce.js?v=10.0.9"></script>
-<script src="https://releaf.site/core/misc/message.js?v=10.0.9"></script>
-<script src="https://releaf.site/core/themes/claro/js/messages.js?s0f1r5"></script>
-<script src="https://releaf.site/core/misc/tableresponsive.js?v=10.0.9"></script>
-<script src="https://releaf.site/core/themes/claro/js/nav-tabs.js?v=10.0.9"></script>
+<script src="https://releaf.site/core/misc/drupalSettingsLoader.js?v=10.1.2"></script>
+<script src="https://releaf.site/core/misc/drupal.js?v=10.1.2"></script>
+<script src="https://releaf.site/core/misc/drupal.init.js?v=10.1.2"></script>
+<script src="../../sites/default/files/asset_injector/js/nodes-1e4a563b7ddfd826d9a8de610ab44675ed34.js?s0h01g"></script>
+<script src="../../sites/default/files/asset_injector/js/qr-7543b3560f7e140d6712b81e37f67169ed34.js?s0h01g"></script>
+<script src="../../sites/default/files/asset_injector/js/qr0-4abd4074112590f0fb4e480db42f5728ed34.js?s0h01g"></script>
+<script src="https://releaf.site/core/misc/tableresponsive.js?v=10.1.2"></script>
 
   </body>
 

@@ -1,1 +1,2 @@
-httrack "https://releaf.site" -O "/Users/bryce/releaf.static" "+*.releaf.site/*.html" "-*.png" "-*.jpg" "-*.jpeg" "-*.gif" "--update" >> /Users/bryce/releaf-mirror-logfile.log 2>&1
+httrack "https://releaf.site" -O "/Users/bryce/releaf.static" "+*.releaf.site/*.html" "--update" -v 2>> /Users/bryce/releaf-mirror-error-logfile.log | tee -a /Users/bryce/releaf-mirror-logfile.log
+

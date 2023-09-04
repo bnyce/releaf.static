@@ -7,137 +7,121 @@
 <meta name="MobileOptimized" content="width" />
 <meta name="HandheldFriendly" content="true" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="icon" href="https://releaf.site/sites/default/files/releaf_0.png" type="image/png" />
+<script type="text/javascript" data-toolbar-anti-flicker-loading>(function() {
+  const toolbarState = sessionStorage.getItem('Drupal.toolbar.toolbarState')
+    ? JSON.parse(sessionStorage.getItem('Drupal.toolbar.toolbarState'))
+    : false;
+  // These are classes that toolbar typically adds to <body>, but this code
+  // executes before the first paint, when <body> is not yet present. The
+  // classes are added to <html> so styling immediately reflects the current
+  // toolbar state. The classes are removed after the toolbar completes
+  // initialization.
+  const classesToAdd = ['toolbar-loading', 'toolbar-anti-flicker'];
+  if (toolbarState) {
+    const {
+      orientation,
+      hasActiveTab,
+      isFixed,
+      activeTray,
+      activeTabId,
+      isOriented,
+      userButtonMinWidth
+    } = toolbarState;
+
+    classesToAdd.push(
+      orientation ? `toolbar-` + orientation + `` : 'toolbar-horizontal',
+    );
+    if (hasActiveTab !== false) {
+      classesToAdd.push('toolbar-tray-open');
+    }
+    if (isFixed) {
+      classesToAdd.push('toolbar-fixed');
+    }
+    if (isOriented) {
+      classesToAdd.push('toolbar-oriented');
+    }
+
+    if (activeTray) {
+      // These styles are added so the active tab/tray styles are present
+      // immediately instead of "flickering" on as the toolbar initializes. In
+      // instances where a tray is lazy loaded, these styles facilitate the
+      // lazy loaded tray appearing gracefully and without reflow.
+      const styleContent = `
+      .toolbar-loading #` + activeTabId + ` {
+        background-image: linear-gradient(rgba(255, 255, 255, 0.25) 20%, transparent 200%);
+      }
+      .toolbar-loading #` + activeTabId + `-tray {
+        display: block; box-shadow: -1px 0 5px 2px rgb(0 0 0 / 33%);
+        border-right: 1px solid #aaa; background-color: #f5f5f5;
+        z-index: 0;
+      }
+      .toolbar-loading.toolbar-vertical.toolbar-tray-open #` + activeTabId + `-tray {
+        width: 15rem; height: 100vh;
+      }
+     .toolbar-loading.toolbar-horizontal :not(#` + activeTray + `) > .toolbar-lining {opacity: 0}`;
+
+      const style = document.createElement('style');
+      style.textContent = styleContent;
+      style.setAttribute('data-toolbar-anti-flicker-loading', true);
+      document.querySelector('head').appendChild(style);
+
+      if (userButtonMinWidth) {
+        const userButtonStyle = document.createElement('style');
+        userButtonStyle.textContent = `#toolbar-item-user {min-width: ` + userButtonMinWidth +`px;}`
+        document.querySelector('head').appendChild(userButtonStyle);
+      }
+    }
+  }
+  document.querySelector('html').classList.add(...classesToAdd);
+})();</script>
 <link rel="canonical" href="28.html" />
 <link rel="shortlink" href="28.html" />
 
     <title>Adaptive Reuse | ReLeaf</title>
-    <link rel="stylesheet" media="all" href="https://releaf.site/core/assets/vendor/normalize-css/normalize.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/align.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/fieldgroup.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/container-inline.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/clearfix.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/details.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/hidden.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/item-list.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/js.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/nowrap.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/position-container.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/progress.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/reset-appearance.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/resize.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/sticky-header.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tablesort.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tree-child.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/ajax-progress.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/autocomplete-loading.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/tabledrag.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/views/css/views.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/layout_builder/layouts/twocol_section/twocol_section.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/base/variables.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/base/elements.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/base/typography.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/base/print.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/layout/system-admin--layout.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/layout/breadcrumb.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/layout/local-actions.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/layout/layout.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/system-admin--admin-list.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/system-admin--links.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/system-admin--modules.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/system-admin--panel.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/system-admin--status-report.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/layout/card-list.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/card.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/container-inline.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/exposed-filters.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/field.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/icons.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/inline-form.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/item-list.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/link.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/links.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/menu.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/more-link.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/tablesort.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/textarea.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/classy/components/ui-dialog.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/accordion.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/action-link.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/content-header.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/container-inline.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/container-inline.module.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/breadcrumb.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/button.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/details.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/divider.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/messages.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/entity-meta.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/fieldset.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/form.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/form--checkbox-radio.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/form--field-multiple.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/form--managed-file.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/form--text.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/form--select.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/help.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/image-preview.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/menus-and-lists.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/modules-page.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/node.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/page-title.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/pager.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/skip-link.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/tables.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/table--file-multiple-widget.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/search-admin-settings.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/tablesort-indicator.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/system-status-report-general-info.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/system-status-report.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/system-status-counter.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/system-status-report-counters.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/tableselect.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/tabs.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/views-ui.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/components/views-exposed-form.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/themes/claro/css/theme/colors.css?s0f1r5" />
-<link rel="stylesheet" media="all" href="../sites/default/files/asset_injector/css/canvas-0027ba0ae981babcac7f373ddd0037b790d0.css?s0f1r5" />
+    <link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/ajax-progress.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/align.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/autocomplete-loading.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/fieldgroup.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/container-inline.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/clearfix.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/details.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/hidden.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/item-list.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/js.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/nowrap.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/position-container.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/progress.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/reset-appearance.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/resize.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/sticky-header.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-counter.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-report-counters.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-report-general-info.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tabledrag.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tablesort.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tree-child.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/views/css/views.module.css?s0h01g" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/layout_builder/layouts/twocol_section/twocol_section.css?s0h01g" />
+<link rel="stylesheet" media="all" href="../themes/custom/stark_child/css/stylesed34.css?s0h01g" />
 
-    <script src="https://releaf.site/core/misc/touchevents-test.js?v=10.0.9"></script>
-
+    
   </head>
-  <body class="path-taxonomy">
-        <a href="#main-content" class="visually-hidden focusable skip-link">
+  <body>
+        <a href="#main-content" class="visually-hidden focusable">
       Skip to main content
     </a>
     
-      <div class="page-wrapper dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
-      <header class="content-header clearfix">
+      <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
     <div class="layout-container">
-      <div class="region region-breadcrumb">
-  <div id="block-claro-breadcrumbs" class="settings-tray-editable block block-system block-system-breadcrumb-block" data-drupal-settingstray="editable">
-  
-    
-        <nav class="breadcrumb" role="navigation" aria-labelledby="system-breadcrumb">
-    <h2 id="system-breadcrumb" class="visually-hidden">Breadcrumb</h2>
-    <ol class="breadcrumb__list">
-          <li class="breadcrumb__item">
-                  <a href="../index.html" class="breadcrumb__link">Home</a>
-              </li>
-        </ol>
-  </nav>
 
-  </div>
-
-</div>
-
-        <div class="region region-header">
-    <div id="block-claro-page-title" class="block block-core block-page-title-block">
+  <header role="banner">
+      <div>
+    <div id="block-stark-child-page-title">
   
     
       
-  <h1 class="page-title">
-            <div class="field field--name-name field--type-string field--label-hidden field__item">Adaptive Reuse</div>
+  <h1>
+            <div>Adaptive Reuse</div>
       </h1>
 
 
@@ -145,71 +129,107 @@
 
   </div>
 
-    </div>
   </header>
 
-  <div class="layout-container">
+  
+  
+
+    <div>
+    <div id="block-stark-child-breadcrumbs" class="settings-tray-editable" data-drupal-settingstray="editable">
+  
     
-    <main class="page-content clearfix" role="main">
-      <div class="visually-hidden"><a id="main-content" tabindex="-1"></a></div>
-        <div class="region region-highlighted">
-    <div data-drupal-messages-fallback class="hidden messages-list"></div>
+        <nav role="navigation" aria-labelledby="system-breadcrumb">
+    <h2 id="system-breadcrumb" class="visually-hidden">Breadcrumb</h2>
+    <ol>
+          <li>
+                  <a href="../index.html">Home</a>
+              </li>
+        </ol>
+  </nav>
 
   </div>
 
-              <div class="help">
-          
-        </div>
-              <div class="region region-content">
-    <div id="block-claro-content" class="block block-system block-system-main-block">
+  </div>
+
+
+    <div>
+    <div data-drupal-messages-fallback class="hidden"></div>
+
+  </div>
+
+
+  
+
+  <main role="main">
+    <a id="main-content" tabindex="-1"></a>
+    <div class="layout-content">
+        <div>
+    <div id="block-stark-child-content">
   
     
-      <div about="/adaptive-reuse/28" id="taxonomy-term-28" class="taxonomy-term vocabulary-w-a-s-t-e-words">
+      <div about="/adaptive-reuse/28">
   
     
-  <div class="content">
-      <div class="layout layout--twocol-section layout--twocol-section--50-50">
+    <div class="layout layout--twocol-section layout--twocol-section--50-50">
 
           <div  class="layout__region layout__region--first">
-        <div class="views-element-container block block-views block-views-blockmap-block-1">
+        <div class="views-element-container">
   
     
-      <div><div class="map view view-map view-id-map view-display-id-block_1 js-view-dom-id-978694f39155bbbde288727387d552a867c485c61829322090ca8957fcad4c53">
+      <div><div class="map js-view-dom-id-54ec598d84864bd6556864854285ccc8643a72da7a59a5b5c07d730f6601ef9f">
   
-    
-      
-      <div class="view-content">
-          <div><div class="views-field views-field-field-geo"><div class="field-content"></div></div></div>
+  
+  
 
-    </div>
   
-          </div>
+  
+  
+
+      <div></div>
+
+    
+
+  
+  
+
+  
+  
+</div>
 </div>
 
   </div>
-<div class="views-element-container block block-views block-views-blockneeds-img-block-1">
+<div class="views-element-container">
   
     
-      <div><div class="view view-needs-img view-id-needs_img view-display-id-block_1 js-view-dom-id-e794e868db54014fa95b553a28243d52e272019b239b045362c84d579e15c5fa">
+      <div><div class="js-view-dom-id-3d4ebc6d436ba03433bdc3f85a9b331724970ad78ed8ecf63b2798340e01a32d">
   
-    
-      
-      <div class="view-content">
-      <table class="views-table views-view-table cols-0">
+  
+  
+
+  
+  
+  
+
+  <table class="cols-0">
       <tbody>
           <tr>
-                                                                                        <td class="views-field views-field-field-image">  <img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7648_0.jpeg" width="3024" height="4032" alt="" typeof="Image" />
+                            <td>  <img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_0026.jpeg" width="3024" height="4032" alt="VertiFlow" typeof="Image" />
 
-   <img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_7648_0.jpeg" width="3024" height="4032" alt="" typeof="Image" />
+   <img loading="lazy" src="https://releaf.site/sites/default/files/img/IMG_0026.jpeg" width="3024" height="4032" alt="VertiFlow" typeof="Image" />
 
           </td>
               </tr>
       </tbody>
 </table>
 
-    </div>
+    
+
   
-          </div>
+  
+
+  
+  
+</div>
 </div>
 
   </div>
@@ -217,52 +237,61 @@
       </div>
     
           <div  class="layout__region layout__region--second">
-        <div class="block block-layout-builder block-field-blocktaxonomy-termw-a-s-t-e-wordsdescription">
+        <div>
   
     
       
-            <div class="clearfix text-formatted field field--name-description field--type-text-long field--label-hidden field__item"><p>Adaptive Reuse is our platform for exploring and promoting the transformative potential of objects otherwise destined for the landfill. This is where SolarPunk principles and practical guidance come together, driving innovation in waste management and fostering a new culture of creativity and sustainability.</p><p>In this section, you'll find practical guides like "DIY Guide: Upcycling Aluminum Cans into Modular Planters" and "7 Creative Ways to Repurpose Household Waste for Planters," designed to inspire and guide you through the process of breathing new life into discarded materials.</p><p>SolarPunk narratives such as "SolarPunk: Inspiring a Sustainable Future through Initiatives like ReLeaf and Life Story" and "ReLeaf and the Green Revolution in Waste Management" highlight imaginative stories of communities revolutionizing waste management and repurposing discarded objects in an urban future.</p><p>Articles such as "Empowering and Upskilling: A Heartfelt Approach to Addressing Homelessness in Austin" and "Water Towers and the Circular Economy" offer insight into real-world initiatives and visionary ideas that embody the adaptive reuse concept.</p><p>Adaptive Reuse champions the spirit of transformation. It’s about seeing not just waste, but the inherent value and potential in every object. Join us on this journey as we strive to redefine the future of waste.</p></div>
+            <div><p>Adaptive Reuse is our platform for exploring and promoting the transformative potential of objects otherwise destined for the landfill. This is where SolarPunk principles and practical guidance come together, driving innovation in waste management and fostering a new culture of creativity and sustainability.</p><p>In this section, you'll find practical guides like "DIY Guide: Upcycling Aluminum Cans into Modular Planters" and "7 Creative Ways to Repurpose Household Waste for Planters," designed to inspire and guide you through the process of breathing new life into discarded materials.</p><p>SolarPunk narratives such as "SolarPunk: Inspiring a Sustainable Future through Initiatives like ReLeaf and Life Story" and "ReLeaf and the Green Revolution in Waste Management" highlight imaginative stories of communities revolutionizing waste management and repurposing discarded objects in an urban future.</p><p>Articles such as "Empowering and Upskilling: A Heartfelt Approach to Addressing Homelessness in Austin" and "Water Towers and the Circular Economy" offer insight into real-world initiatives and visionary ideas that embody the adaptive reuse concept.</p><p>Adaptive Reuse champions the spirit of transformation. It’s about seeing not just waste, but the inherent value and potential in every object. Join us on this journey as we strive to redefine the future of waste.</p></div>
       
   </div>
-<div class="views-element-container block block-views block-views-blocktaxonomy-term-block-1">
+<div class="views-element-container">
   
     
-      <div><div class="qr view view-taxonomy-term view-id-taxonomy_term view-display-id-block_1 js-view-dom-id-e121990e4d8e056d72cbfee6fcf0526cdefe5ed4346e1667c3a5e1605955a982">
+      <div><div class="qr js-view-dom-id-4208dbb64390baecc28b3d3452e1f66b3068b4e81953f004aaaf3a6259013b20">
   
-    
-      
-      <div class="view-content">
-          <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../how-to/building-your-own-vertiflow-vertical-garden-using-residential-waste/267.html" hreflang="en">Building Your Own VertiFlow Vertical Garden Using Residential Waste</a> How To by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code267 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/releaf-and-fashion-waste-conundrum-scalable-solution/208.html" hreflang="en">ReLeaf and the Fashion Waste Conundrum: A Scalable Solution</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code208 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../how-to/diy-guide-upcycling-aluminum-cans-modular-planters/204.html" hreflang="en">DIY Guide: Upcycling Aluminum Cans into Modular Planters</a> How To by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code204 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../how-to/7-creative-ways-repurpose-household-waste-planters/202.html" hreflang="en">7 Creative Ways to Repurpose Household Waste for Planters</a> How To by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code202 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/solarpunk-inspiring-sustainable-future-through-initiatives-releaf-and-life-story/132.html" hreflang="en">SolarPunk: Inspiring a Sustainable Future through Initiatives like ReLeaf and Life Story</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code132 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/releaf-and-green-revolution-waste-management/106.html" hreflang="en">ReLeaf and the Green Revolution in Waste Management</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code106 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/empowering-and-upskilling-heartfelt-approach-addressing-homelessness-austin/89.html" hreflang="en">Empowering and Upskilling: A Heartfelt Approach to Addressing Homelessness in Austin</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code89 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/paving-solarpunk-path-e-waste-reuse/85.html" hreflang="en">Paving the SolarPunk Path of E-Waste Reuse</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code85 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../how-to/essential-components-wicking-irrigation-system/77.html" hreflang="en">Essential Components of a Wicking Irrigation System</a> How To by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code77 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../how-to/how-upcycle-scrap-wood-french-cleat/74.html" hreflang="en">How to Upcycle Scrap Wood into a French Cleat</a> How To by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code74 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/vertical-garden-essentials/60.html" hreflang="en">Vertical Garden Essentials</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code60 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/water-towers-and-circular-economy/44.html" hreflang="en">Water Towers and the Circular Economy</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code44 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/blurring-reality-and-fantasy-intersection-gaming-literature-and-income-streams/39.html" hreflang="en">Blurring Reality and Fantasy: The Intersection of Gaming, Literature, and Income Streams</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code39 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/open-letter/37.html" hreflang="en">Open Letter</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code37 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/2023-austin-circular-economy-showcase/36.html" hreflang="en">2023 Austin Circular Economy Showcase</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code36 "></div></span></div></div>
-    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/windows-wonders-transforming-post-war-colossals-vertical-gardens/32.html" hreflang="en">From Windows to Wonders: Transforming Post-War Colossals with Vertical Gardens</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="" class="username">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code32 "></div></span></div></div>
+  
+  
 
-    </div>
   
-          </div>
+  
+  
+
+      <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../how-to/building-your-own-vertiflow-vertical-garden-using-residential-waste/267.html" hreflang="en">Building Your Own VertiFlow Vertical Garden Using Residential Waste</a> How To by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code267 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/releaf-and-fashion-waste-conundrum-scalable-solution/208.html" hreflang="en">ReLeaf and the Fashion Waste Conundrum: A Scalable Solution</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code208 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../how-to/diy-guide-upcycling-aluminum-cans-modular-planters/204.html" hreflang="en">DIY Guide: Upcycling Aluminum Cans into Modular Planters</a> How To by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code204 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../how-to/7-creative-ways-repurpose-household-waste-planters/202.html" hreflang="en">7 Creative Ways to Repurpose Household Waste for Planters</a> How To by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code202 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/solarpunk-inspiring-sustainable-future-through-initiatives-releaf-and-life-story/132.html" hreflang="en">SolarPunk: Inspiring a Sustainable Future through Initiatives like ReLeaf and Life Story</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code132 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/releaf-and-green-revolution-waste-management/106.html" hreflang="en">ReLeaf and the Green Revolution in Waste Management</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code106 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/empowering-and-upskilling-heartfelt-approach-addressing-homelessness-austin/89.html" hreflang="en">Empowering and Upskilling: A Heartfelt Approach to Addressing Homelessness in Austin</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code89 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../solarpunk-fiction/paving-solarpunk-path-e-waste-reuse/85.html" hreflang="en">Paving the SolarPunk Path of E-Waste Reuse</a> SolarPunk Fiction by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code85 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../how-to/essential-components-wicking-irrigation-system/77.html" hreflang="en">Essential Components of a Wicking Irrigation System</a> How To by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code77 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../how-to/how-upcycle-scrap-wood-french-cleat/74.html" hreflang="en">How to Upcycle Scrap Wood into a French Cleat</a> How To by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code74 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/vertical-garden-essentials/60.html" hreflang="en">Vertical Garden Essentials</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code60 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/water-towers-and-circular-economy/44.html" hreflang="en">Water Towers and the Circular Economy</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code44 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/blurring-reality-and-fantasy-intersection-gaming-literature-and-income-streams/39.html" hreflang="en">Blurring Reality and Fantasy: The Intersection of Gaming, Literature, and Income Streams</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code39 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/open-letter/37.html" hreflang="en">Open Letter</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code37 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/2023-austin-circular-economy-showcase/36.html" hreflang="en">2023 Austin Circular Economy Showcase</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code36 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="../article/windows-wonders-transforming-post-war-colossals-vertical-gardens/32.html" hreflang="en">From Windows to Wonders: Transforming Post-War Colossals with Vertical Gardens</a> Article by <a title="View user profile." href="../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code32 "></div></span></div></div>
+
+    
+
+  
+  
+
+  
+  
+</div>
 </div>
 
   </div>
-<div class="block block-layout-builder block-field-blocktaxonomy-termw-a-s-t-e-wordsfield-m-o-i-">
+<div>
   
     
       
-  <div class="field field--name-field-m-o-i- field--type-entity-reference field--label-above">
-    <div class="field__label">M.O.I.</div>
-          <div class="field__items">
-              <div class="field__item"><a href="../user/1.html" hreflang="en">bryceb</a></div>
+  <div>
+    <div>M.O.I.</div>
+          <div>
+              <div><a href="../user/1.html" hreflang="en">bryceb</a></div>
               </div>
       </div>
 
@@ -272,32 +301,29 @@
     
   </div>
 
-  </div>
 </div>
 
   </div>
 
   </div>
 
-    </main>
+    </div>
+          <aside class="layout-sidebar-first" role="complementary">
+        
+      </aside>
+    
+    
+  </main>
 
-  </div>
-
+  
+</div>
   </div>
 
     
-    <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"","currentPath":"taxonomy\/term\/28","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"user":{"uid":0,"permissionsHash":"1c4254b9ddf54d4db5728edb932228a456ae0fd3ff8225c717fb4f01339e89e7"}}</script>
-<script src="https://releaf.site/core/assets/vendor/jquery/jquery.min.js?v=3.6.3"></script>
-<script src="https://releaf.site/core/misc/drupalSettingsLoader.js?v=10.0.9"></script>
-<script src="https://releaf.site/core/misc/drupal.js?v=10.0.9"></script>
-<script src="https://releaf.site/core/misc/drupal.init.js?v=10.0.9"></script>
-<script src="../sites/default/files/asset_injector/js/nodes-1e4a563b7ddfd826d9a8de610ab4467590d0.js?s0f1r5"></script>
-<script src="../sites/default/files/asset_injector/js/qr-7543b3560f7e140d6712b81e37f6716990d0.js?s0f1r5"></script>
-<script src="../sites/default/files/asset_injector/js/qr0-4abd4074112590f0fb4e480db42f572890d0.js?s0f1r5"></script>
-<script src="https://releaf.site/core/misc/debounce.js?v=10.0.9"></script>
-<script src="https://releaf.site/core/misc/announce.js?v=10.0.9"></script>
-<script src="https://releaf.site/core/misc/message.js?v=10.0.9"></script>
-<script src="https://releaf.site/core/themes/claro/js/messages.js?s0f1r5"></script>
+    <script src="https://releaf.site/core/assets/vendor/jquery/jquery.min.js?v=3.7.0"></script>
+<script src="../sites/default/files/asset_injector/js/nodes-1e4a563b7ddfd826d9a8de610ab44675ed34.js?s0h01g"></script>
+<script src="../sites/default/files/asset_injector/js/qr-7543b3560f7e140d6712b81e37f67169ed34.js?s0h01g"></script>
+<script src="../sites/default/files/asset_injector/js/qr0-4abd4074112590f0fb4e480db42f5728ed34.js?s0h01g"></script>
 
   </body>
 
