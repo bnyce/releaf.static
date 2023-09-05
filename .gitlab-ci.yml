@@ -3,7 +3,7 @@ image: alpine:latest
 pages:
   script:
     - mkdir public
-    - cp -r docs/* public/  # Copy the contents of docs into public
+    - cp -r docs/* public/  
   artifacts:
     paths:
     - public
