@@ -1,8 +1,9 @@
 image: alpine:latest
 
+before_script:
+  - ln -s docs public
+
 pages:
-  script:
-  - ln -s docs public  # Create the symbolic link
   artifacts:
     paths:
     - public
