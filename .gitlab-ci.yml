@@ -1,9 +1,8 @@
 image: alpine:latest
 
-before_script:
-  - ln -s docs public
-
 pages:
+  script:
+    - ln -s docs public
   artifacts:
     paths:
     - public
