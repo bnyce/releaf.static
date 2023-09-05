@@ -2,7 +2,7 @@ image: alpine:latest
 
 pages:
   script:
-    - mkdir public  # Create public directory
+    - mkdir public  # Create public directory in alpine
     - cp -r docs/* public/  # Copy the contents of docs into public
   artifacts:
     paths:
