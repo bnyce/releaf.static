@@ -102,8 +102,7 @@
 <link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tree-child.module.css?s0j0hg" />
 <link rel="stylesheet" media="all" href="https://releaf.site/core/modules/views/css/views.module.css?s0j0hg" />
 <link rel="stylesheet" media="all" href="https://releaf.site/core/modules/layout_discovery/layouts/onecol/onecol.css?s0j0hg" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/layout_builder/layouts/twocol_section/twocol_section.css?s0j0hg" />
-<link rel="stylesheet" media="all" href="../../themes/custom/stark_child/css/stylese96d.css?s0j0hg" />
+<link rel="stylesheet" media="all" href="../../themes/custom/stark_child/css/stylese96d.html?s0j0hg" />
 
     
   </head>
@@ -172,13 +171,12 @@
 
   
   <div>
-      <div class="layout layout--twocol-section layout--twocol-section--50-50">
-
-          <div  class="layout__region layout__region--first">
-        <div class="views-element-container">
+      <div class="layout layout--onecol">
+    <div  class="layout__region layout__region--content">
+      <div class="views-element-container">
   
     
-      <div><div class="js-view-dom-id-fc0054fbf144e22dcb2ff5878bde2a9d2b2206c31c13f54ee8e6500f44b6e087">
+      <div><div class="js-view-dom-id-7b020b9c83cedf29fbca69aec76c19d1137aea259636ab07a14fd7852aec6e63">
   
   
   
@@ -187,7 +185,7 @@
   
   
 
-      <div class="views-row"><div class="views-field views-field-field-image"><div class="field-content"></div></div><div class="views-field views-field-type"><span class="field-content">How To</span></div><div><span>by <a title="View user profile." href="../../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-body"><div class="field-content"><p>Batman-adv (Better Approach To Mobile Adhoc Networking - advanced) is a protocol used to create ad hoc mesh networks among multiple points. It's often used in situations where you need to establish a network in a challenging environment, like in remote areas.</p><p>To use batman-adv to send updates of `releaf.site's` archive to remote access points, you'd need to follow these general steps:</p><p>1. **Set up Batman-adv**: Install batman-adv on all the devices you intend to use in your mesh network. This could involve downloading the batman-adv kernel module or patching your Linux kernel with batman-adv. The installation method can vary depending on the Linux distribution.</p><p>2. **Configure Network Interfaces**: Assign network interfaces that will be used by batman-adv. Use the `batctl` command to do this.</p><p>   ```<br />   sudo batctl if add wlan0<br />   sudo ifconfig bat0 up<br />   ```</p><p>3. **Establish the Mesh Network**: Once batman-adv is set up, it will automatically create a mesh network between all devices where it's enabled.</p><p>4. **Deploy Archive Updates**: Once your mesh network is established, you can start deploying updates of the `releaf.site` archive to the remote access points. This can be done using rsync, scp or any file transfer protocol. For example, using rsync:</p><p>   ```<br />   rsync -avz /path/to/releaf.site/archive user@remote:/path/to/destination<br />   ```</p><p>Remember that every mesh node would need a way to access the archive (like an HTTP server), or the archive must be replicated to each node. The specifics can vary based on the details of your infrastructure and use case.</p><p>Also, note that the performance of the network will depend on the environment and the configuration of the devices. Be prepared to troubleshoot connectivity issues and experiment with different configurations to optimize performance.</p><p>For the most accurate information, you should refer to the official batman-adv documentation and resources related to your specific Linux distribution.</p><p> </p><p>To install batman-adv on Ubuntu, you would need to install the batctl package which provides the B.A.T.M.A.N. advanced control utility. The batman-adv kernel module is typically included in the default Linux kernel shipped with modern Ubuntu versions.</p><p>Here are the steps you need to follow:</p><p>1. **Update your package list**:</p><p>```bash<br />sudo apt-get update<br />```</p><p>2. **Install the batctl package**:</p><p>```bash<br />sudo apt-get install batctl<br />```</p><p>3. **Check if the batman-adv module is loaded**:</p><p>```bash<br />lsmod | grep batman<br />```</p><p>If `batman_adv` is listed in the output, then the module is already loaded. If not, proceed to the next step.</p><p>4. **Load the batman-adv module**:</p><p>```bash<br />sudo modprobe batman-adv<br />```</p><p>You can check again using `lsmod | grep batman` to make sure the module is now loaded.</p><p>5. **To ensure batman-adv starts on boot**, add `batman-adv` to `/etc/modules`.</p><p>You can do this using the following command:</p><p>```bash<br />echo 'batman-adv' | sudo tee -a /etc/modules<br />```</p><p>Remember that configuring batman-adv involves more than just installing it - you also need to configure network interfaces, establish the mesh network, and so on. Always refer to the latest batman-adv documentation for the most accurate and detailed information.<br /> </p></div></div><div class="views-field views-field-field-w-a-s-t-e-words"><span class="views-label views-label-field-w-a-s-t-e-words">W.A.S.T.E.: Words Assisting Sustainable Transformation &amp; Ecology </span><div class="field-content"><ul><li><a href="../../upcycling/140.html" hreflang="en">Upcycling</a>
+      <div class="views-row"><div class="views-field views-field-type"><span class="field-content">How To</span></div><div><span>by <a title="View user profile." href="../../user/1.html" lang="" about="/user/1" typeof="Person" property="schema:name" datatype="">bryceb</a></span></div><div class="views-field views-field-body"><div class="field-content"><p>Batman-adv (Better Approach To Mobile Adhoc Networking - advanced) is a protocol used to create ad hoc mesh networks among multiple points. It's often used in situations where you need to establish a network in a challenging environment, like in remote areas.</p><p>To use batman-adv to send updates of `releaf.site's` archive to remote access points, you'd need to follow these general steps:</p><p>1. **Set up Batman-adv**: Install batman-adv on all the devices you intend to use in your mesh network. This could involve downloading the batman-adv kernel module or patching your Linux kernel with batman-adv. The installation method can vary depending on the Linux distribution.</p><p>2. **Configure Network Interfaces**: Assign network interfaces that will be used by batman-adv. Use the `batctl` command to do this.</p><p>   ```<br />   sudo batctl if add wlan0<br />   sudo ifconfig bat0 up<br />   ```</p><p>3. **Establish the Mesh Network**: Once batman-adv is set up, it will automatically create a mesh network between all devices where it's enabled.</p><p>4. **Deploy Archive Updates**: Once your mesh network is established, you can start deploying updates of the `releaf.site` archive to the remote access points. This can be done using rsync, scp or any file transfer protocol. For example, using rsync:</p><p>   ```<br />   rsync -avz /path/to/releaf.site/archive user@remote:/path/to/destination<br />   ```</p><p>Remember that every mesh node would need a way to access the archive (like an HTTP server), or the archive must be replicated to each node. The specifics can vary based on the details of your infrastructure and use case.</p><p>Also, note that the performance of the network will depend on the environment and the configuration of the devices. Be prepared to troubleshoot connectivity issues and experiment with different configurations to optimize performance.</p><p>For the most accurate information, you should refer to the official batman-adv documentation and resources related to your specific Linux distribution.</p><p> </p><p>To install batman-adv on Ubuntu, you would need to install the batctl package which provides the B.A.T.M.A.N. advanced control utility. The batman-adv kernel module is typically included in the default Linux kernel shipped with modern Ubuntu versions.</p><p>Here are the steps you need to follow:</p><p>1. **Update your package list**:</p><p>```bash<br />sudo apt-get update<br />```</p><p>2. **Install the batctl package**:</p><p>```bash<br />sudo apt-get install batctl<br />```</p><p>3. **Check if the batman-adv module is loaded**:</p><p>```bash<br />lsmod | grep batman<br />```</p><p>If `batman_adv` is listed in the output, then the module is already loaded. If not, proceed to the next step.</p><p>4. **Load the batman-adv module**:</p><p>```bash<br />sudo modprobe batman-adv<br />```</p><p>You can check again using `lsmod | grep batman` to make sure the module is now loaded.</p><p>5. **To ensure batman-adv starts on boot**, add `batman-adv` to `/etc/modules`.</p><p>You can do this using the following command:</p><p>```bash<br />echo 'batman-adv' | sudo tee -a /etc/modules<br />```</p><p>Remember that configuring batman-adv involves more than just installing it - you also need to configure network interfaces, establish the mesh network, and so on. Always refer to the latest batman-adv documentation for the most accurate and detailed information.<br /> </p></div></div><div class="views-field views-field-field-w-a-s-t-e-words"><span class="views-label views-label-field-w-a-s-t-e-words">W.A.S.T.E.: Words Assisting Sustainable Transformation &amp; Ecology </span><div class="field-content"><ul><li><a href="../../upcycling/140.html" hreflang="en">Upcycling</a>
 <div id="waste140"></div></li><li><a href="../../permacomputing/174.html" hreflang="en">Permacomputing</a>
 <div id="waste174"></div></li></ul></div></div><div class="views-field views-field-variations-target-id"><span class="field-content"></span></div><div class="views-field views-field-field-gallery2"><div class="field-content"></div></div></div>
 
@@ -203,47 +201,7 @@
 
   </div>
 
-      </div>
-    
-          <div  class="layout__region layout__region--second">
-        <div class="views-element-container">
-  
-    
-      <div><div class="js-view-dom-id-605885b9e0fe99fab7bbf598a1301d7a8e0abe09b7c5e043c1a2d545cfe3223b">
-  
-  
-  
-
-  
-  
-  
-
-  <table class="cols-0">
-      <tbody>
-          <tr>
-                            <td>  <img loading="lazy" src="../../sites/default/files/img/DALL%c2%b7E%202023-06-13%2007.09.30%20-%20SolarPunk%20style%20Biomimicry%20%26%20Fractals_%20Magic%20for%20Plants.%20people%20of%20all%20ages%20walk%20near%20verdant%20towers.png" width="1024" height="1024" alt="verdant towers" typeof="Image" />
-
-   <img loading="lazy" src="../../sites/default/files/img/DALL%c2%b7E%202023-06-13%2007.09.30%20-%20SolarPunk%20style%20Biomimicry%20%26%20Fractals_%20Magic%20for%20Plants.%20people%20of%20all%20ages%20walk%20near%20verdant%20towers.png" width="1024" height="1024" alt="verdant towers" typeof="Image" />
-
-          </td>
-              </tr>
-      </tbody>
-</table>
-
-    
-
-  
-  
-
-  
-  
-</div>
-</div>
-
-  </div>
-
-      </div>
-    
+    </div>
   </div>
   <div class="layout layout--onecol">
     <div >
