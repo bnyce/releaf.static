@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="content: http://purl.org/rss/1.0/modules/content/  dc: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  og: http://ogp.me/ns#  rdfs: http://www.w3.org/2000/01/rdf-schema#  schema: http://schema.org/  sioc: http://rdfs.org/sioc/ns#  sioct: http://rdfs.org/sioc/types#  skos: http://www.w3.org/2004/02/skos/core#  xsd: http://www.w3.org/2001/XMLSchema# ">
+  
+<head>
+    <meta charset="utf-8" />
+<meta name="Generator" content="Drupal 10 (https://www.drupal.org); Commerce 2" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script type="text/javascript" data-toolbar-anti-flicker-loading>(function() {
+  const toolbarState = sessionStorage.getItem('Drupal.toolbar.toolbarState')
+    ? JSON.parse(sessionStorage.getItem('Drupal.toolbar.toolbarState'))
+    : false;
+  // These are classes that toolbar typically adds to <body>, but this code
+  // executes before the first paint, when <body> is not yet present. The
+  // classes are added to <html> so styling immediately reflects the current
+  // toolbar state. The classes are removed after the toolbar completes
+  // initialization.
+  const classesToAdd = ['toolbar-loading', 'toolbar-anti-flicker'];
+  if (toolbarState) {
+    const {
+      orientation,
+      hasActiveTab,
+      isFixed,
+      activeTray,
+      activeTabId,
+      isOriented,
+      userButtonMinWidth
+    } = toolbarState;
+
+    classesToAdd.push(
+      orientation ? `toolbar-` + orientation + `` : 'toolbar-horizontal',
+    );
+    if (hasActiveTab !== false) {
+      classesToAdd.push('toolbar-tray-open');
+    }
+    if (isFixed) {
+      classesToAdd.push('toolbar-fixed');
+    }
+    if (isOriented) {
+      classesToAdd.push('toolbar-oriented');
+    }
+
+    if (activeTray) {
+      // These styles are added so the active tab/tray styles are present
+      // immediately instead of "flickering" on as the toolbar initializes. In
+      // instances where a tray is lazy loaded, these styles facilitate the
+      // lazy loaded tray appearing gracefully and without reflow.
+      const styleContent = `
+      .toolbar-loading #` + activeTabId + ` {
+        background-image: linear-gradient(rgba(255, 255, 255, 0.25) 20%, transparent 200%);
+      }
+      .toolbar-loading #` + activeTabId + `-tray {
+        display: block; box-shadow: -1px 0 5px 2px rgb(0 0 0 / 33%);
+        border-right: 1px solid #aaa; background-color: #f5f5f5;
+        z-index: 0;
+      }
+      .toolbar-loading.toolbar-vertical.toolbar-tray-open #` + activeTabId + `-tray {
+        width: 15rem; height: 100vh;
+      }
+     .toolbar-loading.toolbar-horizontal :not(#` + activeTray + `) > .toolbar-lining {opacity: 0}`;
+
+      const style = document.createElement('style');
+      style.textContent = styleContent;
+      style.setAttribute('data-toolbar-anti-flicker-loading', true);
+      document.querySelector('head').appendChild(style);
+
+      if (userButtonMinWidth) {
+        const userButtonStyle = document.createElement('style');
+        userButtonStyle.textContent = `#toolbar-item-user {min-width: ` + userButtonMinWidth +`px;}`
+        document.querySelector('head').appendChild(userButtonStyle);
+      }
+    }
+  }
+  document.querySelector('html').classList.add(...classesToAdd);
+})();</script>
+<link rel="canonical" href="releaf.html" />
+<link rel="shortlink" href="releaf.html" />
+
+    <title>ReLeaf | ReLeaf</title>
+    <link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/ajax-progress.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/align.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/autocomplete-loading.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/fieldgroup.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/container-inline.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/clearfix.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/details.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/hidden.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/item-list.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/js.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/nowrap.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/position-container.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/progress.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/reset-appearance.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/resize.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/sticky-header.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-counter.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-report-counters.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-report-general-info.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tabledrag.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tablesort.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tree-child.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/views/css/views.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/layout_discovery/layouts/onecol/onecol.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="themes/custom/stark_child/css/styles172c.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="sites/default/files/asset_injector/css/sep10-efc0f102a036232a25194c36f0c48dcb172c.css?s0sfqi" />
+
+    
+  </head>
+  <body>
+    
+      <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+    <div class="layout-container">
+
+  <header role="banner">
+      <div>
+    <div id="block-stark-child-page-title">
+  
+    
+      
+  <h1>
+            <div>ReLeaf</div>
+      </h1>
+
+
+  </div>
+
+  </div>
+
+  </header>
+
+  
+  
+
+  
+
+    <div>
+    <div data-drupal-messages-fallback class="hidden"></div>
+
+  </div>
+
+
+  
+
+  <main role="main">
+    <a id="main-content" tabindex="-1"></a>
+    <div class="layout-content">
+        <div>
+    <div id="block-stark-child-content">
+  
+    
+      <div about="/releaf">
+  
+    
+    <div class="layout layout--onecol">
+    <div  class="layout__region layout__region--content">
+      <div class="views-element-container">
+  
+    
+      <div><div class="js-view-dom-id-27c63d93ddc958888143a3ac56d80a60f16d107652bad469628388b8844f9f5e">
+  
+  
+  
+
+  
+  
+  
+
+      <div class="views-row"><div class="views-field views-field-description__value"><span class="field-content"><p>Welcome to the ReLeaf Cooperative section, where we dive deep into an innovative and revolutionary model of sustainability and community building. ReLeaf is a pioneer in developing scalable employment strategies that foster community engagement and work towards addressing pressing social issues such as homelessness.</p><p>In this category, you'll find articles and SolarPunk fiction detailing ReLeaf's groundbreaking initiatives and visions. From creating sustainable gardens in Austin elementary schools to providing transparency in a world often shrouded in deception, ReLeaf serves as a beacon of hope and innovation.</p><p>ReLeaf's approach of intertwining real and fictional elements in their work—such as characters, materials, techniques, and labor—sets a new standard for cooperatives worldwide. Its business model, which compensates for labor and knowledge contributions, creates a lasting benefit and helps people who have historically been marginalized.</p><p>By meeting people with compassion, as resources in need of support instead of liabilities, ReLeaf has shown that everyone has the potential to contribute to society meaningfully. Explore this section to discover how ReLeaf is redefining the way we approach social issues and sustainability, with stories of inspiration, innovation, and hope.<br /> </p></span></div><div class="views-field views-field-field-attribution"><div class="field-content"></div></div><div class="views-field views-field-field-license-"><div class="field-content"></div></div></div>
+
+    
+
+  
+  
+
+  
+  
+</div>
+</div>
+
+  </div>
+<div class="views-element-container">
+  
+    
+      <div><div class="qr js-view-dom-id-5cffe9afd4ffb7cf551f28ee9bc205d01f4fb3831b7047854b455c76ce8368e1">
+  
+  
+  
+
+  
+  
+  
+
+      <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/releafs-resonance-austin-symphony/258.html" hreflang="en">ReLeaf’s Resonance: An Austin Symphony</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code258 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/releafs-vertical-gardens-affordable-and-sustainable-alternative-expensive-hedge-walls/252.html" hreflang="en">ReLeaf&#039;s Vertical Gardens: An Affordable and Sustainable Alternative to Expensive Hedge Walls</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code252 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/building-vertiflow-system-symbol-resilience-and-community/251.html" hreflang="en">Building a VertiFlow System: A Symbol of Resilience and Community</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code251 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/releaf-retrospective-2026/250.html" hreflang="en">ReLeaf Retrospective: 2026</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code250 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/releaf-creating-local-employment-skills-development-and-green-entrepreneurship/243.html" hreflang="en">ReLeaf: Creating Local Employment, Skills Development, and Green Entrepreneurship</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code243 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/solarpunk-festival-austins-creative-sustainable-and-community-driven-celebration/237.html" hreflang="en">SolarPunk Festival: Austin&#039;s Creative, Sustainable, and Community-driven Celebration</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code237 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/unveiling-austins-sustainable-living-bridge-vertiflow-system/236.html" hreflang="en">Unveiling of Austin&#039;s Sustainable Living Bridge with VertiFlow System</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code236 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/wick-ed-vertiflow-transforming-austins-concrete-creeks-urban-gardens/235.html" hreflang="en">Wick-ed VertiFlow: Transforming Austin&#039;s Concrete Creeks into Urban Gardens</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code235 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/extraction-compensation-comparing-reddit-and-releafs-models-content-creators/233.html" hreflang="en">From Extraction to Compensation: Comparing Reddit and ReLeaf&#039;s Models for Content Creators</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code233 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/releaf-imagining-solarpunk-futures-where-reality-and-narrative-collide/232.html" hreflang="en">ReLeaf: Imagining SolarPunk Futures Where Reality and Narrative Collide</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code232 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/releaf-and-future/230.html" hreflang="en">ReLeaf and the Future</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code230 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/releaf-promotes-mycology-sustainable-urban-greening/226.html" hreflang="en">ReLeaf Promotes Mycology for Sustainable Urban Greening</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code226 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/revolutionizing-urban-greenery-releafs-fabric-wick-vertical-gardens/225.html" hreflang="en">Revolutionizing Urban Greenery: ReLeaf&#039;s Fabric Wick Vertical Gardens</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code225 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/releaf-revolutionizing-urban-sustainability-through-vertical-gardens-and-waste-management/222.html" hreflang="en">ReLeaf: Revolutionizing Urban Sustainability Through Vertical Gardens and Waste Management</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code222 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/potential-green-futures-lessons-small-gritty-and-green-and-releaf-initiative/218.html" hreflang="en">The Potential of Green Futures: Lessons from &#039;Small, Gritty, and Green&#039; and the ReLeaf Initiative</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code218 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/democratic-leaders-dispatch-medical-teams-texas-mexico-border/217.html" hreflang="en">Democratic Leaders Dispatch Medical Teams to Texas-Mexico Border</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code217 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/nature-inspired-innovation-releaf-biomimicry-and-fractals-vertical-gardens/215.html" hreflang="en">Nature-Inspired Innovation: ReLeaf, Biomimicry, and Fractals in Vertical Gardens</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code215 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/accelerating-circular-economy-releaf-water-recirculation-and-velocity-money-austin/214.html" hreflang="en">Accelerating the Circular Economy: ReLeaf, Water Recirculation, and the Velocity of Money in Austin</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code214 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/releafs-vertical-gardens-innovative-solution-urban-air-pollution/213.html" hreflang="en">ReLeaf&#039;s Vertical Gardens: Innovative Solution for Urban Air Pollution</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code213 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/vertical-garden-fairs-new-norm-austin-schools-fostering-sustainability-and-creativity/206.html" hreflang="en">Vertical Garden Fairs: The New Norm in Austin Schools, Fostering Sustainability and Creativity</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code206 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/trash-magic-eco-revolution-austins-cityscape/200.html" hreflang="en">Trash Magic: The Eco Revolution of Austin&#039;s Cityscape</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code200 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/releaf-answer-homelessness-through-scalable-employment-and-community-engagement/198.html" hreflang="en">ReLeaf: An Answer to Homelessness through Scalable Employment and Community Engagement</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code198 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/releafs-transparency-beacon-amidst-fog-deception/194.html" hreflang="en">ReLeaf&#039;s Transparency: A Beacon Amidst The Fog of Deception</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code194 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/releaf-cooperative-brings-sustainable-gardens-austin-elementary-schools/182.html" hreflang="en">ReLeaf Cooperative brings sustainable gardens to Austin elementary schools</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code182 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/creating-austins-first-rainforest-vision-ecologist-nora-sanchez/180.html" hreflang="en">Creating Austin&#039;s First Rainforest: The Vision of Ecologist Nora Sanchez</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code180 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/releaf-sustainable-democratic-alternative-oligarchic-corruption/178.html" hreflang="en">ReLeaf: A Sustainable, Democratic Alternative to Oligarchic Corruption</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code178 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/releaf-strategic-approach-sustainability-objectives/176.html" hreflang="en">ReLeaf: A Strategic Approach to Sustainability Objectives</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code176 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/releaf-revolutionizing-data-dignity-and-equitable-logistics-austin/174.html" hreflang="en">ReLeaf: Revolutionizing Data Dignity and Equitable Logistics in Austin</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code174 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/harvesting-hope-tale-releaf-austin/154.html" hreflang="en">Harvesting Hope: A Tale of ReLeaf in Austin</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code154 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/minions-mavens/149.html" hreflang="en">From Minions to Mavens</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code149 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/frequency-central/138.html" hreflang="en">Frequency Central</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code138 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/emerald-refuge/137.html" hreflang="en">Emerald Refuge</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code137 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/seed-skyline-austins-solarpunk-revolution/136.html" hreflang="en">From Seed to Skyline: Austin&#039;s SolarPunk Revolution</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code136 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/releaf-pioneering-solarpunk-future-through-creative-urban-greenery/135.html" hreflang="en">ReLeaf: Pioneering a SolarPunk Future Through Creative Urban Greenery</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code135 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/building-confidence-and-self-awareness-vertical-gardening/134.html" hreflang="en">Building Confidence and Self-Awareness in Vertical Gardening</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code134 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/solarpunk-inspiring-sustainable-future-through-initiatives-releaf-and-life-story/132.html" hreflang="en">SolarPunk: Inspiring a Sustainable Future through Initiatives like ReLeaf and Life Story</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code132 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/alien-tech-or-advanced-gardening-releafs-biostack-receives-solar-power-space/130.html" hreflang="en">Alien Tech or Advanced Gardening? ReLeaf&#039;s BioStack Receives Solar Power from Space</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code130 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/height-urban-jungle-garden-grows-releafs-biostack-sets-scene/129.html" hreflang="en">In the Height of Urban Jungle, a Garden Grows: ReLeaf&#039;s BioStack Sets the Scene</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code129 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/releaf-unveils-biostack-vertical-garden-revolutionizing-urban-spaces-austin/128.html" hreflang="en">ReLeaf Unveils BioStack: The Vertical Garden Revolutionizing Urban Spaces in Austin</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code128 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/releaf-and-donna-parallel-innovations-cooperative-ownership-and-unique-storytelling/127.html" hreflang="en">ReLeaf and Donna: Parallel Innovations in Cooperative Ownership and Unique Storytelling</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code127 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/cabbage-patch-kids-releaf-journey-unique-narratives-and-personalized-product-love/126.html" hreflang="en">From Cabbage Patch Kids to ReLeaf: A Journey of Unique Narratives and Personalized Product Love</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code126 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/shadows-over-austin-tale-neural-innovation-and-upcycled-mystery/125.html" hreflang="en">Shadows Over Austin: A Tale of Neural Innovation and Upcycled Mystery</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code125 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/austins-light-rail-system-self-watering-air-purifying-living-walls/122.html" hreflang="en">Austin&#039;s Light-Rail System with Self-Watering, Air-Purifying Living Walls</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code122 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/releafs-cooperative-model-solution-enshittification-digital-communities/121.html" hreflang="en">ReLeaf&#039;s Cooperative Model: A Solution to &#039;Enshittification&#039; in Digital Communities</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code121 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/releafs-pioneering-concept-evolving-copyright-copy/119.html" hreflang="en">ReLeaf&#039;s Pioneering Concept: Evolving Copyright into &quot;Copy That&quot;</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code119 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/green-controversy-delivery-zones-garden-city/116.html" hreflang="en">Green Controversy: Delivery Zones in a Garden City</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code116 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/urban-eden-releaf-guide-vertical-gardening-silver-anniversary-edition/115.html" hreflang="en">Urban Eden: the ReLeaf Guide to Vertical Gardening, Silver Anniversary Edition</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code115 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/biostack-chronicles-green-grey-city/112.html" hreflang="en">BioStack Chronicles: Green in the Grey City</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code112 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/botanic-bike-and-journey-urban-regeneration/111.html" hreflang="en">The Botanic Bike and a Journey in Urban Regeneration</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code111 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/sprouting-skyscrapers-austins-hyperseed-driven-waste-revolution/110.html" hreflang="en">Sprouting Skyscrapers: Austin&#039;s HyperSeed-Driven Waste Revolution</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code110 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/beyond-vision-pro-austins-e-waste-triumph-ar-landscape/107.html" hreflang="en">Beyond Vision Pro: Austin&#039;s E-Waste Triumph in the AR Landscape</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code107 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/releaf-and-green-revolution-waste-management/106.html" hreflang="en">ReLeaf and the Green Revolution in Waste Management</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code106 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/embracing-tech-caution-releaf-approach-inspired-luddite-literature/104.html" hreflang="en">Embracing Tech with Caution: The ReLeaf Approach Inspired by Luddite Literature</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code104 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/path-towards-transparency-and-shared-prosperity/102.html" hreflang="en">The Path Towards Transparency and Shared Prosperity</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code102 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/releaf-shaping-future-business-transparency-innovation-and-mutually-beneficial-partnerships/101.html" hreflang="en">ReLeaf: Shaping the Future of Business with Transparency, Innovation, and Mutually Beneficial Partnerships</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code101 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/membership-agreement-releaf/100.html" hreflang="en">Membership Agreement for ReLeaf</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code100 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/bylaw-design-releaf/99.html" hreflang="en">Bylaw Design for ReLeaf</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code99 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/releaf-embracing-fiction-recognizing-reality-and-crafting-desirable-future/92.html" hreflang="en">ReLeaf: Embracing Fiction, Recognizing Reality, and Crafting a Desirable Future</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code92 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/closing-wealth-disparity-gap-through-innovative-ownership-design-lessons-taxation-and-releaf/91.html" hreflang="en">Closing the Wealth Disparity Gap through Innovative Ownership Design: Lessons from Taxation and ReLeaf</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code91 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/finding-inspiration-solarpunk-futures-releafs-vision/90.html" hreflang="en">Finding Inspiration in Solarpunk Futures for ReLeaf&#039;s Vision</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code90 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/empowering-and-upskilling-heartfelt-approach-addressing-homelessness-austin/89.html" hreflang="en">Empowering and Upskilling: A Heartfelt Approach to Addressing Homelessness in Austin</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code89 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/empathy-interviews-and-lean-co-op-business-planning-canvas-building-equitable-systems-sustainable/88.html" hreflang="en">Empathy Interviews and the Lean Co-op Business Planning Canvas: Building Equitable Systems for Sustainable Transformation</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code88 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/layers-memory-crying-lot-49-and-releafs-waste/87.html" hreflang="en">Layers of Memory: The Crying of Lot 49 and ReLeaf&#039;s W.A.S.T.E.</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code87 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/slide-loop-solarpunk-parable/86.html" hreflang="en">The Slide Loop: A SolarPunk Parable</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code86 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/paving-solarpunk-path-e-waste-reuse/85.html" hreflang="en">Paving the SolarPunk Path of E-Waste Reuse</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code85 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/e-waste-alchemist-part-1/84.html" hreflang="en">The E-Waste Alchemist: Part 1</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code84 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/releafs-interactive-vertical-gardens-merging-storytelling-community-engagement-and-sustainability/83.html" hreflang="en">ReLeaf&#039;s Interactive Vertical Gardens: Merging Storytelling, Community Engagement, and Sustainability</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code83 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/designing-ownership-releaf/82.html" hreflang="en">Designing Ownership for ReLeaf</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code82 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/lean-co-op-ownership-model-canvas/81.html" hreflang="en">Lean Co-op Ownership Model Canvas</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code81 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/lean-co-op-business-planning-canvas/80.html" hreflang="en">Lean Co-op Business Planning Canvas</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code80 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/startcoop-accelerator-application-responses/79.html" hreflang="en">Start.coop Accelerator Application Responses</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code79 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/lessons-tomorrow-tomorrow-tomorrow/76.html" hreflang="en">Lessons from &#039;Tomorrow &amp; Tomorrow &amp; Tomorrow&#039;</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code76 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/rewilding-urban-landscapes-synchronicity-and-releaf-model/73.html" hreflang="en">Rewilding Urban Landscapes: Synchronicity and the ReLeaf Model</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code73 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/planting-ideas-oblique-strategies-pathway-creative-breakthroughs/71.html" hreflang="en">Planting Ideas with Oblique Strategies: A Pathway to Creative Breakthroughs</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code71 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/celebrating-20-years-releaf-austin-green-revolution-catalog/70.html" hreflang="en">Celebrating 20 Years of ReLeaf: The Austin Green Revolution Catalog</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code70 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/infinite-reflections-insights-godel-escher-bach-austins-releaf-initiative/66.html" hreflang="en">Infinite Reflections: Insights from &#039;Gödel, Escher, Bach&#039; for Austin&#039;s ReLeaf Initiative</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code66 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/lessons-pattern-language-and-timeless-way-building-austins-releaf-initiative/65.html" hreflang="en">Lessons from &#039;A Pattern Language&#039; and &#039;The Timeless Way of Building&#039; for Austin&#039;s ReLeaf Initiative</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code65 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/transcending-reality-lessons-rainbows-end-and-their-relevance-austins-releaf-initiative/64.html" hreflang="en">Transcending Reality: Lessons from &#039;Rainbow&#039;s End&#039; and Their Relevance to Austin&#039;s ReLeaf Initiative</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code64 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/building-green-unlocking-dormant-spaces-residual-income-releaf/63.html" hreflang="en">Building Green: Unlocking Dormant Spaces for Residual Income with ReLeaf</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code63 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/flame-alphabet-releaf-and-waste-environment-crafting-balanced-narrative/62.html" hreflang="en">The Flame Alphabet, ReLeaf, and the W.A.S.T.E. Environment: Crafting a Balanced Narrative</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code62 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/dystopia-utopia-margaret-atwoods-madaddam-trilogy-and-releaf-solution/61.html" hreflang="en">From Dystopia to Utopia: Margaret Atwood&#039;s MadAddam Trilogy and the ReLeaf Solution</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code61 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/austins-zero-waste-initiative-releafs-role-citys-green-transformation/59.html" hreflang="en">Austin&#039;s Zero Waste Initiative: ReLeaf&#039;s Role in the City&#039;s Green Transformation</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code59 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="lyrics/upcycle-anthem/58.html" hreflang="en">Upcycle Anthem</a> <br>Lyrics </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code58 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/unveiling-layers-connection-crying-lot-49-and-releafs-waste/56.html" hreflang="en">Unveiling the Layers of Connection: The Crying of Lot 49 and ReLeaf&#039;s W.A.S.T.E.</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code56 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/pages-fiskadoro-augmented-reality-austin-literary-journey-releaf/55.html" hreflang="en">From the Pages of Fiskadoro to the Augmented Reality of Austin: A Literary Journey with ReLeaf</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code55 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/reflection-releafs-vision-and-ts-eliots-modernist-masterpiece-waste-land/54.html" hreflang="en">A Reflection on ReLeaf&#039;s Vision and T.S. Eliot&#039;s Modernist Masterpiece The Waste Land</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code54 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/blurring-boundaries-look-institute-and-releaf-initiative/50.html" hreflang="en">Blurring the Boundaries: A Look at The Institute and the ReLeaf Initiative</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code50 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/what-are-some-techniques-environmentalism/48.html" hreflang="en">What are Some Techniques for Environmentalism?</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code48 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/2b-or-not-2b-unexpected-twist/46.html" hreflang="en">2B or Not 2B: An Unexpected Twist</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code46 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/releaf-waste-waste/45.html" hreflang="en">ReLeaf: From Waste to W.A.S.T.E.</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code45 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/water-towers-and-circular-economy/44.html" hreflang="en">Water Towers and the Circular Economy</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code44 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/releaf-innovative-approach-end-hunger-and-foster-sustainable-communities-austin-2030/43.html" hreflang="en">ReLeaf: An Innovative Approach to End Hunger and Foster Sustainable Communities in Austin by 2030</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code43 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/day-life-part-2a/42.html" hreflang="en">A Day in the Life: Part 2A</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code42 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/day-life-releaf-member-owner/40.html" hreflang="en">A Day in the Life of a ReLeaf Member-Owner</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code40 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/blurring-reality-and-fantasy-intersection-gaming-literature-and-income-streams/39.html" hreflang="en">Blurring Reality and Fantasy: The Intersection of Gaming, Literature, and Income Streams</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code39 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/2046-cube-reappears/38.html" hreflang="en">2046: The Cube Reappears</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code38 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/open-letter/37.html" hreflang="en">Open Letter</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code37 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/2023-austin-circular-economy-showcase/36.html" hreflang="en">2023 Austin Circular Economy Showcase</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code36 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/imagination-and-growth-how-releaf-blending-fiction-and-reality/34.html" hreflang="en">Imagination and Growth: How ReLeaf is Blending Fiction and Reality</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code34 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/windows-wonders-transforming-post-war-colossals-vertical-gardens/32.html" hreflang="en">From Windows to Wonders: Transforming Post-War Colossals with Vertical Gardens</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code32 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/hyperlocal-harvests-and-rise-discerning-diner/29.html" hreflang="en">Hyperlocal Harvests and the Rise of the Discerning Diner</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code29 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/voice-oak-how-austins-treaty-oak-speaks-global-conservation-and-peace/18.html" hreflang="en">Voice of the Oak: How Austin&#039;s Treaty Oak Speaks for Global Conservation and Peace</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code18 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/freedom-frameworks-jays-journey-incarceration-innovation/13.html" hreflang="en">Freedom Frameworks: Jay&#039;s Journey from Incarceration to Innovation</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code13 "></div></span></div></div>
+
+    
+
+  
+  
+
+  
+  
+</div>
+</div>
+
+  </div>
+
+    </div>
+  </div>
+
+</div>
+
+  </div>
+
+  </div>
+
+    </div>
+    
+    
+  </main>
+
+      <footer role="contentinfo">
+      
+    </footer>
+  
+</div>
+  </div>
+
+    
+    <script src="https://releaf.site/core/assets/vendor/jquery/jquery.min.js?v=3.7.0"></script>
+<script src="sites/default/files/asset_injector/js/nodes-1e4a563b7ddfd826d9a8de610ab44675172c.js?s0sfqi"></script>
+<script src="sites/default/files/asset_injector/js/qr-7543b3560f7e140d6712b81e37f67169172c.js?s0sfqi"></script>
+<script src="sites/default/files/asset_injector/js/qr0-4abd4074112590f0fb4e480db42f5728172c.js?s0sfqi"></script>
+
+  </body>
+

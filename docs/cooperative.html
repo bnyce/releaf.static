@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="content: http://purl.org/rss/1.0/modules/content/  dc: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  og: http://ogp.me/ns#  rdfs: http://www.w3.org/2000/01/rdf-schema#  schema: http://schema.org/  sioc: http://rdfs.org/sioc/ns#  sioct: http://rdfs.org/sioc/types#  skos: http://www.w3.org/2004/02/skos/core#  xsd: http://www.w3.org/2001/XMLSchema# ">
+  
+<head>
+    <meta charset="utf-8" />
+<meta name="Generator" content="Drupal 10 (https://www.drupal.org); Commerce 2" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script type="text/javascript" data-toolbar-anti-flicker-loading>(function() {
+  const toolbarState = sessionStorage.getItem('Drupal.toolbar.toolbarState')
+    ? JSON.parse(sessionStorage.getItem('Drupal.toolbar.toolbarState'))
+    : false;
+  // These are classes that toolbar typically adds to <body>, but this code
+  // executes before the first paint, when <body> is not yet present. The
+  // classes are added to <html> so styling immediately reflects the current
+  // toolbar state. The classes are removed after the toolbar completes
+  // initialization.
+  const classesToAdd = ['toolbar-loading', 'toolbar-anti-flicker'];
+  if (toolbarState) {
+    const {
+      orientation,
+      hasActiveTab,
+      isFixed,
+      activeTray,
+      activeTabId,
+      isOriented,
+      userButtonMinWidth
+    } = toolbarState;
+
+    classesToAdd.push(
+      orientation ? `toolbar-` + orientation + `` : 'toolbar-horizontal',
+    );
+    if (hasActiveTab !== false) {
+      classesToAdd.push('toolbar-tray-open');
+    }
+    if (isFixed) {
+      classesToAdd.push('toolbar-fixed');
+    }
+    if (isOriented) {
+      classesToAdd.push('toolbar-oriented');
+    }
+
+    if (activeTray) {
+      // These styles are added so the active tab/tray styles are present
+      // immediately instead of "flickering" on as the toolbar initializes. In
+      // instances where a tray is lazy loaded, these styles facilitate the
+      // lazy loaded tray appearing gracefully and without reflow.
+      const styleContent = `
+      .toolbar-loading #` + activeTabId + ` {
+        background-image: linear-gradient(rgba(255, 255, 255, 0.25) 20%, transparent 200%);
+      }
+      .toolbar-loading #` + activeTabId + `-tray {
+        display: block; box-shadow: -1px 0 5px 2px rgb(0 0 0 / 33%);
+        border-right: 1px solid #aaa; background-color: #f5f5f5;
+        z-index: 0;
+      }
+      .toolbar-loading.toolbar-vertical.toolbar-tray-open #` + activeTabId + `-tray {
+        width: 15rem; height: 100vh;
+      }
+     .toolbar-loading.toolbar-horizontal :not(#` + activeTray + `) > .toolbar-lining {opacity: 0}`;
+
+      const style = document.createElement('style');
+      style.textContent = styleContent;
+      style.setAttribute('data-toolbar-anti-flicker-loading', true);
+      document.querySelector('head').appendChild(style);
+
+      if (userButtonMinWidth) {
+        const userButtonStyle = document.createElement('style');
+        userButtonStyle.textContent = `#toolbar-item-user {min-width: ` + userButtonMinWidth +`px;}`
+        document.querySelector('head').appendChild(userButtonStyle);
+      }
+    }
+  }
+  document.querySelector('html').classList.add(...classesToAdd);
+})();</script>
+<link rel="canonical" href="cooperative.html" />
+<link rel="shortlink" href="cooperative.html" />
+
+    <title>Cooperative | ReLeaf</title>
+    <link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/ajax-progress.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/align.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/autocomplete-loading.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/fieldgroup.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/container-inline.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/clearfix.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/details.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/hidden.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/item-list.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/js.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/nowrap.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/position-container.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/progress.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/reset-appearance.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/resize.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/sticky-header.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-counter.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-report-counters.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-report-general-info.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tabledrag.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tablesort.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tree-child.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/views/css/views.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/layout_discovery/layouts/onecol/onecol.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="themes/custom/stark_child/css/styles172c.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="sites/default/files/asset_injector/css/sep10-efc0f102a036232a25194c36f0c48dcb172c.css?s0sfqi" />
+
+    
+  </head>
+  <body>
+    
+      <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+    <div class="layout-container">
+
+  <header role="banner">
+      <div>
+    <div id="block-stark-child-page-title">
+  
+    
+      
+  <h1>
+            <div>Cooperative</div>
+      </h1>
+
+
+  </div>
+
+  </div>
+
+  </header>
+
+  
+  
+
+  
+
+    <div>
+    <div data-drupal-messages-fallback class="hidden"></div>
+
+  </div>
+
+
+  
+
+  <main role="main">
+    <a id="main-content" tabindex="-1"></a>
+    <div class="layout-content">
+        <div>
+    <div id="block-stark-child-content">
+  
+    
+      <div about="/cooperative">
+  
+    
+    <div class="layout layout--onecol">
+    <div  class="layout__region layout__region--content">
+      <div class="views-element-container">
+  
+    
+      <div><div class="js-view-dom-id-228c2ec659c76d9fc83dd2a6b737ad62b5663e203426a6040e9251d86c8c1390">
+  
+  
+  
+
+  
+  
+  
+
+      <div class="views-row"><div class="views-field views-field-description__value"><span class="field-content"><p>Welcome to our exploration of the Cooperative Ownership Model. This section highlights ReLeaf, an organization that has embraced this alternative business model, fostering both economic and environmental sustainability in Austin, Texas.</p><p>Through various articles and SolarPunk fiction, we examine how ReLeaf's cooperative structure empowers its employees and local communities, providing a democratic and equitable alternative to traditional hierarchies. From accelerating the circular economy to combating 'enshittification' in digital communities, ReLeaf's strategies are far-reaching and impactful.</p><p>We delve into ReLeaf's unique approach to data dignity, logistics, and the nuanced balance between technology and caution, drawing inspiration from historic Luddite literature. The stories and articles also highlight how the cooperative model can provide an answer to homelessness, promote vegan values, and set the stage for shared prosperity.</p><p>As we navigate through this section, let's reflect on the potential of cooperative ownership as a transformative model for future businesses. It promises to be an exciting journey as we uncover how this democratic alternative can revolutionize our economy, society, and environment.<br /> </p></span></div><div class="views-field views-field-field-attribution"><div class="field-content"></div></div><div class="views-field views-field-field-license-"><div class="field-content"></div></div></div>
+
+    
+
+  
+  
+
+  
+  
+</div>
+</div>
+
+  </div>
+<div class="views-element-container">
+  
+    
+      <div><div class="qr js-view-dom-id-745dd07116feef6bd430529533bfea163795bac0ff95483d5e29d78ca2668ff1">
+  
+  
+  
+
+  
+  
+  
+
+      <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/releaf-vertical-gardens-sanctuary-gentle-gardening-and-storytelling/264.html" hreflang="en">ReLeaf Vertical Gardens: A Sanctuary for Gentle Gardening and Storytelling</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code264 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/releaf-retrospective-2026/250.html" hreflang="en">ReLeaf Retrospective: 2026</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code250 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/releaf-championing-anti-consumerism-through-innovative-urban-gardening/249.html" hreflang="en">ReLeaf: Championing Anti-Consumerism through Innovative Urban Gardening</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code249 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/releaf-creating-local-employment-skills-development-and-green-entrepreneurship/243.html" hreflang="en">ReLeaf: Creating Local Employment, Skills Development, and Green Entrepreneurship</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code243 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/releaf-pioneering-solarpunk-principles-urban-green-cooperatives/242.html" hreflang="en">ReLeaf: Pioneering Solarpunk Principles in Urban Green Cooperatives</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code242 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/extraction-compensation-comparing-reddit-and-releafs-models-content-creators/233.html" hreflang="en">From Extraction to Compensation: Comparing Reddit and ReLeaf&#039;s Models for Content Creators</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code233 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/releafs-vertical-gardens-honoring-people-and-materials-through-life-story-metadata/220.html" hreflang="en">ReLeaf&#039;s Vertical Gardens: Honoring People and Materials through Life Story Metadata</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code220 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/potential-green-futures-lessons-small-gritty-and-green-and-releaf-initiative/218.html" hreflang="en">The Potential of Green Futures: Lessons from &#039;Small, Gritty, and Green&#039; and the ReLeaf Initiative</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code218 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/accelerating-circular-economy-releaf-water-recirculation-and-velocity-money-austin/214.html" hreflang="en">Accelerating the Circular Economy: ReLeaf, Water Recirculation, and the Velocity of Money in Austin</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code214 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/releaf-answer-homelessness-through-scalable-employment-and-community-engagement/198.html" hreflang="en">ReLeaf: An Answer to Homelessness through Scalable Employment and Community Engagement</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code198 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/empowering-vegan-values-releafs-cooperative-ownership-model/188.html" hreflang="en">Empowering Vegan Values: ReLeaf&#039;s Cooperative Ownership Model</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code188 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/releaf-sustainable-democratic-alternative-oligarchic-corruption/178.html" hreflang="en">ReLeaf: A Sustainable, Democratic Alternative to Oligarchic Corruption</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code178 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/releaf-revolutionizing-data-dignity-and-equitable-logistics-austin/174.html" hreflang="en">ReLeaf: Revolutionizing Data Dignity and Equitable Logistics in Austin</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code174 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/releaf-and-donna-parallel-innovations-cooperative-ownership-and-unique-storytelling/127.html" hreflang="en">ReLeaf and Donna: Parallel Innovations in Cooperative Ownership and Unique Storytelling</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code127 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/releafs-cooperative-model-solution-enshittification-digital-communities/121.html" hreflang="en">ReLeaf&#039;s Cooperative Model: A Solution to &#039;Enshittification&#039; in Digital Communities</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code121 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/embracing-tech-caution-releaf-approach-inspired-luddite-literature/104.html" hreflang="en">Embracing Tech with Caution: The ReLeaf Approach Inspired by Luddite Literature</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code104 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/releaf-slide-deck/103.html" hreflang="en">ReLeaf Slide deck</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code103 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/path-towards-transparency-and-shared-prosperity/102.html" hreflang="en">The Path Towards Transparency and Shared Prosperity</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code102 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/releaf-shaping-future-business-transparency-innovation-and-mutually-beneficial-partnerships/101.html" hreflang="en">ReLeaf: Shaping the Future of Business with Transparency, Innovation, and Mutually Beneficial Partnerships</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code101 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/membership-agreement-releaf/100.html" hreflang="en">Membership Agreement for ReLeaf</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code100 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/bylaw-design-releaf/99.html" hreflang="en">Bylaw Design for ReLeaf</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code99 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/releaf-embracing-fiction-recognizing-reality-and-crafting-desirable-future/92.html" hreflang="en">ReLeaf: Embracing Fiction, Recognizing Reality, and Crafting a Desirable Future</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code92 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/closing-wealth-disparity-gap-through-innovative-ownership-design-lessons-taxation-and-releaf/91.html" hreflang="en">Closing the Wealth Disparity Gap through Innovative Ownership Design: Lessons from Taxation and ReLeaf</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code91 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/empowering-and-upskilling-heartfelt-approach-addressing-homelessness-austin/89.html" hreflang="en">Empowering and Upskilling: A Heartfelt Approach to Addressing Homelessness in Austin</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code89 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/empathy-interviews-and-lean-co-op-business-planning-canvas-building-equitable-systems-sustainable/88.html" hreflang="en">Empathy Interviews and the Lean Co-op Business Planning Canvas: Building Equitable Systems for Sustainable Transformation</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code88 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/designing-ownership-releaf/82.html" hreflang="en">Designing Ownership for ReLeaf</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code82 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/lean-co-op-ownership-model-canvas/81.html" hreflang="en">Lean Co-op Ownership Model Canvas</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code81 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/lean-co-op-business-planning-canvas/80.html" hreflang="en">Lean Co-op Business Planning Canvas</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code80 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/startcoop-accelerator-application-responses/79.html" hreflang="en">Start.coop Accelerator Application Responses</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code79 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/how-releafs-cooperative-vertical-gardens-model-reshaping-urban-resilience-and-adaptation/72.html" hreflang="en">How ReLeaf&#039;s Cooperative Vertical Gardens Model is Reshaping Urban Resilience and Adaptation</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code72 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/harnessing-power-cooperatives-navigating-working-home-controversy/67.html" hreflang="en">Harnessing the Power of Cooperatives: Navigating the Working from Home Controversy</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code67 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/sustainabilitys-moment-embracing-athens-vision-austins-releaf-initiative/49.html" hreflang="en">Sustainability&#039;s Moment: Embracing Athens&#039; Vision in Austin&#039;s ReLeaf Initiative</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code49 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/shadows-harmony-solarpunk-tale-unity-and-choice/47.html" hreflang="en">Shadows of Harmony: A SolarPunk Tale of Unity and Choice</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code47 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/2023-austin-circular-economy-showcase/36.html" hreflang="en">2023 Austin Circular Economy Showcase</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code36 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/voice-oak-how-austins-treaty-oak-speaks-global-conservation-and-peace/18.html" hreflang="en">Voice of the Oak: How Austin&#039;s Treaty Oak Speaks for Global Conservation and Peace</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code18 "></div></span></div></div>
+
+    
+
+  
+  
+
+  
+  
+</div>
+</div>
+
+  </div>
+
+    </div>
+  </div>
+
+</div>
+
+  </div>
+
+  </div>
+
+    </div>
+    
+    
+  </main>
+
+      <footer role="contentinfo">
+      
+    </footer>
+  
+</div>
+  </div>
+
+    
+    <script src="https://releaf.site/core/assets/vendor/jquery/jquery.min.js?v=3.7.0"></script>
+<script src="sites/default/files/asset_injector/js/nodes-1e4a563b7ddfd826d9a8de610ab44675172c.js?s0sfqi"></script>
+<script src="sites/default/files/asset_injector/js/qr-7543b3560f7e140d6712b81e37f67169172c.js?s0sfqi"></script>
+<script src="sites/default/files/asset_injector/js/qr0-4abd4074112590f0fb4e480db42f5728172c.js?s0sfqi"></script>
+
+  </body>
+

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="content: http://purl.org/rss/1.0/modules/content/  dc: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  og: http://ogp.me/ns#  rdfs: http://www.w3.org/2000/01/rdf-schema#  schema: http://schema.org/  sioc: http://rdfs.org/sioc/ns#  sioct: http://rdfs.org/sioc/types#  skos: http://www.w3.org/2004/02/skos/core#  xsd: http://www.w3.org/2001/XMLSchema# ">
+  
+<head>
+    <meta charset="utf-8" />
+<meta name="Generator" content="Drupal 10 (https://www.drupal.org); Commerce 2" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script type="text/javascript" data-toolbar-anti-flicker-loading>(function() {
+  const toolbarState = sessionStorage.getItem('Drupal.toolbar.toolbarState')
+    ? JSON.parse(sessionStorage.getItem('Drupal.toolbar.toolbarState'))
+    : false;
+  // These are classes that toolbar typically adds to <body>, but this code
+  // executes before the first paint, when <body> is not yet present. The
+  // classes are added to <html> so styling immediately reflects the current
+  // toolbar state. The classes are removed after the toolbar completes
+  // initialization.
+  const classesToAdd = ['toolbar-loading', 'toolbar-anti-flicker'];
+  if (toolbarState) {
+    const {
+      orientation,
+      hasActiveTab,
+      isFixed,
+      activeTray,
+      activeTabId,
+      isOriented,
+      userButtonMinWidth
+    } = toolbarState;
+
+    classesToAdd.push(
+      orientation ? `toolbar-` + orientation + `` : 'toolbar-horizontal',
+    );
+    if (hasActiveTab !== false) {
+      classesToAdd.push('toolbar-tray-open');
+    }
+    if (isFixed) {
+      classesToAdd.push('toolbar-fixed');
+    }
+    if (isOriented) {
+      classesToAdd.push('toolbar-oriented');
+    }
+
+    if (activeTray) {
+      // These styles are added so the active tab/tray styles are present
+      // immediately instead of "flickering" on as the toolbar initializes. In
+      // instances where a tray is lazy loaded, these styles facilitate the
+      // lazy loaded tray appearing gracefully and without reflow.
+      const styleContent = `
+      .toolbar-loading #` + activeTabId + ` {
+        background-image: linear-gradient(rgba(255, 255, 255, 0.25) 20%, transparent 200%);
+      }
+      .toolbar-loading #` + activeTabId + `-tray {
+        display: block; box-shadow: -1px 0 5px 2px rgb(0 0 0 / 33%);
+        border-right: 1px solid #aaa; background-color: #f5f5f5;
+        z-index: 0;
+      }
+      .toolbar-loading.toolbar-vertical.toolbar-tray-open #` + activeTabId + `-tray {
+        width: 15rem; height: 100vh;
+      }
+     .toolbar-loading.toolbar-horizontal :not(#` + activeTray + `) > .toolbar-lining {opacity: 0}`;
+
+      const style = document.createElement('style');
+      style.textContent = styleContent;
+      style.setAttribute('data-toolbar-anti-flicker-loading', true);
+      document.querySelector('head').appendChild(style);
+
+      if (userButtonMinWidth) {
+        const userButtonStyle = document.createElement('style');
+        userButtonStyle.textContent = `#toolbar-item-user {min-width: ` + userButtonMinWidth +`px;}`
+        document.querySelector('head').appendChild(userButtonStyle);
+      }
+    }
+  }
+  document.querySelector('html').classList.add(...classesToAdd);
+})();</script>
+<link rel="canonical" href="adaptive-reuse.html" />
+<link rel="shortlink" href="adaptive-reuse.html" />
+
+    <title>Adaptive Reuse | ReLeaf</title>
+    <link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/ajax-progress.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/align.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/autocomplete-loading.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/fieldgroup.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/container-inline.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/clearfix.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/details.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/hidden.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/item-list.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/js.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/nowrap.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/position-container.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/progress.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/reset-appearance.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/resize.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/sticky-header.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-counter.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-report-counters.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-report-general-info.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tabledrag.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tablesort.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tree-child.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/views/css/views.module.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/layout_discovery/layouts/onecol/onecol.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="themes/custom/stark_child/css/styles172c.css?s0sfqi" />
+<link rel="stylesheet" media="all" href="sites/default/files/asset_injector/css/sep10-efc0f102a036232a25194c36f0c48dcb172c.css?s0sfqi" />
+
+    
+  </head>
+  <body>
+    
+      <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+    <div class="layout-container">
+
+  <header role="banner">
+      <div>
+    <div id="block-stark-child-page-title">
+  
+    
+      
+  <h1>
+            <div>Adaptive Reuse</div>
+      </h1>
+
+
+  </div>
+
+  </div>
+
+  </header>
+
+  
+  
+
+  
+
+    <div>
+    <div data-drupal-messages-fallback class="hidden"></div>
+
+  </div>
+
+
+  
+
+  <main role="main">
+    <a id="main-content" tabindex="-1"></a>
+    <div class="layout-content">
+        <div>
+    <div id="block-stark-child-content">
+  
+    
+      <div about="/adaptive-reuse">
+  
+    
+    <div class="layout layout--onecol">
+    <div  class="layout__region layout__region--content">
+      <div class="views-element-container">
+  
+    
+      <div><div class="js-view-dom-id-3880cff9c2893dad2a48d60655649999cd0855e8e3b86e6c9f49a3339ad98f31">
+  
+  
+  
+
+  
+  
+  
+
+      <div class="views-row"><div class="views-field views-field-description__value"><span class="field-content"><p>Adaptive Reuse is our platform for exploring and promoting the transformative potential of objects otherwise destined for the landfill. This is where SolarPunk principles and practical guidance come together, driving innovation in waste management and fostering a new culture of creativity and sustainability.</p><p>In this section, you'll find practical guides like "DIY Guide: Upcycling Aluminum Cans into Modular Planters" and "7 Creative Ways to Repurpose Household Waste for Planters," designed to inspire and guide you through the process of breathing new life into discarded materials.</p><p>SolarPunk narratives such as "SolarPunk: Inspiring a Sustainable Future through Initiatives like ReLeaf and Life Story" and "ReLeaf and the Green Revolution in Waste Management" highlight imaginative stories of communities revolutionizing waste management and repurposing discarded objects in an urban future.</p><p>Articles such as "Empowering and Upskilling: A Heartfelt Approach to Addressing Homelessness in Austin" and "Water Towers and the Circular Economy" offer insight into real-world initiatives and visionary ideas that embody the adaptive reuse concept.</p><p>Adaptive Reuse champions the spirit of transformation. It’s about seeing not just waste, but the inherent value and potential in every object. Join us on this journey as we strive to redefine the future of waste.</p></span></div><div class="views-field views-field-field-attribution"><div class="field-content"></div></div><div class="views-field views-field-field-license-"><div class="field-content"></div></div></div>
+
+    
+
+  
+  
+
+  
+  
+</div>
+</div>
+
+  </div>
+<div class="views-element-container">
+  
+    
+      <div><div class="qr js-view-dom-id-4b9df9a0314cb540b6e5e51b9b7779bfe262d120e4a47ea8a31aeab132241037">
+  
+  
+  
+
+  
+  
+  
+
+      <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="how-to/building-your-own-vertiflow-vertical-garden-using-residential-waste/267.html" hreflang="en">Building Your Own VertiFlow Vertical Garden Using Residential Waste</a> <br>How To </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code267 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/releaf-and-fashion-waste-conundrum-scalable-solution/208.html" hreflang="en">ReLeaf and the Fashion Waste Conundrum: A Scalable Solution</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code208 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="how-to/diy-guide-upcycling-aluminum-cans-modular-planters/204.html" hreflang="en">DIY Guide: Upcycling Aluminum Cans into Modular Planters</a> <br>How To </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code204 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="how-to/7-creative-ways-repurpose-household-waste-planters/202.html" hreflang="en">7 Creative Ways to Repurpose Household Waste for Planters</a> <br>How To </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code202 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/solarpunk-inspiring-sustainable-future-through-initiatives-releaf-and-life-story/132.html" hreflang="en">SolarPunk: Inspiring a Sustainable Future through Initiatives like ReLeaf and Life Story</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code132 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/releaf-and-green-revolution-waste-management/106.html" hreflang="en">ReLeaf and the Green Revolution in Waste Management</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code106 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/empowering-and-upskilling-heartfelt-approach-addressing-homelessness-austin/89.html" hreflang="en">Empowering and Upskilling: A Heartfelt Approach to Addressing Homelessness in Austin</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code89 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="solarpunk-fiction/paving-solarpunk-path-e-waste-reuse/85.html" hreflang="en">Paving the SolarPunk Path of E-Waste Reuse</a> <br>SolarPunk Fiction </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code85 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="how-to/essential-components-wicking-irrigation-system/77.html" hreflang="en">Essential Components of a Wicking Irrigation System</a> <br>How To </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code77 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="how-to/how-upcycle-scrap-wood-french-cleat/74.html" hreflang="en">How to Upcycle Scrap Wood into a French Cleat</a> <br>How To </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code74 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/vertical-garden-essentials/60.html" hreflang="en">Vertical Garden Essentials</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code60 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/water-towers-and-circular-economy/44.html" hreflang="en">Water Towers and the Circular Economy</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code44 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/blurring-reality-and-fantasy-intersection-gaming-literature-and-income-streams/39.html" hreflang="en">Blurring Reality and Fantasy: The Intersection of Gaming, Literature, and Income Streams</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code39 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/open-letter/37.html" hreflang="en">Open Letter</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code37 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/2023-austin-circular-economy-showcase/36.html" hreflang="en">2023 Austin Circular Economy Showcase</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code36 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="article/windows-wonders-transforming-post-war-colossals-vertical-gardens/32.html" hreflang="en">From Windows to Wonders: Transforming Post-War Colossals with Vertical Gardens</a> <br>Article </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code32 "></div></span></div></div>
+
+    
+
+  
+  
+
+  
+  
+</div>
+</div>
+
+  </div>
+
+    </div>
+  </div>
+
+</div>
+
+  </div>
+
+  </div>
+
+    </div>
+    
+    
+  </main>
+
+      <footer role="contentinfo">
+      
+    </footer>
+  
+</div>
+  </div>
+
+    
+    <script src="https://releaf.site/core/assets/vendor/jquery/jquery.min.js?v=3.7.0"></script>
+<script src="sites/default/files/asset_injector/js/nodes-1e4a563b7ddfd826d9a8de610ab44675172c.js?s0sfqi"></script>
+<script src="sites/default/files/asset_injector/js/qr-7543b3560f7e140d6712b81e37f67169172c.js?s0sfqi"></script>
+<script src="sites/default/files/asset_injector/js/qr0-4abd4074112590f0fb4e480db42f5728172c.js?s0sfqi"></script>
+
+  </body>
+
