@@ -1,0 +1,17 @@
+fieldset {
+    border: 1px solid green !important;
+    padding: 10px 10px 15px 10px !important;
+    margin: 10px 20px 20px;
+}
+fieldset .option div {
+	border: 1px solid green;
+	padding: 10px;
+}
+article > div {
+	border: 8px dotted sandybrown;
+	padding: 10px;
+	margin: 10px;
+}
+.views-row > div {
+	margin-bottom: 10px !important;
+}
