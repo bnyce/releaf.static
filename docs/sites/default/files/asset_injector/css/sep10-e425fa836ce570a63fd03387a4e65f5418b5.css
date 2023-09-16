@@ -1,0 +1,36 @@
+fieldset {
+    border: 1px solid #4CAF50 !important; /* A darker shade of green */
+    padding: 10px 10px 15px 10px !important;
+    margin: 10px 20px 20px;
+}
+fieldset .option div {
+	border: 1px solid #66BB6A; /* A lighter shade of green */
+	padding: 10px;
+}
+.views-row > div {
+	margin-bottom: 10px !important;
+}
+article .layout--onecol > div div {
+    border-left: 5px dotted #1E90FF; /* A different shade of blue */
+    padding: 5px;
+}
+.releaf-card {
+	border: none !important;
+	padding: 5px;
+	margin-bottom: 10px !important;
+}
+
+
+.views-field.views-field-name, .releaf-link {
+	background: white !important;
+	padding: 0px !important;
+	display: block;
+}
+
+.views-field.views-field-name a, .releaf-link a {
+	display: block;
+	color: #1E90FF !important;
+	text-decoration: none;
+	padding: 5px;
+	margin-left: 10px;
+}
