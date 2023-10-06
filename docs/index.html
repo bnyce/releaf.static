@@ -1,128 +1,62 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr" prefix="content: http://purl.org/rss/1.0/modules/content/  dc: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  og: http://ogp.me/ns#  rdfs: http://www.w3.org/2000/01/rdf-schema#  schema: http://schema.org/  sioc: http://rdfs.org/sioc/ns#  sioct: http://rdfs.org/sioc/types#  skos: http://www.w3.org/2004/02/skos/core#  xsd: http://www.w3.org/2001/XMLSchema# ">
-  
+<html>
 <head>
-    <meta charset="utf-8" />
-<meta name="Generator" content="Drupal 10 (https://www.drupal.org); Commerce 2" />
-<meta name="MobileOptimized" content="width" />
-<meta name="HandheldFriendly" content="true" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<script type="text/javascript" data-toolbar-anti-flicker-loading>(function() {
-  const toolbarState = sessionStorage.getItem('Drupal.toolbar.toolbarState')
-    ? JSON.parse(sessionStorage.getItem('Drupal.toolbar.toolbarState'))
-    : false;
-  // These are classes that toolbar typically adds to <body>, but this code
-  // executes before the first paint, when <body> is not yet present. The
-  // classes are added to <html> so styling immediately reflects the current
-  // toolbar state. The classes are removed after the toolbar completes
-  // initialization.
-  const classesToAdd = ['toolbar-loading', 'toolbar-anti-flicker'];
-  if (toolbarState) {
-    const {
-      orientation,
-      hasActiveTab,
-      isFixed,
-      activeTray,
-      activeTabId,
-      isOriented,
-      userButtonMinWidth
-    } = toolbarState;
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
 
-    classesToAdd.push(
-      orientation ? `toolbar-` + orientation + `` : 'toolbar-horizontal',
-    );
-    if (hasActiveTab !== false) {
-      classesToAdd.push('toolbar-tray-open');
-    }
-    if (isFixed) {
-      classesToAdd.push('toolbar-fixed');
-    }
-    if (isOriented) {
-      classesToAdd.push('toolbar-oriented');
-    }
+<title>The ReLeaf Organic Media Collections & Botanical Gardens
 
-    if (activeTray) {
-      // These styles are added so the active tab/tray styles are present
-      // immediately instead of "flickering" on as the toolbar initializes. In
-      // instances where a tray is lazy loaded, these styles facilitate the
-      // lazy loaded tray appearing gracefully and without reflow.
-      const styleContent = `
-      .toolbar-loading #` + activeTabId + ` {
-        background-image: linear-gradient(rgba(255, 255, 255, 0.25) 20%, transparent 200%);
-      }
-      .toolbar-loading #` + activeTabId + `-tray {
-        display: block; box-shadow: -1px 0 5px 2px rgb(0 0 0 / 33%);
-        border-right: 1px solid #aaa; background-color: #f5f5f5;
-        z-index: 0;
-      }
-      .toolbar-loading.toolbar-vertical.toolbar-tray-open #` + activeTabId + `-tray {
-        width: 15rem; height: 100vh;
-      }
-     .toolbar-loading.toolbar-horizontal :not(#` + activeTray + `) > .toolbar-lining {opacity: 0}`;
 
-      const style = document.createElement('style');
-      style.textContent = styleContent;
-      style.setAttribute('data-toolbar-anti-flicker-loading', true);
-      document.querySelector('head').appendChild(style);
-
-      if (userButtonMinWidth) {
-        const userButtonStyle = document.createElement('style');
-        userButtonStyle.textContent = `#toolbar-item-user {min-width: ` + userButtonMinWidth +`px;}`
-        document.querySelector('head').appendChild(userButtonStyle);
-      }
-    }
-  }
-  document.querySelector('html').classList.add(...classesToAdd);
-})();</script>
-<link rel="canonical" href="index.html" />
-<link rel="shortlink" href="index.html" />
-
-    <title>ReLeaf Cooperative 🍃 Transforming Waste into Green Futures | ReLeaf</title>
-    <link rel="stylesheet" media="all" href="https://releaf.site/core/modules/views/css/views-responsive-grid.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/ajax-progress.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/align.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/autocomplete-loading.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/fieldgroup.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/container-inline.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/clearfix.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/details.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/hidden.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/item-list.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/js.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/nowrap.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/position-container.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/progress.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/reset-appearance.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/resize.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/sticky-header.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-counter.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-report-counters.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-report-general-info.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tabledrag.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tablesort.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tree-child.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/views/css/views.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/layout_discovery/layouts/onecol/onecol.css?s11zhp" />
-<link rel="stylesheet" media="all" href="themes/custom/stark_child/css/styles18b5.css?s11zhp" />
-<link rel="stylesheet" media="all" href="sites/default/files/asset_injector/css/sep10-e425fa836ce570a63fd03387a4e65f5418b5.css?s11zhp" />
+The ReLeaf Organic Media Collections And Botanical Gardens | ReLeaf</title>
+    <link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/ajax-progress.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/align.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/autocomplete-loading.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/fieldgroup.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/container-inline.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/clearfix.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/details.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/hidden.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/item-list.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/js.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/nowrap.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/position-container.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/progress.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/reset-appearance.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/resize.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/sticky-header.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-counter.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-report-counters.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-report-general-info.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tabledrag.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tablesort.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tree-child.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/layout_discovery/layouts/onecol/onecol.css?s244wv" />
+<link rel="stylesheet" media="all" href="themes/custom/heh/css/stylesb3b5.css?s244wv" />
 
     
+
   </head>
-  <body>
+<body text="#330000" bgcolor="#CCCC99" link="#990000" vlink="#9966FF" alink="#666633" background="sites/default/files/img/paper1.gif">
+<h1><img src="sites/default/files/img/BLUEMARB.gif" width="100%" height="14" align="BOTTOM"></h1>
+
+
     
       <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
     <div class="layout-container">
 
   <header role="banner">
       <div>
-    <div id="block-stark-child-page-title">
+    <div id="block-heh-page-title">
   
     
       
-  <h1>
-<span property="schema:name">ReLeaf Cooperative 🍃 Transforming Waste into Green Futures</span>
-</h1>
 
+  <h1><h3>The ReLeaf Organic Media Collections & Botanical Gardens</h3>
+
+<h1>
+<span>The ReLeaf Organic Media Collections And Botanical Gardens</span>
+
+</h1></h1>
+
+<h4><img src="sites/default/files/img/BLUEMARB.gif" width="100%" height="14" align="BOTTOM"></h4>
 
   </div>
 
@@ -147,14 +81,13 @@
     <a id="main-content" tabindex="-1"></a>
     <div class="layout-content">
         <div>
-    <div id="block-stark-child-content">
+    <div id="block-heh-content">
   
     
-      <article data-history-node-id="1" about="/node/1" typeof="schema:WebPage">
+      <article data-history-node-id="344" about="index.html">
 
   
-      <span property="schema:name" content="ReLeaf Cooperative 🍃 Transforming Waste into Green Futures" class="hidden"></span>
-
+    
 
   
   <div>
@@ -164,111 +97,33 @@
   
     
       
-            <div property="schema:text"><p>Welcome to ReLeaf, where we turn “Trash Magic” into reality by upcycling waste into thriving gardens. We’re reshaping Austin’s perception of waste, transforming what’s often discarded into lush, green spaces accessible to all at no cost.</p>
+  </div>
+<div>
+  
+    
+      
+            <div><center>
+<table align="Center" border="0" cellpadding="0" cellspacing="0"><tbody><tr><td><img align="TOP" height="65" src="sites/default/files/img/Title.jpg" width="599" loading="lazy" /></td>
+		</tr><tr><td><img align="TOP" height="306" src="sites/default/files/img/RLBanner.jpg" width="599" loading="lazy" /></td>
+<p> </p>
 
-<p>Our mission? Partnering with Austinites to create a future where waste doesn't exist—only untapped opportunities for greener spaces and sustainable living. This isn't just waste management; this is waste metamorphosis. By converting waste into thriving, modular gardens, we're doing more than greening Austin. We're adding value where none was seen before.</p>
+<hr width="80%" /><h3><b><a href="VRTour/VRTours.html"><img border="0" height="25" src="sites/default/files/img/btn_new.jpg" width="100" loading="lazy" /></a> See a<a href="VRTour/VRTours.html"> Virtual Reality Tour</a> of The ReLeaf Gardens.</b></h3>
+<b> </b>
 
-<p>At ReLeaf, we generate revenue through consulting, waste transformation services, and hands-on educational workshops that focus on our "Trash Magic" methods. We're showing businesses how profitable sustainability can be, enhancing their financial bottom line while boosting their green credentials.</p>
+<hr width="80%" /><b> </b>
 
-<p>Our organic growth strategy is rooted deeply in Austin's community values before branching out to new sectors and markets. We're set for robust growth, always adapting to the resources and market dynamics available.</p>
-
-<p>Investing in ReLeaf is an investment in a greener, more sustainable future. We're looking for partners to help us close the loop between waste collection and our "Trash Magic" gardens. Your investment will not only facilitate the creation of these gardens but also ensure fair wages and sustainable income sources for our cooperative.</p>
-
-<p>Within five years, investors can expect returns driven by our innovative business model and projected growth. As a long-term partner, know that we operate under the "Lean Co-op" model of the start.coop accelerator, committed to sustaining our mission for the long haul.</p>
-
-<p>So, join the ReLeaf community—be a part of a cooperative network of businesses, residents, and educators all committed to a more sustainable future. Let's create some "Trash Magic" together.</p>
-
-<p>Thank you for your time, and I look forward to hearing how you too have implemented these sustainable strategies in your community. </p>
-
-<p>-- Bryce</p>
-
-<p>p.s. I'm actively seeking to connect with fellow senior leaders in Austin. Let’s propel this cooperative to new heights!</p>
-
-<p>Email: bryceb@releaf.site</p>
+<h5><b>1998©2023, ReLeaf. Please replicate.<br /><br />
+ReLeaf Organic Media Collections and Botanical Gardens<br /><br />
+releaf.marigold.town<br />
+Comments to: <a href="#"> bryceb@releaf.site</a></b></h5>
+</center>
 </div>
       
   </div>
-<div class="views-element-container">
+<div>
   
-      <h2>SolarPunk Fiction </h2>
     
-      <div><div class="js-view-dom-id-a7a70d1500253bfe6d566911f820b48c101ffa2fcf94dc6ec1b507186fe02d2a">
-  
-  
-  
-
-  
-  
-  
-
-      <div class="releaf-card views-row"><span class="releaf-link"><span><a href="solarpunk-fiction/releaf-unveils-biostack-vertical-garden-revolutionizing-urban-spaces-austin/128.html" hreflang="en">ReLeaf Unveils BioStack: The Vertical Garden Revolutionizing Urban Spaces in Austin</a></span></span></div>
-    <div class="releaf-card views-row"><span class="releaf-link"><span><a href="solarpunk-fiction/releafs-vertical-gardens-bird-friendly-habitat-urban-spaces/229.html" hreflang="en">ReLeaf&#039;s Vertical Gardens: A Bird-Friendly Habitat for Urban Spaces</a></span></span></div>
-    <div class="releaf-card views-row"><span class="releaf-link"><span><a href="solarpunk-fiction/releaf-and-green-revolution-waste-management/106.html" hreflang="en">ReLeaf and the Green Revolution in Waste Management</a></span></span></div>
-
-    
-
-  
-  
-
-  
-  
-</div>
-</div>
-
-  </div>
-<div class="views-element-container">
-  
-      <h2>W.A.S.T.E.:</h2>
-    
-      <div><div class="js-view-dom-id-bb33de3d2eb87abf6e167bfd4f231c3adfe182e3ad375a8514816ff175ec461a">
-  
-  
-  
-
-  
-  
-  
-
-  
-
-
-
-
-<div class="views-view-responsive-grid views-view-responsive-grid--horizontal" style="--views-responsive-grid--column-count:4;--views-responsive-grid--cell-min-width:200px;--views-responsive-grid--layout-gap:20px;">
-      <div class="views-view-responsive-grid__item">
-      <div class="views-view-responsive-grid__item-inner"><div class="views-field views-field-name"><span class="field-content"><a href="green-technology.html" hreflang="en">Green Technology</a></span></div></div>
-    </div>
-      <div class="views-view-responsive-grid__item">
-      <div class="views-view-responsive-grid__item-inner"><div class="views-field views-field-name"><span class="field-content"><a href="riley.html" hreflang="en">Riley</a></span></div></div>
-    </div>
-      <div class="views-view-responsive-grid__item">
-      <div class="views-view-responsive-grid__item-inner"><div class="views-field views-field-name"><span class="field-content"><a href="hypercube.html" hreflang="en">The Hypercube</a></span></div></div>
-    </div>
-      <div class="views-view-responsive-grid__item">
-      <div class="views-view-responsive-grid__item-inner"><div class="views-field views-field-name"><span class="field-content"><a href="magician.html" hreflang="en">The Magician</a></span></div></div>
-    </div>
-      <div class="views-view-responsive-grid__item">
-      <div class="views-view-responsive-grid__item-inner"><div class="views-field views-field-name"><span class="field-content"><a href="future-austin.html" hreflang="en">Future Austin</a></span></div></div>
-    </div>
-      <div class="views-view-responsive-grid__item">
-      <div class="views-view-responsive-grid__item-inner"><div class="views-field views-field-name"><span class="field-content"><a href="synchronicity.html" hreflang="en">Synchronicity</a></span></div></div>
-    </div>
-      <div class="views-view-responsive-grid__item">
-      <div class="views-view-responsive-grid__item-inner"><div class="views-field views-field-name"><span class="field-content"><a href="el-nino.html" hreflang="en">El Niño</a></span></div></div>
-    </div>
-  </div>
-
-    
-
-  
-  <div class="more-link"><a href="waste_words.html">more w.a.s.t.e.</a></div>
-
-
-  
-  
-</div>
-</div>
-
+      
   </div>
 
     </div>
@@ -279,7 +134,7 @@
 </article>
 
   </div>
-<div id="block-stark-child-qr" class="settings-tray-editable" data-drupal-settingstray="editable">
+<div id="block-heh-qr" class="settings-tray-editable" data-drupal-settingstray="editable">
   
     
       
@@ -303,9 +158,10 @@
 
     
     <script src="https://releaf.site/core/assets/vendor/jquery/jquery.min.js?v=3.7.0"></script>
-<script src="sites/default/files/asset_injector/js/nodes-1e4a563b7ddfd826d9a8de610ab4467518b5.js?s11zhp"></script>
-<script src="sites/default/files/asset_injector/js/qr-7543b3560f7e140d6712b81e37f6716918b5.js?s11zhp"></script>
-<script src="sites/default/files/asset_injector/js/qr0-4abd4074112590f0fb4e480db42f572818b5.js?s11zhp"></script>
+<script src="sites/default/files/asset_injector/js/nodes-1e4a563b7ddfd826d9a8de610ab44675b3b5.js?s244wv"></script>
+<script src="sites/default/files/asset_injector/js/qr-7543b3560f7e140d6712b81e37f67169b3b5.js?s244wv"></script>
+<script src="sites/default/files/asset_injector/js/qr0-4abd4074112590f0fb4e480db42f5728b3b5.js?s244wv"></script>
+<script src="themes/custom/heh/themeb3b5.html?s244wv"></script>
 
   </body>
 

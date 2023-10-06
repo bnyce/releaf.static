@@ -1,127 +1,57 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr" prefix="content: http://purl.org/rss/1.0/modules/content/  dc: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  og: http://ogp.me/ns#  rdfs: http://www.w3.org/2000/01/rdf-schema#  schema: http://schema.org/  sioc: http://rdfs.org/sioc/ns#  sioct: http://rdfs.org/sioc/types#  skos: http://www.w3.org/2004/02/skos/core#  xsd: http://www.w3.org/2001/XMLSchema# ">
-  
+<html>
 <head>
-    <meta charset="utf-8" />
-<meta name="Generator" content="Drupal 10 (https://www.drupal.org); Commerce 2" />
-<meta name="MobileOptimized" content="width" />
-<meta name="HandheldFriendly" content="true" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<script type="text/javascript" data-toolbar-anti-flicker-loading>(function() {
-  const toolbarState = sessionStorage.getItem('Drupal.toolbar.toolbarState')
-    ? JSON.parse(sessionStorage.getItem('Drupal.toolbar.toolbarState'))
-    : false;
-  // These are classes that toolbar typically adds to <body>, but this code
-  // executes before the first paint, when <body> is not yet present. The
-  // classes are added to <html> so styling immediately reflects the current
-  // toolbar state. The classes are removed after the toolbar completes
-  // initialization.
-  const classesToAdd = ['toolbar-loading', 'toolbar-anti-flicker'];
-  if (toolbarState) {
-    const {
-      orientation,
-      hasActiveTab,
-      isFixed,
-      activeTray,
-      activeTabId,
-      isOriented,
-      userButtonMinWidth
-    } = toolbarState;
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
 
-    classesToAdd.push(
-      orientation ? `toolbar-` + orientation + `` : 'toolbar-horizontal',
-    );
-    if (hasActiveTab !== false) {
-      classesToAdd.push('toolbar-tray-open');
-    }
-    if (isFixed) {
-      classesToAdd.push('toolbar-fixed');
-    }
-    if (isOriented) {
-      classesToAdd.push('toolbar-oriented');
-    }
-
-    if (activeTray) {
-      // These styles are added so the active tab/tray styles are present
-      // immediately instead of "flickering" on as the toolbar initializes. In
-      // instances where a tray is lazy loaded, these styles facilitate the
-      // lazy loaded tray appearing gracefully and without reflow.
-      const styleContent = `
-      .toolbar-loading #` + activeTabId + ` {
-        background-image: linear-gradient(rgba(255, 255, 255, 0.25) 20%, transparent 200%);
-      }
-      .toolbar-loading #` + activeTabId + `-tray {
-        display: block; box-shadow: -1px 0 5px 2px rgb(0 0 0 / 33%);
-        border-right: 1px solid #aaa; background-color: #f5f5f5;
-        z-index: 0;
-      }
-      .toolbar-loading.toolbar-vertical.toolbar-tray-open #` + activeTabId + `-tray {
-        width: 15rem; height: 100vh;
-      }
-     .toolbar-loading.toolbar-horizontal :not(#` + activeTray + `) > .toolbar-lining {opacity: 0}`;
-
-      const style = document.createElement('style');
-      style.textContent = styleContent;
-      style.setAttribute('data-toolbar-anti-flicker-loading', true);
-      document.querySelector('head').appendChild(style);
-
-      if (userButtonMinWidth) {
-        const userButtonStyle = document.createElement('style');
-        userButtonStyle.textContent = `#toolbar-item-user {min-width: ` + userButtonMinWidth +`px;}`
-        document.querySelector('head').appendChild(userButtonStyle);
-      }
-    }
-  }
-  document.querySelector('html').classList.add(...classesToAdd);
-})();</script>
-<link rel="canonical" href="cooperative.html" />
-<link rel="shortlink" href="cooperative.html" />
-
-    <title>Cooperative | ReLeaf</title>
-    <link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/ajax-progress.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/align.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/autocomplete-loading.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/fieldgroup.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/container-inline.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/clearfix.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/details.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/hidden.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/item-list.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/js.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/nowrap.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/position-container.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/progress.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/reset-appearance.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/resize.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/sticky-header.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-counter.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-report-counters.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-report-general-info.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tabledrag.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tablesort.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tree-child.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/views/css/views.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/layout_discovery/layouts/onecol/onecol.css?s11zhp" />
-<link rel="stylesheet" media="all" href="themes/custom/stark_child/css/styles18b5.css?s11zhp" />
-<link rel="stylesheet" media="all" href="sites/default/files/asset_injector/css/sep10-e425fa836ce570a63fd03387a4e65f5418b5.css?s11zhp" />
+<title>Cooperative | ReLeaf</title>
+    <link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/ajax-progress.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/align.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/autocomplete-loading.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/fieldgroup.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/container-inline.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/clearfix.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/details.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/hidden.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/item-list.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/js.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/nowrap.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/position-container.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/progress.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/reset-appearance.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/resize.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/sticky-header.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-counter.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-report-counters.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-report-general-info.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tabledrag.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tablesort.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tree-child.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/views/css/views.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/layout_discovery/layouts/onecol/onecol.css?s244wv" />
+<link rel="stylesheet" media="all" href="themes/custom/heh/css/stylesb3b5.css?s244wv" />
 
     
+
   </head>
-  <body>
+<body text="#330000" bgcolor="#CCCC99" link="#990000" vlink="#9966FF" alink="#666633" background="sites/default/files/img/paper1.gif">
+<h1><img src="sites/default/files/img/BLUEMARB.gif" width="100%" height="14" align="BOTTOM"></h1>
+
+
     
       <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
     <div class="layout-container">
 
   <header role="banner">
       <div>
-    <div id="block-stark-child-page-title">
+    <div id="block-heh-page-title">
   
     
       
+
   <h1>
             <div>Cooperative</div>
       </h1>
 
+<h4><img src="sites/default/files/img/BLUEMARB.gif" width="100%" height="14" align="BOTTOM"></h4>
 
   </div>
 
@@ -146,7 +76,7 @@
     <a id="main-content" tabindex="-1"></a>
     <div class="layout-content">
         <div>
-    <div id="block-stark-child-content">
+    <div id="block-heh-content">
   
     
       <div about="/cooperative">
@@ -157,7 +87,7 @@
       <div class="views-element-container">
   
     
-      <div><div class="js-view-dom-id-d9e7f133c053928109c758522677533fec037eaa9e0c42bed658cf21e818e9eb">
+      <div><div class="js-view-dom-id-52496423a0de471d1b287bab6f1bc83c5e4acc28b5feacbd61e326254f21a886">
   
   
   
@@ -182,7 +112,7 @@
 <div class="views-element-container">
   
     
-      <div><div class="qr js-view-dom-id-5c246ccc7e808f656900019e2b71b4cd19a101a88175553d6ef0478da564a092">
+      <div><div class="qr js-view-dom-id-8e7a5d24e74578264a28624c9e6f6512263459769acb9ee280afd8afb8e8fab8">
   
   
   
@@ -262,9 +192,10 @@
 
     
     <script src="https://releaf.site/core/assets/vendor/jquery/jquery.min.js?v=3.7.0"></script>
-<script src="sites/default/files/asset_injector/js/nodes-1e4a563b7ddfd826d9a8de610ab4467518b5.js?s11zhp"></script>
-<script src="sites/default/files/asset_injector/js/qr-7543b3560f7e140d6712b81e37f6716918b5.js?s11zhp"></script>
-<script src="sites/default/files/asset_injector/js/qr0-4abd4074112590f0fb4e480db42f572818b5.js?s11zhp"></script>
+<script src="sites/default/files/asset_injector/js/nodes-1e4a563b7ddfd826d9a8de610ab44675b3b5.js?s244wv"></script>
+<script src="sites/default/files/asset_injector/js/qr-7543b3560f7e140d6712b81e37f67169b3b5.js?s244wv"></script>
+<script src="sites/default/files/asset_injector/js/qr0-4abd4074112590f0fb4e480db42f5728b3b5.js?s244wv"></script>
+<script src="themes/custom/heh/themeb3b5.html?s244wv"></script>
 
   </body>
 

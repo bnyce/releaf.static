@@ -1,127 +1,57 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr" prefix="content: http://purl.org/rss/1.0/modules/content/  dc: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  og: http://ogp.me/ns#  rdfs: http://www.w3.org/2000/01/rdf-schema#  schema: http://schema.org/  sioc: http://rdfs.org/sioc/ns#  sioct: http://rdfs.org/sioc/types#  skos: http://www.w3.org/2004/02/skos/core#  xsd: http://www.w3.org/2001/XMLSchema# ">
-  
+<html>
 <head>
-    <meta charset="utf-8" />
-<meta name="Generator" content="Drupal 10 (https://www.drupal.org); Commerce 2" />
-<meta name="MobileOptimized" content="width" />
-<meta name="HandheldFriendly" content="true" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<script type="text/javascript" data-toolbar-anti-flicker-loading>(function() {
-  const toolbarState = sessionStorage.getItem('Drupal.toolbar.toolbarState')
-    ? JSON.parse(sessionStorage.getItem('Drupal.toolbar.toolbarState'))
-    : false;
-  // These are classes that toolbar typically adds to <body>, but this code
-  // executes before the first paint, when <body> is not yet present. The
-  // classes are added to <html> so styling immediately reflects the current
-  // toolbar state. The classes are removed after the toolbar completes
-  // initialization.
-  const classesToAdd = ['toolbar-loading', 'toolbar-anti-flicker'];
-  if (toolbarState) {
-    const {
-      orientation,
-      hasActiveTab,
-      isFixed,
-      activeTray,
-      activeTabId,
-      isOriented,
-      userButtonMinWidth
-    } = toolbarState;
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
 
-    classesToAdd.push(
-      orientation ? `toolbar-` + orientation + `` : 'toolbar-horizontal',
-    );
-    if (hasActiveTab !== false) {
-      classesToAdd.push('toolbar-tray-open');
-    }
-    if (isFixed) {
-      classesToAdd.push('toolbar-fixed');
-    }
-    if (isOriented) {
-      classesToAdd.push('toolbar-oriented');
-    }
-
-    if (activeTray) {
-      // These styles are added so the active tab/tray styles are present
-      // immediately instead of "flickering" on as the toolbar initializes. In
-      // instances where a tray is lazy loaded, these styles facilitate the
-      // lazy loaded tray appearing gracefully and without reflow.
-      const styleContent = `
-      .toolbar-loading #` + activeTabId + ` {
-        background-image: linear-gradient(rgba(255, 255, 255, 0.25) 20%, transparent 200%);
-      }
-      .toolbar-loading #` + activeTabId + `-tray {
-        display: block; box-shadow: -1px 0 5px 2px rgb(0 0 0 / 33%);
-        border-right: 1px solid #aaa; background-color: #f5f5f5;
-        z-index: 0;
-      }
-      .toolbar-loading.toolbar-vertical.toolbar-tray-open #` + activeTabId + `-tray {
-        width: 15rem; height: 100vh;
-      }
-     .toolbar-loading.toolbar-horizontal :not(#` + activeTray + `) > .toolbar-lining {opacity: 0}`;
-
-      const style = document.createElement('style');
-      style.textContent = styleContent;
-      style.setAttribute('data-toolbar-anti-flicker-loading', true);
-      document.querySelector('head').appendChild(style);
-
-      if (userButtonMinWidth) {
-        const userButtonStyle = document.createElement('style');
-        userButtonStyle.textContent = `#toolbar-item-user {min-width: ` + userButtonMinWidth +`px;}`
-        document.querySelector('head').appendChild(userButtonStyle);
-      }
-    }
-  }
-  document.querySelector('html').classList.add(...classesToAdd);
-})();</script>
-<link rel="canonical" href="shoal-creek.html" />
-<link rel="shortlink" href="shoal-creek.html" />
-
-    <title>Shoal Creek | ReLeaf</title>
-    <link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/ajax-progress.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/align.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/autocomplete-loading.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/fieldgroup.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/container-inline.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/clearfix.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/details.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/hidden.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/item-list.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/js.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/nowrap.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/position-container.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/progress.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/reset-appearance.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/resize.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/sticky-header.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-counter.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-report-counters.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-report-general-info.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tabledrag.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tablesort.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tree-child.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/views/css/views.module.css?s11zhp" />
-<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/layout_discovery/layouts/onecol/onecol.css?s11zhp" />
-<link rel="stylesheet" media="all" href="themes/custom/stark_child/css/styles18b5.css?s11zhp" />
-<link rel="stylesheet" media="all" href="sites/default/files/asset_injector/css/sep10-e425fa836ce570a63fd03387a4e65f5418b5.css?s11zhp" />
+<title>Shoal Creek | ReLeaf</title>
+    <link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/ajax-progress.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/align.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/autocomplete-loading.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/fieldgroup.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/container-inline.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/clearfix.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/details.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/hidden.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/item-list.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/js.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/nowrap.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/position-container.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/progress.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/reset-appearance.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/resize.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/sticky-header.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-counter.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-report-counters.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/system-status-report-general-info.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tabledrag.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tablesort.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/system/css/components/tree-child.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/views/css/views.module.css?s244wv" />
+<link rel="stylesheet" media="all" href="https://releaf.site/core/modules/layout_discovery/layouts/onecol/onecol.css?s244wv" />
+<link rel="stylesheet" media="all" href="themes/custom/heh/css/stylesb3b5.css?s244wv" />
 
     
+
   </head>
-  <body>
+<body text="#330000" bgcolor="#CCCC99" link="#990000" vlink="#9966FF" alink="#666633" background="sites/default/files/img/paper1.gif">
+<h1><img src="sites/default/files/img/BLUEMARB.gif" width="100%" height="14" align="BOTTOM"></h1>
+
+
     
       <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
     <div class="layout-container">
 
   <header role="banner">
       <div>
-    <div id="block-stark-child-page-title">
+    <div id="block-heh-page-title">
   
     
       
+
   <h1>
             <div>Shoal Creek</div>
       </h1>
 
+<h4><img src="sites/default/files/img/BLUEMARB.gif" width="100%" height="14" align="BOTTOM"></h4>
 
   </div>
 
@@ -146,7 +76,7 @@
     <a id="main-content" tabindex="-1"></a>
     <div class="layout-content">
         <div>
-    <div id="block-stark-child-content">
+    <div id="block-heh-content">
   
     
       <div about="/shoal-creek">
@@ -157,7 +87,7 @@
       <div class="views-element-container">
   
     
-      <div><div class="js-view-dom-id-df21bd4187a7564f39e0df52836000801563f1eea70d6b14a944d0c934bd7b78">
+      <div><div class="js-view-dom-id-e874abe4f82e634e8877521bed2f430c8ec37e080840116f7f82d4a6f3ed05a9">
   
   
   
@@ -166,7 +96,12 @@
   
   
 
-      <div class="views-row"><div class="views-field views-field-description__value"><span class="field-content"><blockquote class="tiktok-embed" cite="https://www.tiktok.com/@releaf.bryce/video/7263548163338849578" data-video-id="7263548163338849578" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@releaf.bryce" href="https://www.tiktok.com/@releaf.bryce?refer=embed">@releaf.bryce</a> We will honor Shoal Creek and cultivate many gardens alongside her <a title="solarpunk" target="_blank" href="https://www.tiktok.com/tag/solarpunk?refer=embed">#SolarPunk</a> <a target="_blank" title="♬ original sound - ReLeaf 🍃 Bryce" href="https://www.tiktok.com/music/original-sound-7263548159081696042?refer=embed">♬ original sound - ReLeaf 🍃 Bryce</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script></span></div><div class="views-field views-field-field-attribution"><div class="field-content"></div></div><div class="views-field views-field-field-license-"><div class="field-content"></div></div></div>
+      <div class="views-row"><div class="views-field views-field-description__value"><span class="field-content"><p>Shoal Creek has its headwaters near <a>The Domain</a> and runs in a southerly direction, soon reaching the intersection of <a>Texas State Highway Loop 1</a>, locally known as "MoPac Expressway" or simply "MoPac," and <a>Highway 183</a>. It continues south, partly along Shoal Creek Boulevard and <a>Lamar Boulevard</a>, through the western part of downtown Austin to its end at <a>Lady Bird Lake</a>.</p>
+
+<p>Shoal Creek is the largest of Austin’s north urban watersheds, encompassing approximately 8,000 acres (12.9 square miles). About 27% of the watershed is over the <a>Edwards Aquifer</a> Recharge Zone. Its length is approximately 11 miles. It runs parallel to and between <a>Waller Creek</a> to its east and Johnson Creek to its west.</p>
+
+<p>The creek is notable for its links to the history of Texas and Austin, its floods, and its scenery and parks just a few minutes from the <a>Texas Capitol</a>.</p>
+</span></div><div class="views-field views-field-field-attribution"><div class="field-content">Attribution: <a href="https://en.m.wikipedia.org/wiki/Shoal_Creek,_Austin,_Texas">Shoal Creek, Austin, Texas</a></div></div><div class="views-field views-field-field-license-"><div class="field-content">License: <a href="taxonomy/term/194.html" hreflang="en">CC BY-SA 4.0</a></div></div></div>
 
     
 
@@ -182,7 +117,7 @@
 <div class="views-element-container">
   
     
-      <div><div class="qr js-view-dom-id-c8c7925edb79fe5ee09a8b7e994fd01627b67c9c2f81144f1572727494aced9a">
+      <div><div class="qr js-view-dom-id-32bae88381693dad995564f23a2a7dbcecf857e0fb4e13bd15af2e34c343df60">
   
   
   
@@ -191,7 +126,9 @@
   
   
 
-      <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="zine/butterfly-bridge-austin-public-library-shoal-creek/285.html" hreflang="en">Butterfly Bridge, Austin Public Library, Shoal Creek</a> <br>Zine </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code285 "></div></span></div></div>
+      <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="VRTour/butterfly-bridge.html" hreflang="en">Butterfly Bridge</a> <br>VRTour </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code343 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="VRTour/shoal-creek-10th-street.html" hreflang="en">Shoal Creek at 10th Street</a> <br>VRTour </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code341 "></div></span></div></div>
+    <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="zine/butterfly-bridge-austin-public-library-shoal-creek/285.html" hreflang="en">Butterfly Bridge, Austin Public Library, Shoal Creek</a> <br>Zine </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code285 "></div></span></div></div>
     <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="zine/shoal-creek-and-austin-public-library/284.html" hreflang="en">Shoal Creek and Austin Public Library</a> <br>Zine </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code284 "></div></span></div></div>
     <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="zine/creeks-are-life/279.html" hreflang="en">Creeks are life</a> <br>Zine </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code279 "></div></span></div></div>
     <div class="views-row"><div class="views-field views-field-title"><span class="field-content"><a href="node/278.html" hreflang="en">WASTE</a> <br>Acronyms </span></div><div class="views-field views-field-nid-1"><span class="field-content"><div id="code278 "></div></span></div></div>
@@ -233,9 +170,10 @@
 
     
     <script src="https://releaf.site/core/assets/vendor/jquery/jquery.min.js?v=3.7.0"></script>
-<script src="sites/default/files/asset_injector/js/nodes-1e4a563b7ddfd826d9a8de610ab4467518b5.js?s11zhp"></script>
-<script src="sites/default/files/asset_injector/js/qr-7543b3560f7e140d6712b81e37f6716918b5.js?s11zhp"></script>
-<script src="sites/default/files/asset_injector/js/qr0-4abd4074112590f0fb4e480db42f572818b5.js?s11zhp"></script>
+<script src="sites/default/files/asset_injector/js/nodes-1e4a563b7ddfd826d9a8de610ab44675b3b5.js?s244wv"></script>
+<script src="sites/default/files/asset_injector/js/qr-7543b3560f7e140d6712b81e37f67169b3b5.js?s244wv"></script>
+<script src="sites/default/files/asset_injector/js/qr0-4abd4074112590f0fb4e480db42f5728b3b5.js?s244wv"></script>
+<script src="themes/custom/heh/themeb3b5.html?s244wv"></script>
 
   </body>
 
